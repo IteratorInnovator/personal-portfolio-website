@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Gwendolyn:wght@400;700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+    --font-gwendolyn: Gwendolyn, sans-serif;
+    --font-mont: Montserrat, sans-serif;
+    --font-inter: Inter, sans-serif;
+    --font-playpen: Playpen Sans Deva, sans-serif;
+    --font-poppins: Poppins, sans-serif;
+    --font-firacode: Fira Code, sans-serif;
+    --font-jetbrains: JetBrains Mono, sans-serif;
+
+    --color-accent-blue: #3b82f6;
+    --color-accent-cyan: #06b6d4;
+    --color-accent-purple: #8b5cf6;
+    --color-accent-pink: #ec4899;
+    --color-neon-blue: #00f5ff;
+    --color-neon-purple: #bf00ff;
+    --color-neon-pink: #ff0080;
+    --color-neon-green: #00ff88;
+
+    --breakpoint-md: 850px;
+    --breakpoint-lg: 1030px;
+}
+
+@layer base {
+    body {
+        @apply min-h-screen bg-[linear-gradient(135deg,#0a0a0a,#1a1a2e,#16213e)];
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer components {
+    .glass-card {
+        @apply backdrop-blur-sm bg-white/5 rounded-lg;
+    }
+}
+
+@layer utilities {
+    .gradient-text {
+        @apply bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent;
+    }
+    /* Hover animation for header navigation links */
+    .animate-link-hover {
+        @apply relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px]
+         after:w-full after:origin-center after:scale-x-0 hover:after:scale-x-100 after:rounded-full
+         after:bg-cyan-500 after:transition-transform after:duration-300 after:ease-in-out;
+    }
+    /* Wave animation for hand emoji in hero section */
+    .animate-wave {
+        display: inline-block;
+        transform-origin: 70% 90%; /* wrist pivot */
+        animation: wave 2s ease-in-out infinite;
+    }
+
+    @keyframes wave {
+        0% {
+            transform: rotate(0deg);
+        }
+        10% {
+            transform: rotate(14deg);
+        }
+        20% {
+            transform: rotate(-8deg);
+        }
+        30% {
+            transform: rotate(14deg);
+        }
+        40% {
+            transform: rotate(-4deg);
+        }
+        50% {
+            transform: rotate(10deg);
+        }
+        60% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    /* Typewriter animation for hero section header */
+    .typewriter::after {
+        content: "";
+        display: inline-block;
+        margin-left: 0.25em;
+        width: 0.1em;
+        height: 0.75em;
+        background-color: currentColor;
+        border-radius: 9999px;
+        animation: blink 0.8s step-end infinite;
+        vertical-align: -0.05em; /* fine-tune to align with Poppins */
+    }
+
+    /* Blink keyframe to simulate caret in typewriter animation */
+    @keyframes blink {
+        0%,
+        100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+
+    .download-resume-button {
+        @apply font-medium h-auto w-auto px-8 py-3 text-neon-blue border border-neon-blue shadow-lg
+        hover:border-gray-700 hover:bg-gray-800 hover:text-white hover:scale-105 transition-all duration-300 transform
+    }
+    .view-projects-button {
+        @apply font-medium h-auto w-auto px-8 py-3 text-[#db7bfb] border border-[#db7bfb] shadow-lg
+        hover:border-gray-700 hover:bg-gray-800 hover:text-white hover:scale-105 transition-all duration-300 transform
+    }
+    .social-link-button {
+        @apply text-gray-400 hover:text-neon-blue transition-colors duration-300 transform hover:scale-110
+    }
+    .section-title {
+        @apply text-4xl md:text-5xl font-bold font-mont mb-4 bg-linear-to-r from-[#5b8efc] to-[#7066fc] bg-clip-text text-transparent
+    }
+    .card-hover {
+        @apply transition-all duration-300 ease-in-out hover:-translate-y-[5px] hover:shadow-[0_25px_50px_rgba(0,0,0,0.6)];
+    }
+}
