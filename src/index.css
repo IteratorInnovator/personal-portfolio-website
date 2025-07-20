@@ -107,20 +107,40 @@
             opacity: 1;
         }
     }
+    .animate-fade-out {
+        opacity: 0;
+        transform: translateY(-50px);
+        transition: all 0.3s ease-out;
+    }
+    /* Slide in animation for 'work details' card when clicking on respective work buttons under 'work' section */
+    .animate-slide-in-bottom {
+        animation: slideInBottom 0.5s ease-out forwards;
+    }
+
+    @keyframes slideInBottom {
+        from {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
     .download-resume-button {
         @apply font-medium h-auto w-auto px-8 py-3 text-neon-blue border border-neon-blue shadow-lg
-        hover:border-gray-700 hover:bg-gray-800 hover:text-white hover:scale-105 transition-all duration-300 transform
+        hover:border-gray-700 hover:bg-gray-800 hover:text-white hover:scale-105 transition-all duration-300 transform;
     }
     .view-projects-button {
         @apply font-medium h-auto w-auto px-8 py-3 text-[#db7bfb] border border-[#db7bfb] shadow-lg
-        hover:border-gray-700 hover:bg-gray-800 hover:text-white hover:scale-105 transition-all duration-300 transform
+        hover:border-gray-700 hover:bg-gray-800 hover:text-white hover:scale-105 transition-all duration-300 transform;
     }
     .social-link-button {
-        @apply text-gray-400 hover:text-neon-blue transition-colors duration-300 transform hover:scale-110
+        @apply text-gray-400 hover:text-neon-blue transition-colors duration-300 transform hover:scale-110;
     }
     .section-title {
-        @apply text-4xl md:text-5xl font-bold font-mont mb-4 bg-linear-to-r from-[#5b8efc] to-[#7066fc] bg-clip-text text-transparent
+        @apply text-4xl md:text-5xl font-bold font-mont mb-4 bg-linear-to-r from-[#5b8efc] to-[#7066fc] bg-clip-text text-transparent;
     }
     .card-hover {
         @apply transition-all duration-300 ease-in-out hover:-translate-y-[5px] hover:shadow-[0_25px_50px_rgba(0,0,0,0.6)];

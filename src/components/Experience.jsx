@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SectionHeader from "./SectionHeader";
 
 function Experience() {
@@ -63,6 +63,13 @@ function Experience() {
         },
     ];
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [animate, setAnimate] = useState(false);
+
+    useEffect(() => {
+        setAnimate(true);
+        const timeout = setTimeout(() => setAnimate(false), 400); // Remove animation class after 400ms
+        return () => clearTimeout(timeout);
+    }, [currentIndex]);
 
     const currentExp = workExperiences[currentIndex];
 
@@ -158,7 +165,7 @@ function Experience() {
                 <div class="flex items-center justify-center">
                     <div class="md:w-5/6">
                         {/* Experience Details Card*/}
-                        <div className="bg-[#0a0b2e] p-8 border-2 rounded-2xl border-[#06b6d4] card-hover space-y-6">
+                        <div className={`bg-[#0a0b2e] p-8 border-2 rounded-2xl border-[#06b6d4] card-hover space-y-6 transition-all ${animate ? "animate-fade-out animate-slide-in-bottom" : ""}`}>
                             {/* Card Header Container */}
                             <div className="border-b border-gray-600 pb-4">
                                 <div className="space-y-6">
