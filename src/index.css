@@ -145,4 +145,52 @@
     .card-hover {
         @apply transition-all duration-300 ease-in-out hover:-translate-y-[5px] hover:shadow-[0_25px_50px_rgba(0,0,0,0.6)];
     }
+    /* Animated border for skill card */
+    .card-border-gradient {
+        @apply relative z-0;
+    }
+}
+
+.card-border-gradient::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    background: linear-gradient(
+        270deg,
+        #02a4bf,
+        #3b82f6,
+        #4ade80,
+        #ff6ec4,
+        #7873f5,
+        #02a4bf
+    );
+    background-size: 600% 600%;
+    transition: background-position 0.3s ease;
+    border-radius: inherit;
+    padding: 2px;
+
+    /* Custom mask support */
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+}
+
+.card-border-gradient:hover::before {
+    animation: moveGradient 4s linear infinite;
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

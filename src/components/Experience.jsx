@@ -162,8 +162,8 @@ function Experience() {
                     })}
                 </div>
 
-                <div class="flex items-center justify-center">
-                    <div class="md:w-5/6">
+                <div className="flex items-center justify-center">
+                    <div className="md:w-5/6">
                         {/* Experience Details Card*/}
                         <div className={`bg-[#0a0b2e] p-8 border-2 rounded-2xl border-[#06b6d4] card-hover space-y-6 transition-all ${animate ? "animate-fade-out animate-slide-in-bottom" : ""}`}>
                             {/* Card Header Container */}

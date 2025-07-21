@@ -31,9 +31,10 @@ function Header() {
                     <div className="text-2xl font-bold">Portfolio</div>
             
                     <div className="hidden lg:flex space-x-8">
-                        {navigationItems.map((item) => {
+                        {navigationItems.map((item, index) => {
                             return (
-                                <a
+                                <a  
+                                    key={index}
                                     href={`#${item}`}
                                     className="transition-all hover:text-white animate-link-hover"
                                 >
