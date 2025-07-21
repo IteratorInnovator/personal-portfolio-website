@@ -16,8 +16,8 @@ function Header() {
         "About",
         "Education",
         "Experience",
-        "Projects",
         "Skills",
+        "Projects",
         "Certifications",
     ];
     return (
@@ -29,11 +29,11 @@ function Header() {
             <nav className="container mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
                     <div className="text-2xl font-bold">Portfolio</div>
-            
+
                     <div className="hidden lg:flex space-x-8">
                         {navigationItems.map((item, index) => {
                             return (
-                                <a  
+                                <a
                                     key={index}
                                     href={`#${item}`}
                                     className="transition-all hover:text-white animate-link-hover"
