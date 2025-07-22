@@ -29,7 +29,7 @@ function Header() {
                 isScrolled ? "glass-card backdrop-blur-md" : ""
             }`}
         >
-            <nav className="container mx-auto px-6 py-4">
+            <nav className="px-6 py-4">
                 <div className="flex items-center justify-between">
                     <div className="text-2xl font-bold">Portfolio</div>
 
@@ -73,7 +73,6 @@ function Header() {
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            className=""
                         >
                             <path d="M4 12h16" />
                             <path d="M4 18h16" />
