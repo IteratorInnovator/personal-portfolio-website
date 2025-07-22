@@ -29,6 +29,7 @@ const skillCategories = [
             { name: "Git", filename: "Git.svg" },
             { name: "Docker", filename: "Docker.svg" },
             { name: "AWS", filename: "AWS.png" },
+            { name: "ROS", filename: "ROS.svg" },
             { name: "Ubuntu", filename: "Ubuntu.svg" },
             { name: "RHEL", filename: "RHEL.svg" },
         ],
