@@ -1,14 +1,12 @@
-import Header from "../components/Header";
 import SectionHeader from "../components/SectionHeader";
 
 function Certifications() {
     return (
-        <div>
-            <Header />
-            <section>
+        <main>
+            <section className="container mx-auto mt-24">
                 <SectionHeader title="Certifications" />
             </section>
-        </div>
+        </main>
     );
 }
 

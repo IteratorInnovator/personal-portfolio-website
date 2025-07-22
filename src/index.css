@@ -48,7 +48,7 @@
     .animate-link-hover {
         @apply relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px]
          after:w-full after:origin-center after:scale-x-0 hover:after:scale-x-100 after:rounded-full
-         after:bg-cyan-500 after:transition-transform after:duration-300 after:ease-in-out;
+         after:bg-cyan-300 after:transition-transform after:duration-300 after:ease-in-out;
     }
     /* Wave animation for hand emoji in hero section */
     .animate-wave {

@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
 import Index from './pages/Index';
 import Projects from './pages/Projects';
 import Certifications from './pages/Certifications';
@@ -9,6 +10,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/projects" element={<Projects />} />

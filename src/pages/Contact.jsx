@@ -1,15 +1,13 @@
 import SectionHeader from "../components/SectionHeader";
-import Header from "../components/Header";
 
-function Contact(){
+function Contact() {
     return (
-        <div>
-            <Header />
-            <section>
+        <main>
+            <section className="container mx-auto mt-24">
                 <SectionHeader title="Get in Touch" />
             </section>
-        </div>
-    )
+        </main>
+    );
 }
 
 export default Contact;

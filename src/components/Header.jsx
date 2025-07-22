@@ -1,5 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -13,13 +15,14 @@ function Header() {
     }, []);
 
     const navigationItems = [
-        "About",
-        "Education",
-        "Experience",
-        "Skills",
-        "Projects",
-        "Certifications",
+        { name: "About", path: "/", isSection: true },
+        { name: "Education", path: "/", isSection: true },
+        { name: "Experience", path: "/", isSection: true },
+        { name: "Skills", path: "/", isSection: true },
+        { name: "Projects", path: "/projects", isSection: false },
+        { name: "Certifications", path: "/certifications", isSection: false },
     ];
+
     return (
         <header
             className={`fixed top-0 w-full z-50 transition-all duration-300 text-white font-mont ${
@@ -32,23 +35,31 @@ function Header() {
 
                     <div className="hidden lg:flex space-x-8">
                         {navigationItems.map((item, index) => {
-                            return (
-                                <a
-                                    key={index}
-                                    href={`#${item}`}
+                            return item.isSection ? (
+                                <HashLink
+                                    smooth
+                                    to={`/#${item.name}`}
                                     className="transition-all hover:text-white animate-link-hover"
                                 >
-                                    {item}
-                                </a>
+                                    {item.name}
+                                </HashLink>
+                            ) : (
+                                <Link
+                                    key={index}
+                                    to={item.path}
+                                    className="transition-all hover:text-white animate-link-hover"
+                                >
+                                    {item.name}
+                                </Link>
                             );
                         })}
                     </div>
-                    <a
+                    <Link
+                        to="/contact"
                         className="max-lg:hidden bg-gradient-to-r from-neon-blue to-neon-purple hover:from-neon-purple hover:to-neon-blue transition-all duration-300"
-                        href="#contact"
                     >
                         Contact
-                    </a>
+                    </Link>
 
                     {/* Mobile Hamburger Menu Button */}
                     <button className="lg:hidden">

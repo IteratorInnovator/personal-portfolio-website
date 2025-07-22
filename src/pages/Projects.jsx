@@ -1,14 +1,12 @@
 import SectionHeader from "../components/SectionHeader";
-import Header from "../components/Header";
 
 function Projects() {
     return (
-        <div>
-            <Header />
-            <section>
+        <main>
+            <section className="container mx-auto mt-24">
                 <SectionHeader title="Projects" />
             </section>
-        </div>
+        </main>
     );
 }
 
