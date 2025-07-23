@@ -6,12 +6,18 @@ import Index from './pages/Index';
 import Projects from './pages/Projects';
 import Certifications from './pages/Certifications';
 import Contact from './pages/Contact';
+import HamburgerMenu from './components/ui/hamburger-menu';
+import { useIsOpen } from './ui';
 
 function App() {
+
+  const { isOpen } = useIsOpen();
 
   return (
     <BrowserRouter>
       <Header />
+      {/* Mobile Menu Overlay */}
+      {isOpen && <HamburgerMenu />}
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/projects" element={<Projects />} />

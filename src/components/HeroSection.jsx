@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Download } from "lucide-react";
 
 const phrases = [
     "Software Developer.",
@@ -87,72 +89,40 @@ function HeroSection() {
 
                 {/* Navigation links to projects and resume */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 font-mont">
-                    <a href="#projects">
-                        <button className="flex space-x-2 view-projects-button">
-                            <span>View Projects</span>
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                stroke=""
-                                className="w-[1.5em]"
-                            >
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g
-                                    id="SVGRepo_tracerCarrier"
+                    <Link to="/projects" className="flex space-x-2 view-projects-button">
+                        <span>View Projects</span>
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            stroke=""
+                            className="w-[1.5em]"
+                        >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g
+                                id="SVGRepo_tracerCarrier"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            ></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M6 12H18M18 12L13 7M18 12L13 17"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                ></g>
-                                <g id="SVGRepo_iconCarrier">
-                                    <path
-                                        d="M6 12H18M18 12L13 7M18 12L13 17"
-                                        stroke="currentColor"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    ></path>
-                                </g>
-                            </svg>
-                        </button>
-                    </a>
+                                ></path>
+                            </g>
+                        </svg>
+                    </Link>
+
                     <a
                         href="./src/assets/Ng Kok Jing Resume.pdf"
                         download="Ng Kok Jing Resume.pdf"
                     >
                         <button className="flex space-x-2 download-resume-button">
                             <span className="inline-block">
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="None"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-[1.3em]"
-                                >
-                                    <g
-                                        id="SVGRepo_bgCarrier"
-                                        stroke-width="0"
-                                    ></g>
-                                    <g
-                                        id="SVGRepo_tracerCarrier"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    ></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path
-                                            d="M3 15C3 17.8284 3 19.2426 3.87868 20.1213C4.75736 21 6.17157 21 9 21H15C17.8284 21 19.2426 21 20.1213 20.1213C21 19.2426 21 17.8284 21 15"
-                                            stroke="currentColor"
-                                            stroke-width="1.5"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                        ></path>
-                                        <path
-                                            d="M12 3V16M12 16L16 11.625M12 16L8 11.625"
-                                            stroke="currentColor"
-                                            stroke-width="1.5"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                        ></path>
-                                    </g>
-                                </svg>
+                                <Download size={20} strokeWidth={1.5} />
                             </span>
                             <span>Download Resume</span>
                         </button>
@@ -222,9 +192,7 @@ function HeroSection() {
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                             >
-                                <path
-                                    d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
-                                />
+                                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
                                 <rect
                                     x="2"
                                     y="4"
