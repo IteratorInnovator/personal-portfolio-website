@@ -14,31 +14,28 @@ const educations = [
             "Comprehensive study in Software Development, Computer Systems, and Digital Design with hands-on project experience.",
         duration: "2024-2028 (Expected)",
         grade_info: [
-            { text: "GPA: 3.54 / 4.0", color_theme: "text-emerald-400 bg-emerald-500/20 border-emerald-500/30" },
-            { text: "Cum Laude", color_theme: "text-purple-400 bg-purple-500/20 border-purple-500/30" },
+            {
+                text: "GPA: 3.54 / 4.0",
+                color_theme:
+                    "text-emerald-400 bg-emerald-500/20 border-emerald-500/30",
+            },
+            {
+                text: "Cum Laude",
+                color_theme:
+                    "text-purple-400 bg-purple-500/20 border-purple-500/30",
+            },
         ],
         highlights: [
-            {
-                highlight: "Programmes Lead - SMU Artificial Intelligence Club",
-                icon: "",
-            },
-            { highlight: "Co-Lead - Project HeartCode 2025", icon: "" },
-            {
-                highlight:
-                    "Teaching Assistant - COR-IS1704 Computational Thinking",
-                icon: "",
-            },
-            {
-                highlight:
-                    "Teaching Assistant - IS115 Algorithms & Programming",
-                icon: "",
-            },
-            {
-                highlight: "Top 50 in SMU Ellipsis #Code25 Competition",
-                icon: "",
-            },
+            "Programmes Lead - SMU Artificial Intelligence Club",
+            "Co-Lead - Project HeartCode 2025",
+            "Teaching Assistant - COR-IS1704 Computational Thinking",
+            "Teaching Assistant - IS115 Algorithms & Programming",
+            "Top 50 in SMU Ellipsis #Code25 Competition",
         ],
-        svg_color: "text-[#3b82f6]"
+        logo: {
+            filename: "SMU_logo.png",
+            color_theme: "border-[#3b82f6]",
+        },
     },
     {
         course: "GCE A Levels",
@@ -51,14 +48,20 @@ const educations = [
             "Completion of a rigorous interdisciplinary curriculum in advanced mathematics, biology, chemistry, and economics.",
         duration: "2020 - 2021",
         grade_info: [
-            { text: "RP: 80/90", color_theme: "text-pink-400 bg-pink-500/20 border-pink-500/30" },
+            {
+                text: "RP: 80/90",
+                color_theme: "text-pink-400 bg-pink-500/20 border-pink-500/30",
+            },
         ],
         highlights: [
-            { highlight: "Edusave Merit & Good Progress Awards", icon: "" },
-            { highlgiht: "Member - Class Leader Committee", icon: "" },
-            { highlight: "Member - Outdoor Adventures Club (ODAC)", icon: "" },
+            "Edusave Merit & Good Progress Awards",
+            "Member - Class Leader Committee",
+            "Member - Outdoor Adventures Club (ODAC)",
         ],
-        svg_color: "text-[#8b5cf6]",
+        logo: {
+            filename: "KCPSS_logo.jpg",
+            color_theme: "border-[#06b6d4]",
+        },
     },
 ];
 
@@ -73,7 +76,7 @@ function Education() {
             <div class="relative block max-w-6xl mx-auto">
                 <div class="flex">
                     {/* Timeline */}
-                    <div class="w-16 flex-shrink-0 relative">
+                    <div class="w-24 flex-shrink-0 relative">
                         <div class="absolute w-1 left-6 top-0 bottom-0 bg-gradient-to-b from-blue-500 via-cyan-500 to-purple-500 rounded-full"></div>
                     </div>
 
@@ -81,17 +84,25 @@ function Education() {
                     <div className="flex-1 pl-8 space-y-16">
                         {educations.map(function (education, index) {
                             return (
-                                <EducationCard
-                                    key={index}
-                                    course={education.course}
-                                    status_tag={education.status_tag}
-                                    school={education.school}
-                                    description={education.description}
-                                    duration={education.duration}
-                                    grade_info={education.grade_info}
-                                    highlights={education.highlights}
-                                    svg_color={education.svg_color}
-                                />
+                                <div>
+                                    <div className={`absolute left-[0em] transform w-12 h-12 rounded-full backdrop-blur-sm border-2 ${education.logo.color_theme} z-10`}>
+                                        <img
+                                            src={`/${education.logo.filename}`}
+                                            alt=""
+                                            className="rounded-full"
+                                        />
+                                    </div>
+                                    <EducationCard
+                                        key={index}
+                                        course={education.course}
+                                        status_tag={education.status_tag}
+                                        school={education.school}
+                                        description={education.description}
+                                        duration={education.duration}
+                                        grade_info={education.grade_info}
+                                        highlights={education.highlights}
+                                    />
+                                </div>
                             );
                         })}
                     </div>
