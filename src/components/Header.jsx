@@ -5,12 +5,11 @@ import { HashLink } from "react-router-hash-link";
 const Header = () => {
     return (
         <header
-            className={`fixed top-0 w-full z-50 transition-all duration-300 text-white backdrop-blur-md`}
+            className="fixed top-0 w-full z-50 transition-all duration-300 text-white backdrop-blur-md"
         >
-            <div className="px-8 pt-6 pb-4 text-primary">
+            <div className="px-24 py-8">
                 <div className="flex items-center justify-between">
-
-                    <nav className="hidden lg:flex space-x-8">
+                    <nav className="hidden lg:flex space-x-6 text-lg text-primary font-jetbrains font-medium">
                         {navigationItems.map((item, index) => {
                             return item.isSection ? (
                                 <HashLink
