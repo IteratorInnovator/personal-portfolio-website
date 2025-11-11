@@ -51,7 +51,7 @@ const Hero = () => {
     }, [charIndex, isDeleting, phraseIndex]);
     return (
         <BackgroundBeamsWithCollision>
-            <section>
+            <section className="mt-16">
                 <h1 className="text-6xl font-jetbrains text-center font-medium text-primary">
                     Hi, I'm <span className="text-accent">Harry!</span>
                 </h1>

@@ -5,7 +5,7 @@ import { HashLink } from "react-router-hash-link";
 const Header = () => {
     return (
         <header
-            className="fixed border-b border-slate-200 top-0 w-full z-50 transition-all duration-300 backdrop-blur-md"
+            className="fixed border-b border-slate-200 top-0 w-full z-50 bg-white/60 backdrop-blur-md "
         >
             <div className="px-24 py-8">
                 <div className="flex items-center justify-between">
@@ -19,7 +19,7 @@ const Header = () => {
                                     className="font-[450] relative group inlin-flex"
                                 >
                                     {item.name}
-                                    <span className="pointer-events-none absolute left-0 -bottom-1 h-0.75 w-full rounded-full origin-left scale-x-0 bg-accent transition-transform duration-250 ease-out group-hover:scale-x-100" />
+                                    <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full rounded-full origin-left scale-x-0 bg-accent transition-transform duration-250 ease-out group-hover:scale-x-100" />
                                 </HashLink>
                             ) : (
                                 <Link
@@ -28,7 +28,7 @@ const Header = () => {
                                     className="font-[450] relative group inline-flex"
                                 >
                                     {item.name}
-                                    <span className="pointer-events-none absolute left-0 -bottom-1 h-0.75 w-full rounded-full origin-left scale-x-0 bg-accent transition-transform duration-250 ease-out group-hover:scale-x-100" />
+                                    <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full rounded-full origin-left scale-x-0 bg-accent transition-transform duration-250 ease-out group-hover:scale-x-100" />
                                 </Link>
                             );
                         })}
