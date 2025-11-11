@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { BackgroundBeamsWithCollision } from "./ui/background-beams-with-collision";
+import { Button } from "./ui/moving-border";
+import { Link } from "react-router-dom";
 
 const phrases = [
-    "Software Developer.",
-    "Backend Enthusiast.",
-    "Tech Innovator.",
+    "Software Engineer.",
+    "Backend Enjoyer.",
     "Problem Solver.",
-    "Code Mentor.",
+    "Coding Mentor.",
 ];
 
 const Hero = () => {
@@ -54,21 +55,38 @@ const Hero = () => {
                 <h1 className="text-6xl font-jetbrains text-center font-medium text-primary">
                     Hi, I'm <span className="text-accent">Harry!</span>
                 </h1>
-                <h2 className="text-primary text-6xl text-center mt-6 font-jetbrains font-medium">
+                <h2 className="text-primary text-6xl text-left mt-6 font-jetbrains font-medium">
                     I'm a
                     <span
                         id="typewriter"
-                        className="ml-6 text-6xl font-jetbrains font-bold typewriter text-accent"
+                        className="ml-8 text-6xl font-jetbrains font-bold text-accent"
                     >
                         {text}
                     </span>
                 </h2>
-                <p className="text-xl text-secondary text-center max-w-3xl mx-auto my-12">
+                <p className="font-inter text-xl text-secondary text-center max-w-3xl mx-auto my-12">
                     Passionate about creating cutting-edge solutions that bridge
                     the gap between innovative technology and real-world
                     applications. Specializing in backend development,
                     automation, and devops.
                 </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <Link
+                        to="/projects"
+                        className="w-full sm:w-auto bg-accent text-white px-8 py-3 rounded-full font-jetbrains font-semibold text-lg text-center transition-colors duration-200 hover:bg-accent-hover"
+                    >
+                        View Projects
+                    </Link>
+                    <Button
+                        as="a"
+                        href="/resume.pdf"
+                        download
+                        containerClassName="w-full sm:w-auto"
+                        className="w-full sm:w-auto px-8 py-3 font-jetbrains font-semibold border border-slate-200 text-lg text-center text-accent bg-neutral-100 transition-all duration-300 hover:border-neutral-300"
+                    >
+                        Download Resume
+                    </Button>
+                </div>
             </section>
         </BackgroundBeamsWithCollision>
     );
