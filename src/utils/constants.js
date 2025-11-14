@@ -20,6 +20,8 @@ import TailwindCSS from "../assets/TailwindCSS.svg";
 import Ubuntu from "../assets/Ubuntu.svg";
 import Vite from "../assets/Vite.svg";
 
+import { Github, Linkedin, Instagram, Mail } from "lucide-react";
+
 export const navigationItems = [
     { name: "Home", path: "/", isSection: true },
     { name: "Qualifications", path: "/", isSection: true },
@@ -132,4 +134,11 @@ export const skills = [
             { name: "Ubuntu", icon: Ubuntu },
         ],
     },
+];
+
+export const socialLinks = [
+    { name: "GitHub", icon: Github, href: "https://github.com/IteratorInnovator" },
+    { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/ngkokjing/" },
+    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/haarrryyyynz?igsh=aWszeTJzb3ppZnI5" },
+    { name: "Email", icon: Mail, href: "mailto:harryngkokjing@gmail.com" },
 ];
