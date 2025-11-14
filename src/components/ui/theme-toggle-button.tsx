@@ -2,6 +2,7 @@
 import { Moon, Sun } from 'lucide-react';
 import { useCallback } from 'react';
 import { cn } from "../../utils/cn";
+import { Button } from './button';
 
 
 type AnimationVariant = 

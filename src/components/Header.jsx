@@ -1,13 +1,11 @@
 import { navigationItems } from "../utils/constants";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-
+import { ThemeToggleButton } from "./ui/theme-toggle-button";
 
 const Header = () => {
     return (
-        <header
-            className="fixed border-b border-slate-200 top-0 w-full z-50 bg-white/60 backdrop-blur-md "
-        >
+        <header className="fixed border-b border-slate-200 top-0 w-full z-50 bg-white/60 backdrop-blur-md ">
             <div className="px-24 py-8">
                 <div className="flex items-center justify-between">
                     <nav className="hidden lg:flex space-x-6 text-lg text-primary font-jetbrains font-medium">
@@ -16,7 +14,9 @@ const Header = () => {
                                 <HashLink
                                     smooth
                                     key={index}
-                                    to={`${item.path}#${item.name.toLowerCase()}`}
+                                    to={`${
+                                        item.path
+                                    }#${item.name.toLowerCase()}`}
                                     className="font-[450] relative group inline-flex"
                                 >
                                     {item.name}
@@ -34,6 +34,11 @@ const Header = () => {
                             );
                         })}
                     </nav>
+                    <ThemeToggleButton
+                        variant="circle-blur"
+                        start="top-right"
+                        className="cursor-pointer border border-slate-200 hover:bg-slate-200/40"
+                    />
                 </div>
             </div>
         </header>
