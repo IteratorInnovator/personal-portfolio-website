@@ -58,7 +58,7 @@ const Qualifications = () => {
                 >
                     {/* Slider */}
                     <span
-                        className={`absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-surface shadow-[0_15px_35px_rgba(15,23,42,0.15)] transition-transform duration-200 ease-out ${
+                        className={`absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full border border-border bg-tertiary shadow-[0_15px_35px_rgba(15,23,42,0.12)] transition-transform duration-200 ease-out ${
                             activeTab === "experience"
                                 ? "translate-x-full"
                                 : "translate-x-0"
