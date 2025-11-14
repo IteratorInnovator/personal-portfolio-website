@@ -5,60 +5,33 @@ const tabs = [
     { name: "experience", label: "Experience" },
 ];
 
-const educationTimeline = [
-    {
-        title: "B.Sc. Computer Science",
-        place: "State University",
-        period: "2019 – 2023",
-        description:
-            "Focused on distributed systems, human-centered design, and full-stack development fundamentals.",
-    },
-    {
-        title: "Frontend Engineering Nanodegree",
-        place: "Udacity",
-        period: "2023",
-        description:
-            "Completed advanced coursework on responsive UI, accessibility best practices, and performance profiling.",
-    },
-];
-
-const experienceTimeline = [
-    {
-        title: "Software Engineering Intern",
-        place: "Tech Labs",
-        period: "Summer 2024",
-        description:
-            "Shipped a design system sandbox and dashboards that reduced UI prototyping time for the product team.",
-    },
-    {
-        title: "Freelance Developer",
-        place: "Self-employed",
-        period: "2022 – Present",
-        description:
-            "Built bespoke web experiences for small businesses, integrating CMS workflows and analytics tooling.",
-    },
-];
 
 const Qualifications = () => {
     const [activeTab, setActiveTab] = useState("education");
 
     return (
-        <section
-            id="qualifications"
-            className="bg-background px-6 py-24 md:px-24"
-        >
-            <h1 className="mb-12 text-center font-jetbrains text-4xl font-semibold text-primary md:text-5xl">
-                Qualifications
-            </h1>
+        <section id="qualifications" className="bg-background px-6 py-24 md:px-24">
+            <div className="mx-auto max-w-5xl text-center">
+                <p className="text-sm font-jetbrains uppercase tracking-[0.4em] text-secondary">
+                    Journey
+                </p>
+                <h2 className="mt-3 text-4xl font-jetbrains font-semibold text-primary md:text-5xl">
+                    Qualifications
+                </h2>
+                <p className="mt-4 text-secondary font-inter text-base md:text-lg">
+                    Milestones that shaped how I design, build, and deliver - from
+                    formal education to learning by shipping real products.
+                </p>
+            </div>
 
-            <div className="mx-auto flex max-w-2xl flex-col gap-10">
+            <div className="mx-auto mt-14 flex max-w-2xl flex-col gap-10">
                 {/* Tabs */}
                 <div
                     className="relative grid grid-cols-2 rounded-full bg-surface border border-border px-1 py-2 shadow-[inset_0_0_0_1px_rgba(15,23,42,0.04)]"
                 >
                     {/* Slider */}
                     <span
-                        className={`absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-surface shadow-[0_15px_35px_rgba(15,23,42,0.15)] transition-transform duration-200 ease-out ${
+                        className={`absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full border border-border bg-tertiary shadow-[0_15px_35px_rgba(15,23,42,0.12)] transition-transform duration-200 ease-out ${
                             activeTab === "experience"
                                 ? "translate-x-full"
                                 : "translate-x-0"

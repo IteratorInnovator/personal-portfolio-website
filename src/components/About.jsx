@@ -3,11 +3,21 @@ import { highlights } from "../utils/constants";
 
 const About = () => {
     return (
-        <section id="about" className="px-6 py-24 md:px-24 bg-background">
-            <h1 className="text-4xl text-center font-jetbrains font-semibold text-primary md:text-5xl mb-12">
-                About Me
-            </h1>
-            <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[0.9fr,1.1fr]">
+        <section id="about" className="bg-background px-6 py-24 md:px-24">
+            <div className="mx-auto max-w-5xl text-center">
+                <p className="text-sm font-jetbrains uppercase tracking-[0.4em] text-secondary">
+                    Story
+                </p>
+                <h2 className="mt-3 text-4xl font-jetbrains font-semibold text-primary md:text-5xl">
+                    About Me
+                </h2>
+                <p className="mt-4 text-secondary font-inter text-base md:text-lg">
+                    A curious builder driven by craft, people, and the impact of
+                    well-designed systems. I blend technical depth with
+                    collaboration to ship meaningful experiences.
+                </p>
+            </div>
+            <div className="mx-auto mt-14 grid max-w-6xl items-center gap-16 lg:grid-cols-[0.9fr,1.1fr]">
                 <div className="mx-auto w-full max-w-sm lg:max-w-md">
                     <div className="relative">
                         <div className="absolute inset-0 -z-10 rounded-xl bg-gradient-to-tr from-accent/20 via-transparent to-white/30 blur-3xl" />

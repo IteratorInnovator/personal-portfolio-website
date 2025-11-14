@@ -5,6 +5,7 @@
     /* Map CSS variables to Tailwind utility tokens */
     --color-primary: var(--text-primary);
     --color-secondary: var(--text-secondary);
+    --color-tertiary: var(--text-tertiary);
     --color-accent: var(--accent);
     --color-accent-hover: var(--accent-hover);
     --color-background: var(--bg-primary);
@@ -37,6 +38,7 @@
     --bg-surface: #1a1a1a;
     --text-primary: #f9fafb;
     --text-secondary: #9ca3af;
+    --text-tertiary: #4a4f5d;
     --accent: #3b82f6;
     --accent-hover: #60a5fa;
     --border: #2d2d2d;
@@ -46,3 +48,115 @@ body {
     background-color: var(--bg-primary);
 }
 
+.notfound-orb {
+    position: absolute;
+    border-radius: 9999px;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(148, 163, 184, 0.55),
+        rgba(15, 23, 42, 0)
+    );
+    filter: blur(55px);
+    animation-name: notfound-float;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.notfound-glitch {
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05em;
+    text-shadow: 0 12px 45px rgba(59, 130, 246, 0.55);
+    animation: notfound-glow 4s ease-in-out infinite;
+}
+
+.notfound-glitch::before,
+.notfound-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: screen;
+    opacity: 0.45;
+    clip-path: inset(0 0 0 0);
+}
+
+.notfound-glitch::before {
+    color: #22d3ee;
+    transform: translate(3px, -2px);
+    animation: notfound-glitch 2.2s steps(2) infinite;
+}
+
+.notfound-glitch::after {
+    color: #a855f7;
+    transform: translate(-3px, 2px);
+    animation: notfound-glitch 2.2s steps(2) infinite reverse;
+}
+
+.notfound-scanlines {
+    background-image: repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 2px,
+            transparent 2px,
+            transparent 4px
+        ),
+        radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.15), transparent),
+        radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.12), transparent);
+    mix-blend-mode: soft-light;
+    animation: notfound-pan 12s linear infinite;
+}
+
+@keyframes notfound-float {
+    0% {
+        transform: translate3d(0, 0, 0) scale(0.95);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translate3d(35px, -25px, 0) scale(1.05);
+        opacity: 0.85;
+    }
+    100% {
+        transform: translate3d(0, 0, 0) scale(0.95);
+        opacity: 0.4;
+    }
+}
+
+@keyframes notfound-glitch {
+    0% {
+        clip-path: inset(0 0 0 0);
+    }
+    20% {
+        clip-path: inset(10% 0 40% 0);
+    }
+    40% {
+        clip-path: inset(40% 0 10% 0);
+    }
+    60% {
+        clip-path: inset(25% 0 30% 0);
+    }
+    80% {
+        clip-path: inset(35% 0 15% 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes notfound-glow {
+    0%,
+    100% {
+        text-shadow: 0 14px 45px rgba(59, 130, 246, 0.45);
+    }
+    50% {
+        text-shadow: 0 24px 65px rgba(59, 130, 246, 0.7);
+    }
+}
+
+@keyframes notfound-pan {
+    0% {
+        background-position: 0 0, 0 0, 0 0;
+    }
+    100% {
+        background-position: 0 180px, 150px 200px, -120px 100px;
+    }
+}
