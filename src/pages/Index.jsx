@@ -10,8 +10,8 @@ const Index = () => {
             <Header />
             <Hero />
             <About />
-            <Skills />
             <Qualifications />
+            <Skills />
         </div>
     );
 };

@@ -10,6 +10,7 @@ import Golang from "../assets/Golang.svg";
 import HTML5 from "../assets/HTML5.svg";
 import Java from "../assets/Java.svg";
 import JavaScript from "../assets/JavaScript.svg";
+import MongoDB from "../assets/MongoDB.svg";
 import MySQL from "../assets/MySQL.svg";
 import Python from "../assets/Python.svg";
 import RHEL from "../assets/RHEL.svg";
@@ -116,6 +117,7 @@ export const skills = [
         category: "Databases & Cloud",
         subSkills: [
             { name: "MySQL", icon: MySQL },
+            { name: "MongoDB", icon: MongoDB },
             { name: "Firebase", icon: Firebase },
             { name: "AWS", icon: AWS },
         ],
