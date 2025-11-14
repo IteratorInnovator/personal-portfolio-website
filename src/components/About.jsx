@@ -1,23 +1,16 @@
 import profileImage from "../assets/profile.jpg";
 import { highlights } from "../utils/constants";
 
-
 const About = () => {
     return (
-        <section
-            id="about"
-            className="px-6 py-24 md:px-24 bg-white/5 dark:bg-white/0"
-        >
-            <h1 className="ext-4xl text-center font-jetbrains font-semibold text-primary md:text-5xl mb-12">
+        <section id="about" className="px-6 py-24 md:px-24 bg-background">
+            <h1 className="text-4xl text-center font-jetbrains font-semibold text-primary md:text-5xl mb-12">
                 About Me
             </h1>
             <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[0.9fr,1.1fr]">
                 <div className="mx-auto w-full max-w-sm lg:max-w-md">
                     <div className="relative">
-                        <div
-                            aria-hidden
-                            className="absolute inset-0 -z-10 rounded-xl bg-gradient-to-tr from-accent/20 via-transparent to-white/30 blur-3xl"
-                        />
+                        <div className="absolute inset-0 -z-10 rounded-xl bg-gradient-to-tr from-accent/20 via-transparent to-white/30 blur-3xl" />
                         <div className="overflow-hidden rounded-xl border border-slate-200/70 bg-white/60 shadow-[0_20px_45px_rgba(15,23,42,0.18)] dark:border-slate-700/60 dark:bg-white/10">
                             <img
                                 src={profileImage}

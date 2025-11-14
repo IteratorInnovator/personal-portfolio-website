@@ -2,6 +2,7 @@ import { navigationItems } from "../utils/constants";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
+
 const Header = () => {
     return (
         <header
@@ -15,8 +16,8 @@ const Header = () => {
                                 <HashLink
                                     smooth
                                     key={index}
-                                    to={`${item.path}#${item.name}`}
-                                    className="font-[450] relative group inlin-flex"
+                                    to={`${item.path}#${item.name.toLowerCase()}`}
+                                    className="font-[450] relative group inline-flex"
                                 >
                                     {item.name}
                                     <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full rounded-full origin-left scale-x-0 bg-accent transition-transform duration-250 ease-out group-hover:scale-x-100" />

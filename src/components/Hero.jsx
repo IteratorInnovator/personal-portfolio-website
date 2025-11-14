@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BackgroundBeamsWithCollision } from "./ui/background-beams-with-collision";
 import { Button } from "./ui/moving-border";
 import { Link } from "react-router-dom";
+import Resume from "../assets/Ng Kok Jing Resume.pdf";
 
 const phrases = [
     "Software Engineer.",
@@ -79,7 +80,7 @@ const Hero = () => {
                     </Link>
                     <Button
                         as="a"
-                        href="/resume.pdf"
+                        href={Resume}
                         download
                         containerClassName="w-full sm:w-auto"
                         className="w-full sm:w-auto px-8 py-3 font-jetbrains font-semibold border border-slate-200 text-lg text-center text-accent bg-neutral-100 transition-all duration-300 hover:border-neutral-300"
