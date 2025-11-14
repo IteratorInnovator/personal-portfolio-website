@@ -192,7 +192,7 @@ export const ThemeToggleButton = ({
       {theme === 'light' ? (
         <Sun className="h-[1.2rem] w-[1.2rem]" />
       ) : (
-        <Moon className="h-[1.2rem] w-[1.2rem]" />
+        <Moon className="h-[1.2rem] w-[1.2rem] text-gray-200 hover:bg-white hover:text-white"  />
       )}
       {showLabel && (
         <span className="text-sm">
