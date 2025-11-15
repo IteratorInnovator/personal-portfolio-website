@@ -21,6 +21,7 @@ import Ubuntu from "../assets/Ubuntu.svg";
 import Vite from "../assets/Vite.svg";
 
 import { Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { TbBrandLeetcode } from "react-icons/tb";
 
 export const navigationItems = [
     { name: "Home", path: "/", isSection: true },
@@ -139,6 +140,6 @@ export const skills = [
 export const socialLinks = [
     { name: "GitHub", icon: Github, href: "https://github.com/IteratorInnovator" },
     { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/ngkokjing/" },
-    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/haarrryyyynz?igsh=aWszeTJzb3ppZnI5" },
+    { name: "Leetcode", icon: TbBrandLeetcode, href: "https://leetcode.com/u/HNKJ/" },
     { name: "Email", icon: Mail, href: "mailto:harryngkokjing@gmail.com" },
 ];

@@ -11,19 +11,19 @@ const Footer = () => {
             <div className="relative mx-auto flex max-w-6xl flex-col gap-16 px-6 py-24 md:px-16">
                 <div className="grid gap-10 md:grid-cols-[1.1fr,0.9fr]">
                     <div>
-                        <p className="text-xs font-jetbrains uppercase tracking-[0.5em] text-secondary">
+                        <p className="text-xs font-jetbrains uppercase tracking-[0.5em] text-secondary max-md:text-center">
                             stay in touch
                         </p>
-                        <h2 className="mt-4 text-4xl font-jetbrains font-semibold text-primary md:text-5xl">
+                        <h2 className="mt-4 text-4xl font-jetbrains font-semibold text-primary md:text-5xl max-md:text-center">
                             Let’s build something bold.
                         </h2>
-                        <p className="mt-5 max-w-xl text-lg text-secondary">
+                        <p className="mt-5 max-w-xl text-lg text-secondary max-md:text-center">
                             Have an idea, project, or open role? I’m always down
                             to jam on thoughtful products, performant systems,
                             and teams that care about craft.
                         </p>
 
-                        <div className="mt-9 flex flex-wrap gap-4">
+                        <div className="mt-9 flex flex-wrap gap-4 max-md:justify-center">
                             <Link
                                 to="/projects"
                                 className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-jetbrains text-sm font-semibold uppercase tracking-[0.25em] text-background transition hover:bg-accent-hover"
@@ -31,12 +31,12 @@ const Footer = () => {
                                 Browse work
                                 <Send size={18} />
                             </Link>
-                            <a
-                                href="mailto:hello@example.com"
+                            <Link
+                                to="/contact"
                                 className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-jetbrains text-sm font-semibold uppercase tracking-[0.25em] text-primary transition hover:border-accent hover:text-accent"
                             >
                                 Say hello
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -77,20 +77,13 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-4 border-t border-border pt-8 text-sm text-secondary md:flex-row md:items-center md:justify-between">
-                    <span>
+                <div className="flex flex-col gap-2 border-t border-border pt-8 text-sm text-secondary items-center justify-between">
+                    <p className="w-full text-center">
                         © {new Date().getFullYear()} Harry. All rights reserved.
-                    </span>
-                    <div className="flex flex-wrap gap-5">
-                        {["Privacy", "Accessibility", "Roadmap"].map((item) => (
-                            <button
-                                key={item}
-                                className="font-jetbrains uppercase tracking-[0.3em] text-secondary transition hover:text-primary"
-                            >
-                                {item}
-                            </button>
-                        ))}
-                    </div>
+                    </p>
+                    <p className="w-full text-center">
+                        Built using React and Tailwind CSS.
+                    </p>
                 </div>
             </div>
         </footer>

@@ -45,7 +45,7 @@ const Qualifications = () => {
                                 key={name}
                                 type="button"
                                 onClick={() => setActiveTab(name)}
-                                className={`relative z-10 rounded-full px-4 py-2 font-semibold font-jetbrains transition-colors ${
+                                className={`cursor-pointer relative z-10 rounded-full px-4 py-2 font-semibold font-jetbrains transition-colors ${
                                     isActive ? "text-primary" : "text-secondary"
                                 }`}
                             >
