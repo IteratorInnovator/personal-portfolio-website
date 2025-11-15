@@ -1,4 +1,5 @@
 import AWS from "../assets/AWS.svg";
+import AWSCertificate from "../assets/AWS.png";
 import CPP from "../assets/CPP.svg";
 import CSS3 from "../assets/CSS3.svg";
 import Docker from "../assets/Docker.svg";
@@ -22,6 +23,11 @@ import Vite from "../assets/Vite.svg";
 
 import { Github, Linkedin, Instagram, Mail } from "lucide-react";
 import { TbBrandLeetcode } from "react-icons/tb";
+
+import JavascriptMozilla from "../assets/JavascriptMozilla.png";
+import GoogleITAutomation from "../assets/GoogleITAutomation.png";
+import DockerFoundations from "../assets/DockerFoundations.png";
+
 
 export const navigationItems = [
     { name: "Home", path: "/", isSection: true },
@@ -93,6 +99,33 @@ export const experienceTimeline = [
     },
 ];
 
+export const certifications = [
+    {
+        name: "Google IT Automation with Python",
+        issuer: "Google",
+        issueDate: "Jan 2025",
+        thumbnail: GoogleITAutomation,
+        credentialUrl:
+            "https://www.coursera.org/account/accomplishments/specialization/DB7KDGI7VB4U",
+    },
+    {
+        name: "Docker Foundations Professional Certificate",
+        issuer: "Docker, Inc",
+        issueDate: "Jan 2025",
+        thumbnail: DockerFoundations,
+        credentialUrl:
+            "https://www.linkedin.com/learning/certificates/0ac348144dd199c4de891f0a921b8e824a2c533402f07f614d09c6b683db08ef",
+    },
+    {
+        name: "JavaScript Foundations Professional Certificate",
+        issuer: "Mozilla",
+        issueDate: "May 2025",
+        thumbnail: JavascriptMozilla,
+        credentialUrl:
+            "https://www.linkedin.com/learning/certificates/0d09d912c50ff3179435b16737ae49695cda67fea6df8515f6c95b3e988136c8",
+    },
+];
+
 export const skills = [
     {
         category: "Frontend",
@@ -138,8 +171,20 @@ export const skills = [
 ];
 
 export const socialLinks = [
-    { name: "GitHub", icon: Github, href: "https://github.com/IteratorInnovator" },
-    { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/ngkokjing/" },
-    { name: "Leetcode", icon: TbBrandLeetcode, href: "https://leetcode.com/u/HNKJ/" },
-    { name: "Email", icon: Mail, href: "mailto:harryngkokjing@gmail.com" },
+    {
+        name: "GitHub",
+        icon: Github,
+        href: "https://github.com/IteratorInnovator",
+    },
+    {
+        name: "LinkedIn",
+        icon: Linkedin,
+        href: "https://www.linkedin.com/in/ngkokjing/",
+    },
+    {
+        name: "Leetcode",
+        icon: TbBrandLeetcode,
+        href: "https://leetcode.com/u/HNKJ/",
+    },
+    { name: "Email", icon: Mail, href: "mailto:harryngkokjing.com" },
 ];
