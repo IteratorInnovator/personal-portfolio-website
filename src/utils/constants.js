@@ -59,7 +59,7 @@ export const highlights = [
     },
 ];
 
-const educationTimeline = [
+export const educationTimeline = [
     {
         title: "B.Sc. Computer Science",
         place: "State University",
@@ -76,7 +76,7 @@ const educationTimeline = [
     },
 ];
 
-const experienceTimeline = [
+export const experienceTimeline = [
     {
         title: "Software Engineering Intern",
         place: "Tech Labs",

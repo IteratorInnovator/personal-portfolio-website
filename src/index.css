@@ -35,7 +35,7 @@
 /* Dark Mode Colors */
 [data-theme="dark"] {
     --bg-primary: #0a0a0a;
-    --bg-surface: #1a1a1a;
+    --bg-surface: #3a3a3a;
     --text-primary: #f9fafb;
     --text-secondary: #9ca3af;
     --text-tertiary: #4a4f5d;
