@@ -2,10 +2,12 @@ import { useState } from "react";
 import Education from "./Education";
 import Experience from "./Experience";
 
+
 const tabs = [
     { name: "education", label: "Education" },
     { name: "experience", label: "Experience" },
 ];
+
 
 const Qualifications = () => {
     const [activeTab, setActiveTab] = useState("education");

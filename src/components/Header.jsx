@@ -6,27 +6,7 @@ import {
     ThemeToggleButton,
     useThemeTransition,
 } from "./ui/theme-toggle-button";
-
-const getInitialTheme = () => {
-    if (typeof window === "undefined") {
-        return "light";
-    }
-
-    const stored = window.localStorage.getItem("theme");
-
-    if (stored === "light" || stored === "dark") {
-        return stored;
-    }
-
-    if (
-        typeof window.matchMedia === "function" &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-        return "dark";
-    }
-
-    return "light";
-};
+import { getInitialTheme } from "../utils/helpers";
 
 const Header = () => {
     const [theme, setTheme] = useState(getInitialTheme);
@@ -41,12 +21,17 @@ const Header = () => {
 
         if (theme === "dark") {
             root.setAttribute("data-theme", "dark");
+            root.classList.add("dark");
         } else {
             root.removeAttribute("data-theme");
+            root.classList.remove("dark");
         }
 
         if (typeof window !== "undefined") {
             window.localStorage.setItem("theme", theme);
+            window.dispatchEvent(
+                new CustomEvent("theme-change", { detail: theme })
+            );
         }
     }, [theme]);
 
