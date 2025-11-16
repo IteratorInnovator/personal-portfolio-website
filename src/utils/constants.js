@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import AWS from "../assets/AWS.svg";
+import Cloudflare from "../assets/Cloudflare.svg";
 import CPP from "../assets/CPP.svg";
 import CSS3 from "../assets/CSS3.svg";
 import Docker from "../assets/Docker.svg";
@@ -27,7 +28,9 @@ import ROS from "../assets/ROS.svg";
 import ReactIcon from "../assets/React.svg";
 import TailwindCSS from "../assets/TailwindCSS.svg";
 import Ubuntu from "../assets/Ubuntu.svg";
+import Vercel from "../assets/Vercel.svg";
 import Vite from "../assets/Vite.svg";
+
 
 import { Github, Linkedin, Instagram } from "lucide-react";
 import { TbBrandLeetcode } from "react-icons/tb";
@@ -44,7 +47,12 @@ export const navigationItems = [
     { name: "Qualifications", path: "/", isSection: true, icon: GraduationCap },
     { name: "Skills", path: "/", isSection: true, icon: Layers },
     { name: "Projects", path: "/projects", isSection: false, icon: FolderGit2 },
-    { name: "Certifications", path: "/certifications", isSection: false, icon: Award },
+    {
+        name: "Certifications",
+        path: "/certifications",
+        isSection: false,
+        icon: Award,
+    },
     { name: "Contact", path: "/contact", isSection: false, icon: Mail },
 ];
 
@@ -233,7 +241,8 @@ export const skills = [
             { name: "MySQL", icon: MySQL },
             { name: "MongoDB", icon: MongoDB },
             { name: "Firebase", icon: Firebase },
-            { name: "AWS", icon: AWS },
+            { name: "Vercel", icon: Vercel },
+            { name: "Cloudflare", icon: Cloudflare },
         ],
     },
     {

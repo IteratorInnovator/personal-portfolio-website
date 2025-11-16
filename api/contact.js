@@ -1,43 +1,41 @@
 // api/contact.js
 import { Resend } from "resend";
 
-
 const RESEND_API_KEY = import.meta.env.VITE_RESEND_API_KEY;
 const resend = new Resend(RESEND_API_KEY);
 
-
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    res.status(405).json({ error: "Method not allowed" });
-    return;
-  }
+    if (req.method !== "POST") {
+        res.status(405).json({ error: "Method not allowed" });
+        return;
+    }
 
-  const { name, email, message } = req.body || {};
+    const { name, email, subject, message } = req.body || {};
 
-  if (!name || !email || !message) {
-    res.status(400).json({ error: "Missing fields" });
-    return;
-  }
+    if (!name || !email || !message) {
+        res.status(400).json({ error: "Missing fields" });
+        return;
+    }
 
-  const buildEmailTemplate = ({
-    title,
-    intro,
-    details = [],
-    messageBlock,
-    footer,
-  }) => {
-    const detailRows = details
-      .map(
-        ({ label, value }) => `
+    const buildEmailTemplate = ({
+        title,
+        intro,
+        details = [],
+        messageBlock,
+        footer,
+    }) => {
+        const detailRows = details
+            .map(
+                ({ label, value }) => `
           <tr>
             <td style="padding: 8px 12px;font-weight:600;color:#111827;">${label}</td>
             <td style="padding: 8px 12px;color:#1f2937;">${value}</td>
           </tr>
         `
-      )
-      .join("");
+            )
+            .join("");
 
-    return `
+        return `
       <!DOCTYPE html>
       <html lang="en">
         <body style="margin:0;padding:0;background:#f3f4f6;font-family:'Inter',Arial,sans-serif;color:#111827;">
@@ -52,8 +50,8 @@ export default async function handler(req, res) {
                     </td>
                   </tr>
                   ${
-                    details.length
-                      ? `
+                      details.length
+                          ? `
                         <tr>
                           <td style="padding:24px;">
                             <table role="presentation" width="100%" style="border:1px solid #e5e7eb;border-radius:18px;">
@@ -62,11 +60,11 @@ export default async function handler(req, res) {
                           </td>
                         </tr>
                       `
-                      : ""
+                          : ""
                   }
                   ${
-                    messageBlock
-                      ? `
+                      messageBlock
+                          ? `
                         <tr>
                           <td style="padding:0 24px 24px 24px;">
                             <div style="border:1px solid #e5e7eb;border-radius:18px;padding:20px;">
@@ -78,7 +76,7 @@ export default async function handler(req, res) {
                           </td>
                         </tr>
                       `
-                      : ""
+                          : ""
                   }
                   <tr>
                     <td style="padding:24px;text-align:center;border-top:1px solid #f3f4f6;">
@@ -92,48 +90,50 @@ export default async function handler(req, res) {
         </body>
       </html>
     `;
-  };
+    };
 
-  // 1. Send emails using Resend
-  try {
-    const from = "contact@harryngkokjing.com";
-    const toYou = "harryngkokjing@gmail.com";
+    // 1. Send emails using Resend
+    try {
+        const from = "contact@harryngkokjing.com";
+        const toYou = "harryngkokjing@gmail.com";
 
-    // Email to you
-    await resend.emails.send({
-      from,
-      to: [toYou],
-      subject: "New contact form submission",
-      html: buildEmailTemplate({
-        title: "New Contact Message",
-        intro: "You just received a message via harryngkokjing.com.",
-        details: [
-          { label: "Name", value: name || "N/A" },
-          { label: "Email", value: email },
-        ],
-        messageBlock: message,
-        footer: "Reply directly to this email to continue the conversation.",
-      }),
-      replyTo: [email],
-    });
+        // Email to you
+        await resend.emails.send({
+            from,
+            to: [toYou],
+            subject: "New contact form submission",
+            html: buildEmailTemplate({
+                title: "New Contact Message",
+                intro: "You just received a message via harryngkokjing.com.",
+                details: [
+                    { label: "Name", value: name || "N/A" },
+                    { label: "Email", value: email },
+                    { label: "Subject", value: subject || "No Subject" },
+                ],
+                messageBlock: message,
+                footer: "Reply directly to this email to continue the conversation.",
+            }),
+            replyTo: [email],
+        });
 
-    // Confirmation email to user
-    await resend.emails.send({
-      from,
-      to: [email],
-      subject: "Thanks for reaching out",
-      html: buildEmailTemplate({
-        title: "Thanks for reaching out!",
-        intro: `Hi ${name || "there"}, thanks for dropping a note.`,
-        messageBlock:
-          "I’ve received your message and will respond as soon as possible. If your inquiry is time-sensitive, feel free to follow up via email.",
-        footer: "Talk soon, Harry Ng — harryngkokjing.com",
-      }),
-    });
+        // Confirmation email to user
+        await resend.emails.send({
+            from,
+            to: [email],
+            subject: "Thanks for reaching out",
+            html: buildEmailTemplate({
+                title: "Thanks for reaching out!",
+                intro: `Hi ${name || "there"}, thanks for dropping a note.`,
+                details: [{ label: "Subject", value: subject || "No Subject" }],
+                messageBlock:
+                    "I’ve received your message and will respond as soon as possible. If your inquiry is time-sensitive, feel free to follow up via email.",
+                footer: "Talk soon, Harry Ng — harryngkokjing.com",
+            }),
+        });
 
-    res.status(200).json({ status: "ok" });
-  } catch (err) {
-    console.error("Resend error", err);
-    res.status(500).json({ error: "Failed to send email" });
-  }
+        res.status(200).json({ status: "ok" });
+    } catch (err) {
+        console.error("Resend error", err);
+        res.status(500).json({ error: "Failed to send email" });
+    }
 }

@@ -1,4 +1,5 @@
 import { MapPin, Send } from "lucide-react";
+import { SiReact, SiTailwindcss, SiVercel } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { socialLinks } from "../utils/constants.js";
 
@@ -78,11 +79,23 @@ const Footer = () => {
                 </div>
 
                 <div className="flex flex-col gap-2 border-t border-border pt-8 text-sm text-secondary items-center justify-between">
-                    <p className="w-full text-center">
+                    <p className="flex w-full flex-wrap items-center justify-center gap-2 text-center text-xs sm:text-sm">
                         © {new Date().getFullYear()} Harry. All rights reserved.
                     </p>
-                    <p className="w-full text-center">
-                        Built using React and Tailwind CSS.
+                    <p className="flex w-full flex-wrap items-center justify-center gap-3 text-center text-xs sm:text-sm">
+                        <span>Built with</span>
+                        <span className="inline-flex items-center gap-1">
+                            <SiReact className="h-4 w-4 text-primary" />
+                            React
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                            <SiTailwindcss className="h-4 w-4 text-primary" />
+                            Tailwind CSS
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                            <SiVercel className="h-4 w-4 text-primary" />
+                            Vercel
+                        </span>
                     </p>
                 </div>
             </div>

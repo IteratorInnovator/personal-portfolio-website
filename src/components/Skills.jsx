@@ -35,11 +35,11 @@ const Skills = () => {
                             </span>
                         </div>
 
-                        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
+                        <div className="mt-6 grid grid-cols-2 gap-4 xl:grid-cols-3">
                             {subSkills.map(({ name, icon }) => (
                                 <div
                                     key={name}
-                                    className="flex items-center gap-3 rounded-xl border border-border/60 bg-background/80 px-3 py-2 text-left shadow-[0_10px_25px_rgba(15,23,42,0.06)] transition-colors dark:bg-background/40"
+                                    className="flex items-center gap-3 rounded-xl border border-border/60 bg-background/80 dark:bg-surface/40 px-3 py-2 text-left shadow-[0_10px_25px_rgba(15,23,42,0.06)] transition-colors"
                                 >
                                     <img
                                         src={icon}
