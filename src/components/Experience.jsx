@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown, ChevronUp, MapPin } from "lucide-react";
 import { experienceTimeline } from "../utils/constants";
 
@@ -12,6 +12,34 @@ const statusStyles = {
 const statusLabel = {
     ongoing: "In Progress",
     completed: "Completed",
+};
+
+const useCollapsibleHeight = (isOpen, dependencyKey) => {
+    const ref = useRef(null);
+    const [height, setHeight] = useState(0);
+
+    useEffect(() => {
+        if (isOpen && ref.current) {
+            setHeight(1000);
+        } else {
+            setHeight(0);
+        }
+    }, [isOpen, dependencyKey]);
+
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const handleResize = () => {
+            if (ref.current) {
+                setHeight(1000);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [isOpen]);
+
+    return [ref, height];
 };
 
 const Experience = () => {
@@ -41,6 +69,10 @@ const ExperienceEntry = ({ item }) => {
     const hasResponsibilities =
         Array.isArray(responsibilities) && responsibilities.length > 0;
     const [showResponsibilities, setShowResponsibilities] = useState(false);
+    const [responsibilitiesRef, responsibilitiesHeight] = useCollapsibleHeight(
+        showResponsibilities,
+        responsibilities?.length ?? 0
+    );
 
     return (
         <article className="space-y-5 rounded-2xl border border-border/70 bg-surface/60 p-6 text-left shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30">
@@ -90,7 +122,7 @@ const ExperienceEntry = ({ item }) => {
                     <button
                         type="button"
                         onClick={() => setShowResponsibilities((prev) => !prev)}
-                        className="flex w-full items-center justify-between text-left font-jetbrains text-xs uppercase tracking-[0.3em] text-primary"
+                        className="cursor-pointer flex w-full items-center justify-between text-left font-jetbrains text-xs uppercase tracking-[0.3em] text-primary"
                         aria-expanded={showResponsibilities}
                     >
                         <span>Key Contributions</span>
@@ -100,19 +132,30 @@ const ExperienceEntry = ({ item }) => {
                             <ChevronDown className="h-4 w-4" aria-hidden="true" />
                         )}
                     </button>
-                    {showResponsibilities && (
-                        <ul className="mt-3 space-y-2">
-                            {responsibilities.map((item, index) => (
-                                <li
-                                    key={`${title}-resp-${index}`}
-                                    className="flex gap-3 text-sm font-inter text-secondary"
-                                >
-                                    <span className="text-primary">—</span>
-                                    <span>{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+                    <div
+                        className="overflow-hidden transition-all duration-500"
+                        style={{
+                            maxHeight: `${responsibilitiesHeight}px`,
+                            opacity: showResponsibilities ? 1 : 0,
+                            transform: showResponsibilities
+                                ? "translateY(0)"
+                                : "translateY(-0.5rem)",
+                        }}
+                    >
+                        <div ref={responsibilitiesRef} className="mt-3">
+                            <ul className="space-y-2">
+                                {responsibilities.map((item, index) => (
+                                    <li
+                                        key={`${title}-resp-${index}`}
+                                        className="flex gap-3 text-sm font-inter text-secondary"
+                                    >
+                                        <span className="text-primary">—</span>
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             )}
         </article>

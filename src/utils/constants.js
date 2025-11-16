@@ -136,8 +136,8 @@ export const experienceTimeline = [
         ],
     },
     {
-        title: "Singapore Institute of Management",
-        place: "Pre-admissions Coordinator",
+        title: "Pre-Admissions Coordinator",
+        place: "Singapore Institute of Management",
         period: "Feb 2024 - June 2024",
         location: "Singapore",
         status: "completed",

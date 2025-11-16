@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { educationTimeline } from "../utils/constants";
 
@@ -12,6 +12,34 @@ const statusStyles = {
 const statusLabel = {
     ongoing: "In Progress",
     completed: "Completed",
+};
+
+const useCollapsibleHeight = (isOpen, dependencyKey) => {
+    const ref = useRef(null);
+    const [height, setHeight] = useState(0);
+
+    useEffect(() => {
+        if (isOpen && ref.current) {
+            setHeight(1000);
+        } else {
+            setHeight(0);
+        }
+    }, [isOpen, dependencyKey]);
+
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const handleResize = () => {
+            if (ref.current) {
+                setHeight(1000);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [isOpen]);
+
+    return [ref, height];
 };
 
 const Education = () => {
@@ -39,6 +67,10 @@ const EducationEntry = ({ item }) => {
     const badgeLabel = statusLabel[status] ?? status;
     const hasHighlights = Array.isArray(highlights) && highlights.length > 0;
     const [showHighlights, setShowHighlights] = useState(false);
+    const [highlightsRef, highlightsHeight] = useCollapsibleHeight(
+        showHighlights,
+        highlights?.length ?? 0
+    );
 
     return (
         <article className="space-y-5 rounded-2xl border border-border/70 bg-surface/60 p-6 text-left shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30">
@@ -77,7 +109,7 @@ const EducationEntry = ({ item }) => {
                     <button
                         type="button"
                         onClick={() => setShowHighlights((prev) => !prev)}
-                        className="flex w-full items-center justify-between text-left font-jetbrains text-xs uppercase tracking-[0.3em] text-primary"
+                        className="cursor-pointer flex w-full items-center justify-between text-left font-jetbrains text-xs uppercase tracking-[0.3em] text-primary"
                         aria-expanded={showHighlights}
                     >
                         <span>Key Highlights</span>
@@ -87,19 +119,30 @@ const EducationEntry = ({ item }) => {
                             <ChevronDown className="h-4 w-4" aria-hidden="true" />
                         )}
                     </button>
-                    {showHighlights && (
-                        <ul className="mt-3 space-y-2">
-                            {highlights.map((point, index) => (
-                                <li
-                                    key={`${title}-highlight-${index}`}
-                                    className="flex gap-3 text-sm font-inter text-secondary"
-                                >
-                                    <span className="text-primary">—</span>
-                                    <span>{point}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+                    <div
+                        className="overflow-hidden transition-all duration-500"
+                        style={{
+                            maxHeight: `${highlightsHeight}px`,
+                            opacity: showHighlights ? 1 : 0,
+                            transform: showHighlights
+                                ? "translateY(0)"
+                                : "translateY(-0.5rem)",
+                        }}
+                    >
+                        <div ref={highlightsRef} className="mt-3">
+                            <ul className="space-y-2">
+                                {highlights.map((point, index) => (
+                                    <li
+                                        key={`${title}-highlight-${index}`}
+                                        className="flex gap-3 text-sm font-inter text-secondary"
+                                    >
+                                        <span className="text-primary">—</span>
+                                        <span>{point}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             )}
         </article>
