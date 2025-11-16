@@ -179,7 +179,7 @@ const ExperienceEntry = ({ item, onImageClick }) => {
                     <button
                         type="button"
                         onClick={() => setShowResponsibilities((prev) => !prev)}
-                        className="flex w-full items-center justify-between text-left font-jetbrains text-xs uppercase tracking-[0.3em] text-primary"
+                        className="cursor-pointer flex w-full items-center justify-between text-left font-jetbrains text-xs uppercase tracking-[0.3em] text-primary"
                         aria-expanded={showResponsibilities}
                     >
                         <span>Key Contributions</span>
