@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { TbBrandTelegram, TbBrandWhatsapp } from "react-icons/tb";
-import Header from "./Header";
+import Header from "../components/Header";
 
 const initialFormState = {
     name: "",
@@ -19,7 +19,7 @@ const Contact = () => {
         setForm((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         if (!form.name || !form.email || !form.message) {
@@ -31,12 +31,38 @@ const Contact = () => {
             return;
         }
 
-        setStatus({
-            type: "success",
-            message:
-                "Thanks for reaching out! Your message has been queued and I’ll respond as soon as possible.",
-        });
-        setForm(initialFormState);
+        try {
+            setStatus({ type: "info", message: "Sending your message..." });
+
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: form.name,
+                    email: form.email,
+                    message: form.message,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to send");
+            }
+
+            setStatus({
+                type: "success",
+                message:
+                    "Thanks for reaching out! Your message has been sent and I’ll respond as soon as possible.",
+            });
+            setForm(initialFormState);
+        } catch {
+            setStatus({
+                type: "error",
+                message:
+                    "Something went wrong while sending your message. Please try again or contact me directly via email.",
+            });
+        }
     };
 
     return (
@@ -59,37 +85,37 @@ const Contact = () => {
                     </div>
 
                     <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
-                    <div className="space-y-8 rounded-3xl border border-border bg-surface/60 p-8 shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30">
-                        <ContactInfo
-                            icon={<Mail className="h-5 w-5" />}
-                            label="Email"
-                            value="harryngkokjing@gmail.com"
-                            href="mailto:harryngkokjing@gmail.com"
-                        />
-                        <ContactInfo
-                            icon={<Phone className="h-5 w-5" />}
-                            label="Phone"
-                            value="+65 8504 0648"
-                            href="tel:+6585040648"
-                        />
-                        <ContactInfo
-                            icon={<MapPin className="h-5 w-5" />}
-                            label="Based in"
-                            value="Singapore"
-                        />
-                        <ContactInfo
-                            icon={<TbBrandWhatsapp className="h-5 w-5" />}
-                            label="WhatsApp"
-                            value="+65 8504 0648"
-                            href="https://wa.me/6585040648"
-                        />
-                        <ContactInfo
-                            icon={<TbBrandTelegram className="h-5 w-5" />}
-                            label="Telegram"
-                            value="@hnkj_29703"
-                            href="https://t.me/hnkj_29703"
-                        />
-                    </div>
+                        <div className="space-y-8 rounded-3xl border border-border bg-surface/60 p-8 shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30">
+                            <ContactInfo
+                                icon={<Mail className="h-5 w-5" />}
+                                label="Email"
+                                value="harryngkokjing@gmail.com"
+                                href="mailto:harryngkokjing@gmail.com"
+                            />
+                            <ContactInfo
+                                icon={<Phone className="h-5 w-5" />}
+                                label="Phone"
+                                value="+65 8504 0648"
+                                href="tel:+6585040648"
+                            />
+                            <ContactInfo
+                                icon={<TbBrandWhatsapp className="h-5 w-5" />}
+                                label="WhatsApp"
+                                value="+65 8504 0648"
+                                href="https://wa.me/6585040648"
+                            />
+                            <ContactInfo
+                                icon={<TbBrandTelegram className="h-5 w-5" />}
+                                label="Telegram"
+                                value="@hnkj_29703"
+                                href="https://t.me/hnkj_29703"
+                            />
+                            <ContactInfo
+                                icon={<MapPin className="h-5 w-5" />}
+                                label="Based in"
+                                value="Singapore"
+                            />
+                        </div>
 
                         <form
                             onSubmit={handleSubmit}

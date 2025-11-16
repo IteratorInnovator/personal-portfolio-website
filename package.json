@@ -24,6 +24,7 @@
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.5",
     "react-router-hash-link": "^2.4.3",
+    "resend": "^6.4.2",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.17"
   },
