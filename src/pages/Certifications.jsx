@@ -9,26 +9,26 @@ const Certifications = () => {
     return (
         <div>
             <Header />
-            <section className="mx-auto px-6 pt-24 max-w-4xl">
-                <div className="flex flex-col gap-3 text-left md:flex-row md:items-end md:justify-between">
+            <section className="mx-auto max-w-5xl px-4 pt-20 text-primary sm:px-6 lg:pt-24">
+                <div className="flex flex-col gap-4 text-left md:flex-row md:items-end md:justify-between">
                     <div className="max-md:text-center">
-                        <p className="text-sm font-jetbrains uppercase tracking-[0.4em] text-secondary">
+                        <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">
                             Proof
                         </p>
-                        <h3 className="mt-1 text-3xl font-jetbrains font-semibold text-primary md:text-4xl">
+                        <h3 className="mt-1 text-3xl font-jetbrains font-semibold text-primary sm:text-4xl md:text-5xl">
                             Certifications
                         </h3>
-                        <p className="mt-2 font-inter text-base text-secondary">
+                        <p className="mt-2 font-inter text-sm text-secondary sm:text-base md:text-lg">
                             Drag the carousel to skim through the credentials I
                             rely on most.
                         </p>
                     </div>
-                    <span className="max-md:hidden text-sm font-jetbrains uppercase tracking-[0.4em] text-secondary">
+                    <span className="text-center text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary md:text-sm">
                         {certifications.length} credentials
                     </span>
                 </div>
 
-                <div className="mt-16">
+                <div className="mt-12 sm:mt-16">
                     <EmblaCarousel slides={certifications} OPTIONS={OPTIONS} />
                 </div>
             </section>

@@ -155,7 +155,7 @@ const EmblaCarousel = (props) => {
                             >
                                 <article className="cursor-grab group relative mx-auto flex h-full w-full max-w-4xl flex-col overflow-hidden rounded-3xl border border-border/70 bg-surface/85 p-0 shadow-[0_20px_50px_rgba(15,23,42,0.12)] backdrop-blur md:flex-row">
                                     <div
-                                        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent-hover/15 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                                        className="pointer-events-none absolute inset-0 bg-linear-to-br from-accent/10 via-transparent to-accent-hover/15 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                                         aria-hidden="true"
                                     />
                                     <figure className="relative h-48 w-full overflow-hidden border-b border-border/60 bg-background/60 md:h-auto md:w-2/5 md:border-b-0 md:border-r">
@@ -167,11 +167,11 @@ const EmblaCarousel = (props) => {
                                                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
                                             />
                                         ) : (
-                                            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-border/40 via-transparent to-border/40 p-6 text-center text-base font-jetbrains text-secondary">
+                                            <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-border/40 via-transparent to-border/40 p-6 text-center text-base font-jetbrains text-secondary">
                                                 {certificateTitle}
                                             </div>
                                         )}
-                                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/35" />
+                                        <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/35" />
                                     </figure>
                                     <div className="relative flex flex-1 flex-col gap-4 p-5 md:p-6">
                                         <div className="flex flex-wrap items-center justify-between gap-4 text-xs md:text-sm">
@@ -187,7 +187,7 @@ const EmblaCarousel = (props) => {
                                                 Verified
                                             </span>
                                         </div>
-                                        <h4 className="relative text-xl font-jetbrains font-semibold text-primary md:text-2xl">
+                                        <h4 className="relative text-lg sm:text-xl font-jetbrains font-semibold text-primary md:text-2xl">
                                             {certificateTitle}
                                         </h4>
                                         <p className="font-inter text-xs text-secondary md:text-sm">
