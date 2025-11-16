@@ -2,7 +2,7 @@ import Index from "./pages/Index";
 import Projects from "./pages/Projects";
 import Certifications from "./pages/Certifications";
 import NotFound from "./pages/NotFound";
-import Contact from "./components/Contact";
+import Contact from "./pages/Contact";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
