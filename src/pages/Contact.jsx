@@ -34,7 +34,7 @@ const Contact = () => {
         try {
             setStatus({ type: "info", message: "Sending your message..." });
 
-            const response = await fetch("/api/contact", {
+            const response = await fetch("https://harryngkokjing.com/api/contact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
