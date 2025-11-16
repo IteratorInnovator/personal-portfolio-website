@@ -1,5 +1,13 @@
+import {
+    Award,
+    FolderGit2,
+    GraduationCap,
+    Home,
+    Layers,
+    Mail,
+} from "lucide-react";
+
 import AWS from "../assets/AWS.svg";
-import AWSCertificate from "../assets/AWS.png";
 import CPP from "../assets/CPP.svg";
 import CSS3 from "../assets/CSS3.svg";
 import Docker from "../assets/Docker.svg";
@@ -9,12 +17,10 @@ import Firebase from "../assets/Firebase.svg";
 import Git from "../assets/Git.svg";
 import Golang from "../assets/Golang.svg";
 import HTML5 from "../assets/HTML5.svg";
-import InfosysImage from "../assets/Infosys.jpg";
 import Java from "../assets/Java.svg";
 import JavaScript from "../assets/JavaScript.svg";
 import MongoDB from "../assets/MongoDB.svg";
 import MySQL from "../assets/MySQL.svg";
-import ProfileImage from "../assets/profile.jpg";
 import Python from "../assets/Python.svg";
 import RHEL from "../assets/RHEL.svg";
 import ROS from "../assets/ROS.svg";
@@ -23,7 +29,7 @@ import TailwindCSS from "../assets/TailwindCSS.svg";
 import Ubuntu from "../assets/Ubuntu.svg";
 import Vite from "../assets/Vite.svg";
 
-import { Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 import { TbBrandLeetcode } from "react-icons/tb";
 
 import JavascriptMozilla from "../assets/JavascriptMozilla.png";
@@ -34,12 +40,12 @@ import InfosysCelebration1 from "../assets/InfosysInstep25Celebration.jpg";
 import InfosysCelebration2 from "../assets/InfosysInstep25Celebration(2).jpg";
 
 export const navigationItems = [
-    { name: "Home", path: "/", isSection: true },
-    { name: "Qualifications", path: "/", isSection: true },
-    { name: "Skills", path: "/", isSection: true },
-    { name: "Projects", path: "/projects", isSection: false },
-    { name: "Certifications", path: "/certifications", isSection: false },
-    { name: "Contact", path: "/contact", isSection: false },
+    { name: "Home", path: "/", isSection: true, icon: Home },
+    { name: "Qualifications", path: "/", isSection: true, icon: GraduationCap },
+    { name: "Skills", path: "/", isSection: true, icon: Layers },
+    { name: "Projects", path: "/projects", isSection: false, icon: FolderGit2 },
+    { name: "Certifications", path: "/certifications", isSection: false, icon: Award },
+    { name: "Contact", path: "/contact", isSection: false, icon: Mail },
 ];
 
 export const highlights = [

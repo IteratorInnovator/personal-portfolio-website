@@ -7,10 +7,27 @@ import {
     useThemeTransition,
 } from "./ui/theme-toggle-button";
 import { getInitialTheme } from "../utils/helpers";
+import {
+    Navbar,
+    NavBody,
+    NavItems,
+    MobileNav,
+    MobileNavHeader,
+    MobileNavMenu,
+    MobileNavToggle,
+} from "./ui/resizable-navbar";
 
 const Header = () => {
     const [theme, setTheme] = useState(getInitialTheme);
     const { startTransition } = useThemeTransition();
+    const [mobileOpen, setMobileOpen] = useState(false);
+
+    const renderNavLabel = (label) => (
+        <span className="relative inline-flex">
+            <span className="relative z-10">{label}</span>
+            <span className="pointer-events-none absolute inset-x-0 -bottom-1 h-0.5 rounded-full origin-left scale-x-0 bg-accent transition-transform duration-250 ease-out group-hover:scale-x-100" />
+        </span>
+    );
 
     useEffect(() => {
         if (typeof document === "undefined") {
@@ -42,35 +59,37 @@ const Header = () => {
     };
 
     return (
-        <header className="fixed top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
-            <div className="px-24 py-8">
-                <div className="flex items-center justify-between">
-                    <nav className="hidden lg:flex space-x-6 text-lg text-primary font-jetbrains font-medium">
-                        {navigationItems.map((item, index) => {
-                            return item.isSection ? (
-                                <HashLink
-                                    smooth
-                                    key={index}
-                                    to={`${
-                                        item.path
-                                    }#${item.name.toLowerCase()}`}
-                                    className="font-[450] relative group inline-flex"
-                                >
-                                    {item.name}
-                                    <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full rounded-full origin-left scale-x-0 bg-accent transition-transform duration-250 ease-out group-hover:scale-x-100" />
-                                </HashLink>
-                            ) : (
-                                <Link
-                                    key={index}
-                                    to={item.path}
-                                    className="font-[450] relative group inline-flex"
-                                >
-                                    {item.name}
-                                    <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full rounded-full origin-left scale-x-0 bg-accent transition-transform duration-250 ease-out group-hover:scale-x-100" />
-                                </Link>
-                            );
-                        })}
-                    </nav>
+        <header className="fixed z-50 w-full">
+            <Navbar className="top-0">
+                <NavBody className="px-6">
+                    <div className="flex items-center gap-6">
+                        <nav className="flex space-x-6 text-sm text-primary font-jetbrains font-medium">
+                            {navigationItems.map((item, index) => {
+                                const baseClass =
+                                    "font-[450] relative group inline-flex";
+                                return item.isSection ? (
+                                    <HashLink
+                                        smooth
+                                        key={index}
+                                        to={`${
+                                            item.path
+                                        }#${item.name.toLowerCase()}`}
+                                        className={baseClass}
+                                    >
+                                        {renderNavLabel(item.name)}
+                                    </HashLink>
+                                ) : (
+                                    <Link
+                                        key={index}
+                                        to={item.path}
+                                        className={baseClass}
+                                    >
+                                        {renderNavLabel(item.name)}
+                                    </Link>
+                                );
+                            })}
+                        </nav>
+                    </div>
                     <ThemeToggleButton
                         theme={theme}
                         variant="circle-blur"
@@ -78,8 +97,66 @@ const Header = () => {
                         onClick={handleThemeToggle}
                         className="cursor-pointer bg-background border border-border hover:bg-surface/70"
                     />
-                </div>
-            </div>
+                </NavBody>
+                <MobileNav className="px-4">
+                    <MobileNavHeader>
+                        <MobileNavToggle
+                            isOpen={mobileOpen}
+                            onClick={() => setMobileOpen((prev) => !prev)}
+                        />
+                        <ThemeToggleButton
+                            theme={theme}
+                            variant="circle-blur"
+                            start="top-right"
+                            onClick={() => {
+                                handleThemeToggle();
+                                setMobileOpen(false);
+                            }}
+                            className="cursor-pointer bg-background border border-border hover:bg-surface/70"
+                        />
+                    </MobileNavHeader>
+                    <MobileNavMenu isOpen={mobileOpen}>
+                        <div className="flex flex-col gap-4 text-primary font-jetbrains font-medium">
+                            {navigationItems.map((item, index) => {
+                                const baseClass =
+                                    "w-auto font-[450] relative group inline-flex items-center gap-3";
+                                const Icon = item.icon;
+                                const content = (
+                                    <>
+                                        {Icon && (
+                                            <Icon className="h-4 w-4 text-secondary" />
+                                        )}
+                                        {renderNavLabel(item.name)}
+                                    </>
+                                );
+                                const link = item.isSection ? (
+                                    <HashLink
+                                        smooth
+                                        key={index}
+                                        to={`${
+                                            item.path
+                                        }#${item.name.toLowerCase()}`}
+                                        className={baseClass}
+                                        onClick={() => setMobileOpen(false)}
+                                    >
+                                        {content}
+                                    </HashLink>
+                                ) : (
+                                    <Link
+                                        key={index}
+                                        to={item.path}
+                                        className={baseClass}
+                                        onClick={() => setMobileOpen(false)}
+                                    >
+                                        {content}
+                                    </Link>
+                                );
+                                return link;
+                            })}
+                        </div>
+                    </MobileNavMenu>
+                </MobileNav>
+            </Navbar>
         </header>
     );
 };
