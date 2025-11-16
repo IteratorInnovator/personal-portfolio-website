@@ -9,10 +9,12 @@ import Firebase from "../assets/Firebase.svg";
 import Git from "../assets/Git.svg";
 import Golang from "../assets/Golang.svg";
 import HTML5 from "../assets/HTML5.svg";
+import InfosysImage from "../assets/Infosys.jpg";
 import Java from "../assets/Java.svg";
 import JavaScript from "../assets/JavaScript.svg";
 import MongoDB from "../assets/MongoDB.svg";
 import MySQL from "../assets/MySQL.svg";
+import ProfileImage from "../assets/profile.jpg";
 import Python from "../assets/Python.svg";
 import RHEL from "../assets/RHEL.svg";
 import ROS from "../assets/ROS.svg";
@@ -27,6 +29,9 @@ import { TbBrandLeetcode } from "react-icons/tb";
 import JavascriptMozilla from "../assets/JavascriptMozilla.png";
 import GoogleITAutomation from "../assets/GoogleITAutomation.png";
 import DockerFoundations from "../assets/DockerFoundations.png";
+
+import InfosysCelebration1 from "../assets/InfosysInstep25Celebration.jpg";
+import InfosysCelebration2 from "../assets/InfosysInstep25Celebration(2).jpg";
 
 export const navigationItems = [
     { name: "Home", path: "/", isSection: true },
@@ -111,6 +116,18 @@ export const experienceTimeline = [
             "Created comprehensive software architecture and process documentation of the ROS build environment using PlantUML and MS Word, reducing developer onboarding time and improving knowledge transfer across teams.",
         ],
         technologies: ["Python", "ROS", "Docker", "RHEL"],
+        images: [
+            {
+                src: InfosysCelebration1,
+                alt: "Infosys Instep 25 Years Celebration",
+                caption: "Infosys Instep 25 Years Celebration",
+            },
+            {
+                src: InfosysCelebration2,
+                alt: "Infosys Instep 25 Years Celebration",
+                caption: "Infosys Instep 25 Years Celebration",
+            },
+        ],
     },
     {
         title: "Stem Instructor",
