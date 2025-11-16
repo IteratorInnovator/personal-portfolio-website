@@ -2,10 +2,12 @@ import { useState } from "react";
 import Education from "./Education";
 import Experience from "./Experience";
 
+
 const tabs = [
     { name: "education", label: "Education" },
     { name: "experience", label: "Experience" },
 ];
+
 
 const Qualifications = () => {
     const [activeTab, setActiveTab] = useState("education");
@@ -33,7 +35,7 @@ const Qualifications = () => {
                 <div className="relative grid grid-cols-2 rounded-full bg-surface/60 border border-border px-1 py-2 shadow-[inset_0_0_0_1px_rgba(15,23,42,0.04)]">
                     {/* Slider */}
                     <span
-                        className={`absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full border border-border bg-tertiary shadow-[0_15px_35px_rgba(15,23,42,0.12)] transition-transform duration-200 ease-out ${
+                        className={`absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full border border-border dark:bg-[#4a4f5d] shadow-[0_15px_35px_rgba(15,23,42,0.12)] transition-transform duration-200 ease-out ${
                             activeTab === "experience"
                                 ? "translate-x-full"
                                 : "translate-x-0"

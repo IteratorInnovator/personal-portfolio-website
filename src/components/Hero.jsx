@@ -54,7 +54,7 @@ const Hero = () => {
     return (
         <section id="home">
             <BackgroundBeamsWithCollision>
-                <div className="mt-16">
+                <div className="mt-12">
                     <h1 className="text-6xl font-jetbrains text-center font-medium text-primary">
                         Hi, I'm <span className="text-accent">Harry!</span>
                     </h1>

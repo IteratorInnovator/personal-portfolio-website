@@ -1,5 +1,13 @@
+import {
+    Award,
+    FolderGit2,
+    GraduationCap,
+    Home,
+    Layers,
+    Mail,
+} from "lucide-react";
+
 import AWS from "../assets/AWS.svg";
-import AWSCertificate from "../assets/AWS.png";
 import CPP from "../assets/CPP.svg";
 import CSS3 from "../assets/CSS3.svg";
 import Docker from "../assets/Docker.svg";
@@ -21,20 +29,23 @@ import TailwindCSS from "../assets/TailwindCSS.svg";
 import Ubuntu from "../assets/Ubuntu.svg";
 import Vite from "../assets/Vite.svg";
 
-import { Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 import { TbBrandLeetcode } from "react-icons/tb";
 
 import JavascriptMozilla from "../assets/JavascriptMozilla.png";
 import GoogleITAutomation from "../assets/GoogleITAutomation.png";
 import DockerFoundations from "../assets/DockerFoundations.png";
 
+import InfosysCelebration1 from "../assets/InfosysInstep25Celebration.jpg";
+import InfosysCelebration2 from "../assets/InfosysInstep25Celebration(2).jpg";
+
 export const navigationItems = [
-    { name: "Home", path: "/", isSection: true },
-    { name: "Qualifications", path: "/", isSection: true },
-    { name: "Skills", path: "/", isSection: true },
-    { name: "Projects", path: "/projects", isSection: false },
-    { name: "Certifications", path: "/certifications", isSection: false },
-    { name: "Contact", path: "/contact", isSection: false },
+    { name: "Home", path: "/", isSection: true, icon: Home },
+    { name: "Qualifications", path: "/", isSection: true, icon: GraduationCap },
+    { name: "Skills", path: "/", isSection: true, icon: Layers },
+    { name: "Projects", path: "/projects", isSection: false, icon: FolderGit2 },
+    { name: "Certifications", path: "/certifications", isSection: false, icon: Award },
+    { name: "Contact", path: "/contact", isSection: false, icon: Mail },
 ];
 
 export const highlights = [
@@ -111,6 +122,18 @@ export const experienceTimeline = [
             "Created comprehensive software architecture and process documentation of the ROS build environment using PlantUML and MS Word, reducing developer onboarding time and improving knowledge transfer across teams.",
         ],
         technologies: ["Python", "ROS", "Docker", "RHEL"],
+        images: [
+            {
+                src: InfosysCelebration1,
+                alt: "Infosys Instep 25 Years Celebration",
+                caption: "Infosys Instep 25 Years Celebration",
+            },
+            {
+                src: InfosysCelebration2,
+                alt: "Infosys Instep 25 Years Celebration",
+                caption: "Infosys Instep 25 Years Celebration",
+            },
+        ],
     },
     {
         title: "Stem Instructor",
