@@ -47,6 +47,30 @@ body {
     background-color: var(--bg-primary);
 }
 
+/* Typewriter animation for hero section header */
+.typewriter::after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.25em;
+    width: 0.1em;
+    height: 0.75em;
+    background-color: currentColor;
+    border-radius: 9999px;
+    animation: blink 0.8s step-end infinite;
+    vertical-align: -0.05em; /* fine-tune to align with Poppins */
+}
+
+/* Blink keyframe to simulate caret in typewriter animation */
+@keyframes blink {
+    0%,
+    100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
 .notfound-orb {
     position: absolute;
     border-radius: 9999px;

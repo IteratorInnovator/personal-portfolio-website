@@ -52,40 +52,48 @@ const Hero = () => {
         }
     }, [charIndex, isDeleting, phraseIndex]);
     return (
-        <section id="home">
+        <section
+            id="home"
+            className="px-4 text-primary sm:px-6 md:px-10 lg:px-20"
+        >
             <BackgroundBeamsWithCollision>
-                <div className="mt-12">
-                    <h1 className="text-6xl font-jetbrains text-center font-medium text-primary">
-                        Hi, I'm <span className="text-accent">Harry!</span>
-                    </h1>
-                    <h2 className="text-primary text-6xl text-left mt-6 font-jetbrains font-medium">
-                        I'm a
-                        <span
-                            id="typewriter"
-                            className="ml-8 text-6xl font-jetbrains font-bold text-accent"
-                        >
-                            {text}
-                        </span>
-                    </h2>
-                    <p className="font-inter text-xl text-secondary text-center max-w-3xl mx-auto my-12">
+                <div className="mx-auto flex max-w-4xl flex-col gap-6">
+                    <div className="space-y-4 text-center">
+                        <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">
+                            Welcome
+                        </p>
+                        <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-jetbrains font-semibold text-primary">
+                            Hi, I'm <span className="text-accent">Harry!</span>
+                        </h1>
+
+                        <h2 className="mt-2 w-full text-center text-xl font-jetbrains font-medium text-primary leading-tight sm:text-3xl md:text-5xl lg:text-6xl">
+                            I'm a&nbsp;
+                            <span
+                                id="typewriter"
+                                className="typewriter inline-block min-w-[16ch] text-left font-jetbrains font-bold text-accent"
+                            >
+                                {text}
+                            </span>
+                        </h2>
+                    </div>
+                    <p className="font-inter text-sm md:text-base text-secondary text-center max-w-4xl">
                         Passionate about creating cutting-edge solutions that
                         bridge the gap between innovative technology and
                         real-world applications. Specializing in backend
                         development, automation, and devops.
                     </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <div className="flex flex-row items-center justify-center gap-4">
                         <Link
                             to="/projects"
-                            className="w-full sm:w-auto bg-accent text-white px-8 py-3 rounded-full font-jetbrains font-semibold text-lg text-center transition-colors duration-200 hover:bg-accent-hover"
+                            className="w-auto bg-accent text-white px-3 py-2 sm:px-6 sm:py-3 rounded-full font-jetbrains font-semibold text-sm sm:text-base md:text-lg text-center transition-colors duration-200 hover:bg-accent-hover"
                         >
                             View Projects
                         </Link>
                         <Button
-                            as="a"
                             href={Resume}
                             download
-                            containerClassName="w-full sm:w-auto"
-                            className="w-full sm:w-auto px-8 py-3 font-jetbrains font-semibold border border-slate-200 text-lg text-center text-accent bg-neutral-100 transition-all duration-300 hover:border-neutral-300"
+                            containerClassName="w-auto"
+                            className="px-3 py-2 sm:px-6 sm:py-3 font-jetbrains font-semibold border border-slate-200 text-sm sm:text-base md:text-lg text-center text-accent bg-neutral-100 transition-all duration-300 hover:border-neutral-300"
                         >
                             Download Resume
                         </Button>
