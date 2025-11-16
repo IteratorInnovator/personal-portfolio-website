@@ -1,4 +1,5 @@
 import { experienceTimeline } from "../utils/constants";
+import { MapPin } from "lucide-react";
 
 const statusStyles = {
     ongoing:
@@ -46,8 +47,9 @@ const Experience = () => {
                                             {place}
                                         </p>
                                         {location && (
-                                            <p className="font-inter text-sm text-secondary">
-                                                {location}
+                                            <p className="flex items-center gap-2 font-inter text-sm text-secondary">
+                                                <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
+                                                <span>{location}</span>
                                             </p>
                                         )}
                                     </div>
