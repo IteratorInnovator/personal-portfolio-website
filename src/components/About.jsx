@@ -29,9 +29,11 @@ const About = () => {
                                 loading="lazy"
                             />
                         </div>
-                        <div className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-2xl border border-white/40 bg-white/85 px-5 py-3 text-sm font-jetbrains text-slate-900 shadow-lg backdrop-blur dark:bg-slate-900/80 dark:text-white">
-                            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
-                            Always exploring new technologies
+                        <div className="absolute -bottom-6 left-1/2 flex w-[50%] -translate-x-1/2 items-center gap-2 rounded-2xl border border-white/40 bg-white/85 px-4 py-2 text-[10px] font-jetbrains text-slate-900 shadow-lg backdrop-blur dark:bg-slate-900/80 dark:text-white sm:w-auto sm:gap-3 sm:px-5 sm:py-3 sm:text-xs md:text-sm">
+                            <span className="h-2 w-2 rounded-full bg-emerald-500 sm:h-2.5 sm:w-2.5" />
+                            <span className="text-center sm:text-left">
+                                Always exploring new technologies
+                            </span>
                         </div>
                     </div>
                 </div>
