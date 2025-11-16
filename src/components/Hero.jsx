@@ -90,10 +90,11 @@ const Hero = () => {
                             View Projects
                         </Link>
                         <Button
+                            as="a"
                             href={Resume}
                             download
                             containerClassName="w-auto"
-                            className="px-3 py-2 sm:px-6 sm:py-3 font-jetbrains font-semibold border border-slate-200 text-sm sm:text-base md:text-lg text-center text-accent bg-neutral-100 transition-all duration-300 hover:border-neutral-300"
+                            className="cursor-pointer px-3 py-2 sm:px-6 sm:py-3 font-jetbrains font-semibold border border-slate-200 text-sm sm:text-base md:text-lg text-center text-accent bg-neutral-100 transition-all duration-300 hover:border-neutral-300"
                         >
                             Download Resume
                         </Button>
