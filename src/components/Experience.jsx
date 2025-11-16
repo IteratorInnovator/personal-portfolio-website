@@ -1,0 +1,117 @@
+import { experienceTimeline } from "../utils/constants";
+
+const statusStyles = {
+    ongoing:
+        "border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-500/40 dark:bg-emerald-500/10 dark:text-emerald-200",
+    completed:
+        "border-sky-300 bg-sky-50 text-sky-700 dark:border-sky-500/40 dark:bg-sky-500/10 dark:text-sky-200",
+};
+
+const statusLabel = {
+    ongoing: "In Progress",
+    completed: "Completed",
+};
+
+const Experience = () => {
+    return (
+        <div className="w-full space-y-4">
+            {experienceTimeline.map(
+                ({
+                    title,
+                    place,
+                    period,
+                    location,
+                    status,
+                    description,
+                    responsibilities,
+                    technologies,
+                }) => {
+                    const badgeClass =
+                        statusStyles[status] ??
+                        "border-border bg-background/70 text-primary";
+                    const badgeText = statusLabel[status] ?? status;
+
+                    return (
+                        <article
+                            key={`${title}-${period}`}
+                            className="space-y-5 rounded-2xl border border-border/70 bg-surface/60 p-6 text-left shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30"
+                        >
+                            <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-8">
+                                <div className="flex w-full flex-col gap-3 md:w-60 md:flex-shrink-0">
+                                    <span className="font-jetbrains text-xs uppercase tracking-[0.4em] text-secondary">
+                                        {period}
+                                    </span>
+                                    <div className="space-y-1">
+                                        <p className="font-jetbrains text-sm text-primary">
+                                            {place}
+                                        </p>
+                                        {location && (
+                                            <p className="font-inter text-sm text-secondary">
+                                                {location}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <span
+                                        className={`w-fit rounded-full border px-3 py-1 text-[0.65rem] font-jetbrains uppercase tracking-[0.4em] ${badgeClass}`}
+                                    >
+                                        {badgeText}
+                                    </span>
+                                </div>
+                                <div className="flex-1 space-y-4">
+                                    <div>
+                                        <h3 className="text-xl font-jetbrains font-semibold text-primary">
+                                            {title}
+                                        </h3>
+                                        {Array.isArray(technologies) &&
+                                            technologies.length > 0 && (
+                                                <div className="mt-2 flex flex-wrap gap-2">
+                                                    {technologies.map(
+                                                        (tech) => (
+                                                            <span
+                                                                key={`${title}-${tech}`}
+                                                                className="rounded-full border border-border/70 bg-background/70 px-3 py-1 text-xs font-jetbrains text-secondary"
+                                                            >
+                                                                {tech}
+                                                            </span>
+                                                        )
+                                                    )}
+                                                </div>
+                                            )}
+                                    </div>
+                                    <p className="font-inter text-base text-secondary">
+                                        {description}
+                                    </p>
+                                </div>
+                            </div>
+                            {Array.isArray(responsibilities) &&
+                                responsibilities.length > 0 && (
+                                    <div>
+                                        <p className="font-jetbrains text-xs uppercase tracking-[0.3em] text-secondary">
+                                            Key Contributions
+                                        </p>
+                                        <ul className="mt-3 space-y-2">
+                                            {responsibilities.map(
+                                                (item, index) => (
+                                                    <li
+                                                        key={`${title}-resp-${index}`}
+                                                        className="flex gap-3 text-sm font-inter text-secondary"
+                                                    >
+                                                        <span className="text-primary">
+                                                            —
+                                                        </span>
+                                                        <span>{item}</span>
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
+                                    </div>
+                                )}
+                        </article>
+                    );
+                }
+            )}
+        </div>
+    );
+};
+
+export default Experience;

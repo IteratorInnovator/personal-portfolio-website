@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { certifications } from "../utils/constants";
 import EmblaCarousel from "../components/ui/embla-carousel";
 
@@ -31,6 +32,7 @@ const Certifications = () => {
                     <EmblaCarousel slides={certifications} OPTIONS={OPTIONS} />
                 </div>
             </section>
+            <Footer />
         </div>
     );
 };

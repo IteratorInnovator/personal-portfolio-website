@@ -1,9 +1,9 @@
-const Projects = () => {
-    return (
+const Contact = () => {
+    return(
         <div className="text-primary">
             test
         </div>
-    )
+    );
 }
 
-export default Projects;
+export default Contact;

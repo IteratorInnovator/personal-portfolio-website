@@ -28,7 +28,6 @@ import JavascriptMozilla from "../assets/JavascriptMozilla.png";
 import GoogleITAutomation from "../assets/GoogleITAutomation.png";
 import DockerFoundations from "../assets/DockerFoundations.png";
 
-
 export const navigationItems = [
     { name: "Home", path: "/", isSection: true },
     { name: "Qualifications", path: "/", isSection: true },
@@ -67,35 +66,91 @@ export const highlights = [
 
 export const educationTimeline = [
     {
-        title: "B.Sc. Computer Science",
-        place: "State University",
-        period: "2019 – 2023",
+        title: "B.Sc. Software Engineering",
+        place: "Singapore Management University",
+        period: "2024 - Present",
+        status: "ongoing",
+        grade: "CGPA: 3.54/4 (Cum Laude)",
         description:
-            "Focused on distributed systems, human-centered design, and full-stack development fundamentals.",
+            "Comprehensive study in Fullstack Development, Distributed Systems, and Digital Design with hands-on project experience.",
+        highlights: [
+            "Programmes Lead - SMU Artificial Intelligence Club",
+            "Developer Subcommittee - SMU Fintech Club",
+            "Teaching Assistant - COR-IS1704 Computational Thinking",
+            "Teaching Assistant - IS115 Algorithms & Programming",
+        ],
     },
     {
-        title: "Frontend Engineering Nanodegree",
-        place: "Udacity",
-        period: "2023",
+        title: "GCE 'A' Levels",
+        place: "Yishun Innova Junior College",
+        period: "2021 - 2022",
+        status: "completed",
+        grade: "RP: 80/90",
         description:
-            "Completed advanced coursework on responsive UI, accessibility best practices, and performance profiling.",
+            "Completion of a rigorous interdisciplinary curriculum in advanced mathematics, biology, chemistry, and economics.",
+        highlights: [
+            "Edusave Merit & Good Progress Awards",
+            "Member - Class Leader Committee",
+            "Member - Outdoor Adventures Club (ODAC)",
+        ],
     },
 ];
 
 export const experienceTimeline = [
     {
-        title: "Software Engineering Intern",
-        place: "Tech Labs",
-        period: "Summer 2024",
+        title: "DevOps Engineer Intern",
+        place: "Infosys Limited",
+        period: "June 2025 - Aug 2025",
+        location: "Bangalore, India",
+        status: "completed",
         description:
-            "Shipped a design system sandbox and dashboards that reduced UI prototyping time for the product team.",
+            "Autonomous Mobile Robot (AMR) under Education, Training, and Assessment unit",
+        responsibilities: [
+            "Implementeded a Docker-based ROS build environment on RHEL 9, standardizing development workflows and reducing setup inconsistencies",
+            "Configured custom Docker networks using Docker Compose to facilitate ROS node-to-node communication.",
+            "Created comprehensive software architecture and process documentation of the ROS build environment using PlantUML and MS Word, reducing developer onboarding time and improving knowledge transfer across teams.",
+        ],
+        technologies: ["Python", "ROS", "Docker", "RHEL"],
     },
     {
-        title: "Freelance Developer",
-        place: "Self-employed",
-        period: "2022 – Present",
+        title: "Stem Instructor",
+        place: "The Brainery Code",
+        period: "Mar 2025 – Present",
+        location: "Singapore",
+        status: "ongoing",
         description:
-            "Built bespoke web experiences for small businesses, integrating CMS workflows and analytics tooling.",
+            "Design and teach STEM lessons for primary and secondary students using coding platforms and robotics kits to build creativity and computational thinking.",
+        responsibilities: [
+            "Conduct hands-on classes in Scratch, Python, Minecraft Education, and LEGO robotics for students aged 7–16",
+            "Design structured coding projects that enhance problem-solving and teamwork",
+            "Adapt teaching methods to accommodate various learning styles and age groups",
+            "Mentor students through challenges to build foundational programming logic",
+            "Collaborate with fellow instructors to refine curriculum and improve lesson delivery",
+        ],
+        technologies: [
+            "Python",
+            "Lego Robotics",
+            "EV3",
+            "Minecraft Education",
+            "Scratch",
+        ],
+    },
+    {
+        title: "Singapore Institute of Management",
+        place: "Pre-admissions Coordinator",
+        period: "Feb 2024 - June 2024",
+        location: "Singapore",
+        status: "completed",
+        description:
+            "Processing of student applications with accurate documentation under the Pre-Admissions Team",
+        responsibilities: [
+            "Validated 500+ student applications with over 90% accuracy using Salesforce CRM",
+            "Verified 300+ documents via Zoom, ICA, OpenCerts, and CBSE platforms",
+            "Identified and escalated 3 fraudulent submissions to senior management",
+            "Resolved discrepancies by liaising with internal teams to meet tight application deadlines",
+            "Maintained applicant data and ensured compliance with institutional requirements",
+        ],
+        technologies: ["Salesforce CRM", "Excel", "Zoom"],
     },
 ];
 

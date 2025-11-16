@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { educationTimeline, experienceTimeline } from "../utils/constants";
+import Education from "./Education";
+import Experience from "./Experience";
 
 const tabs = [
     { name: "education", label: "Education" },
@@ -8,7 +9,6 @@ const tabs = [
 
 const Qualifications = () => {
     const [activeTab, setActiveTab] = useState("education");
-    const timelineItems =  (activeTab === "education") ? educationTimeline : experienceTimeline;
 
     return (
         <section
@@ -28,7 +28,7 @@ const Qualifications = () => {
                 </p>
             </div>
 
-            <div className="mx-auto mt-14 flex max-w-2xl flex-col gap-10">
+            <div className="mx-auto mt-14 flex max-w-3xl flex-col gap-10">
                 {/* Tabs */}
                 <div className="relative grid grid-cols-2 rounded-full bg-surface/60 border border-border px-1 py-2 shadow-[inset_0_0_0_1px_rgba(15,23,42,0.04)]">
                     {/* Slider */}
@@ -58,32 +58,12 @@ const Qualifications = () => {
                 </div>
 
                 {/* Panels */}
-                <div className="w-full space-y-4">
-                    {timelineItems.map(
-                        ({ title, place, period, description }) => (
-                            <article
-                                key={`${title}-${period}`}
-                                className="flex flex-col gap-4 rounded-2xl border border-border/70 bg-surface/60 p-6 text-left shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30 md:flex-row md:items-start md:gap-8"
-                            >
-                                <div className="flex w-full items-center justify-between gap-4 md:w-44 md:flex-col md:items-start">
-                                    <span className="font-jetbrains text-xs uppercase tracking-[0.4em] text-secondary">
-                                        {period}
-                                    </span>
-                                    <span className="rounded-full border border-border bg-background/90 px-3 py-1 text-xs font-jetbrains uppercase tracking-[0.3em] text-primary">
-                                        {place}
-                                    </span>
-                                </div>
-                                <div className="flex-1">
-                                    <h3 className="text-xl font-jetbrains font-semibold text-primary">
-                                        {title}
-                                    </h3>
-                                    <p className="mt-2 font-inter text-base text-secondary">
-                                        {description}
-                                    </p>
-                                </div>
-                            </article>
-                        )
-                    )}
+                <div className="w-full">
+                    {activeTab === "education" ? (
+                        <Education />
+                    ) : activeTab === "experience" ? (
+                        <Experience />
+                    ) : null}
                 </div>
             </div>
         </section>
