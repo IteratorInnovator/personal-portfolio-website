@@ -34,17 +34,20 @@ const Contact = () => {
         try {
             setStatus({ type: "info", message: "Sending your message..." });
 
-            const response = await fetch("https://harryngkokjing.com/api/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    name: form.name,
-                    email: form.email,
-                    message: form.message,
-                }),
-            });
+            const response = await fetch(
+                "https://harryngkokjing.com/api/contact",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        name: form.name,
+                        email: form.email,
+                        message: form.message,
+                    }),
+                }
+            );
 
             if (!response.ok) {
                 throw new Error("Failed to send");
@@ -68,126 +71,126 @@ const Contact = () => {
     return (
         <div>
             <Header />
-            <section className="bg-background px-6 py-24 text-primary md:px-24">
-                <div className="mx-auto max-w-5xl">
-                    <div className="text-center">
-                        <p className="text-sm font-jetbrains uppercase tracking-[0.4em] text-secondary">
-                            Contact
-                        </p>
-                        <h1 className="mt-3 text-4xl font-jetbrains font-semibold md:text-5xl">
-                            Let’s work together
-                        </h1>
-                        <p className="mt-4 font-inter text-base text-secondary md:text-lg">
-                            Have a question, collaboration idea, or an
-                            opportunity that aligns with my work? Send a message
-                            and I’ll get back to you.
-                        </p>
+            <section className="bg-background px-4 py-20 text-primary sm:px-6 lg:py-28">
+                <div className="text-center">
+                    <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">
+                        Contact
+                    </p>
+                    <h1 className="mt-3 text-3xl font-jetbrains font-semibold sm:text-4xl md:text-5xl">
+                        Let’s work together
+                    </h1>
+                    <p className="mt-4 font-inter text-sm text-secondary sm:text-base md:text-lg">
+                        Have a question, collaboration idea, or an opportunity
+                        that aligns with my work? Send a message and I’ll get
+                        back to you.
+                    </p>
+                </div>
+
+                <div className="mx-auto mt-16 grid max-w-5xl gap-8 lg:grid-cols-[1fr_1.2fr]">
+                    <div className="space-y-6 rounded-2xl border border-border bg-surface/60 p-6 shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30 sm:rounded-3xl sm:p-8">
+                        <ContactInfo
+                            icon={<Mail className="h-5 w-5" />}
+                            label="Email"
+                            value="harryngkokjing@gmail.com"
+                            href="mailto:harryngkokjing@gmail.com"
+                        />
+                        <ContactInfo
+                            icon={<Phone className="h-5 w-5" />}
+                            label="Phone"
+                            value="+65 8504 0648"
+                            href="tel:+6585040648"
+                        />
+                        <ContactInfo
+                            icon={<TbBrandWhatsapp className="h-5 w-5" />}
+                            label="WhatsApp"
+                            value="+65 8504 0648"
+                            href="https://wa.me/6585040648"
+                        />
+                        <ContactInfo
+                            icon={<TbBrandTelegram className="h-5 w-5" />}
+                            label="Telegram"
+                            value="@hnkj_29703"
+                            href="https://t.me/hnkj_29703"
+                        />
+                        <ContactInfo
+                            icon={<MapPin className="h-5 w-5" />}
+                            label="Based in"
+                            value="Singapore"
+                        />
                     </div>
 
-                    <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
-                        <div className="space-y-8 rounded-3xl border border-border bg-surface/60 p-8 shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30">
-                            <ContactInfo
-                                icon={<Mail className="h-5 w-5" />}
+                    <form
+                        onSubmit={handleSubmit}
+                        className="space-y-6 rounded-2xl border border-border bg-surface/60 p-6 shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30 sm:rounded-3xl sm:p-8"
+                    >
+                        <div className="grid gap-6 md:grid-cols-2">
+                            <InputField
+                                label="Full Name"
+                                name="name"
+                                value={form.name}
+                                onChange={handleChange}
+                                placeholder="Jane Doe"
+                                required
+                            />
+                            <InputField
                                 label="Email"
-                                value="harryngkokjing@gmail.com"
-                                href="mailto:harryngkokjing@gmail.com"
-                            />
-                            <ContactInfo
-                                icon={<Phone className="h-5 w-5" />}
-                                label="Phone"
-                                value="+65 8504 0648"
-                                href="tel:+6585040648"
-                            />
-                            <ContactInfo
-                                icon={<TbBrandWhatsapp className="h-5 w-5" />}
-                                label="WhatsApp"
-                                value="+65 8504 0648"
-                                href="https://wa.me/6585040648"
-                            />
-                            <ContactInfo
-                                icon={<TbBrandTelegram className="h-5 w-5" />}
-                                label="Telegram"
-                                value="@hnkj_29703"
-                                href="https://t.me/hnkj_29703"
-                            />
-                            <ContactInfo
-                                icon={<MapPin className="h-5 w-5" />}
-                                label="Based in"
-                                value="Singapore"
+                                type="email"
+                                name="email"
+                                value={form.email}
+                                onChange={handleChange}
+                                placeholder="hello@example.com"
+                                required
                             />
                         </div>
-
-                        <form
-                            onSubmit={handleSubmit}
-                            className="space-y-6 rounded-3xl border border-border bg-surface/60 p-8 shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30"
-                        >
-                            <div className="grid gap-6 md:grid-cols-2">
-                                <InputField
-                                    label="Full Name"
-                                    name="name"
-                                    value={form.name}
-                                    onChange={handleChange}
-                                    placeholder="Jane Doe"
-                                    required
-                                />
-                                <InputField
-                                    label="Email"
-                                    type="email"
-                                    name="email"
-                                    value={form.email}
-                                    onChange={handleChange}
-                                    placeholder="hello@example.com"
-                                    required
-                                />
-                            </div>
-                            <InputField
-                                label="Subject"
-                                name="subject"
-                                value={form.subject}
-                                onChange={handleChange}
-                                placeholder="How can I help?"
-                            />
-                            <div>
-                                <label
-                                    htmlFor="message"
-                                    className="text-sm font-jetbrains uppercase tracking-[0.3em] text-secondary"
-                                >
-                                    Message
-                                </label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows={5}
-                                    value={form.message}
-                                    onChange={handleChange}
-                                    placeholder="Share details about your project, opportunity, or question."
-                                    className="mt-3 w-full rounded-2xl border border-border bg-background px-4 py-3 font-inter text-base text-primary shadow-[inset_0_1px_4px_rgba(15,23,42,0.08)] focus:border-accent focus:outline-none"
-                                    required
-                                />
-                            </div>
-                            {status && (
-                                <p
-                                    className={`text-sm font-inter ${
-                                        status.type === "error"
-                                            ? "text-red-500"
-                                            : "text-emerald-500"
-                                    }`}
-                                >
-                                    {status.message}
-                                </p>
-                            )}
-                            <button
-                                type="submit"
-                                className="w-full rounded-2xl border border-border bg-accent px-6 py-3 font-jetbrains text-sm uppercase tracking-[0.3em] text-white transition hover:bg-accent/90"
+                        <InputField
+                            label="Subject"
+                            name="subject"
+                            value={form.subject}
+                            onChange={handleChange}
+                            placeholder="How can I help?"
+                        />
+                        <div>
+                            <label
+                                htmlFor="message"
+                                className="text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary sm:text-sm"
                             >
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
+                                Message
+                            </label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows={5}
+                                value={form.message}
+                                onChange={handleChange}
+                                placeholder="Share details about your project, opportunity, or question."
+                                className="mt-3 w-full rounded-2xl border border-border bg-background px-3 py-2 font-inter text-sm text-primary shadow-[inset_0_1px_4px_rgba(15,23,42,0.08)] focus:border-accent focus:outline-none sm:px-4 sm:py-3 sm:text-base"
+                                required
+                            />
+                        </div>
+                        {status && (
+                            <p
+                                className={`text-xs font-inter sm:text-sm ${
+                                    status.type === "error"
+                                        ? "text-red-500"
+                                        : status.type === "info"
+                                        ? "text-secondary"
+                                        : "text-emerald-500"
+                                }`}
+                            >
+                                {status.message}
+                            </p>
+                        )}
+                        <button
+                            type="submit"
+                            className="w-full rounded-2xl border border-border bg-accent px-5 py-3 font-jetbrains text-xs uppercase tracking-[0.3em] text-white transition hover:bg-accent/90 sm:px-6 sm:text-sm"
+                        >
+                            Send Message
+                        </button>
+                    </form>
                 </div>
             </section>
 
-            <footer className="px-6 py-24 flex flex-col gap-2 border-t border-border pt-8 text-sm text-secondary items-center justify-between">
+            <footer className="px-6 pt-8 pb-24 flex flex-col gap-2 border-t border-border text-sm text-secondary items-center justify-between">
                 <p className="w-full text-center">
                     © {new Date().getFullYear()} Harry. All rights reserved.
                 </p>
@@ -211,7 +214,7 @@ const InputField = ({
     <div>
         <label
             htmlFor={name}
-            className="text-sm font-jetbrains uppercase tracking-[0.3em] text-secondary"
+            className="text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary sm:text-sm"
         >
             {label}
         </label>
@@ -223,30 +226,31 @@ const InputField = ({
             onChange={onChange}
             placeholder={placeholder}
             required={required}
-            className="mt-3 w-full rounded-2xl border border-border bg-background px-4 py-3 font-inter text-base text-primary shadow-[inset_0_1px_4px_rgba(15,23,42,0.08)] focus:border-accent focus:outline-none"
+            className="mt-3 w-full rounded-2xl border border-border bg-background px-3 py-2 font-inter text-sm text-primary shadow-[inset_0_1px_4px_rgba(15,23,42,0.08)] focus:border-accent focus:outline-none sm:px-4 sm:py-3 sm:text-base"
         />
     </div>
 );
 
 const ContactInfo = ({ icon, label, value, href }) => (
-    <div className="flex items-start gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-background text-primary">
+    <div className="flex flex-col gap-3 rounded-2xl border border-border/60 bg-background/80 p-4 shadow-[0_10px_25px_rgba(15,23,42,0.05)] sm:flex-row sm:items-center sm:gap-4">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-border bg-background text-primary">
             {icon}
         </div>
         <div>
-            <p className="text-sm font-jetbrains uppercase tracking-[0.3em] text-secondary">
+            <p className="text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary sm:text-sm">
                 {label}
             </p>
             {href ? (
                 <a
                     href={href}
                     target="_blank"
-                    className="mt-1 inline-flex items-center text-lg font-jetbrains text-primary hover:text-accent"
+                    rel="noreferrer"
+                    className="mt-1 inline-flex items-center text-base font-jetbrains text-primary hover:text-accent sm:text-lg"
                 >
                     {value}
                 </a>
             ) : (
-                <p className="mt-1 text-lg font-jetbrains text-primary">
+                <p className="mt-1 text-base font-jetbrains text-primary sm:text-lg">
                     {value}
                 </p>
             )}
