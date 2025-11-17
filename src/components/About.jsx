@@ -1,12 +1,34 @@
+import { useEffect, useState } from "react";
 import profileImage from "../assets/profile.jpg";
 import { highlights } from "../utils/constants";
 import { GitHubCalendar } from "react-github-calendar";
+import { getInitialTheme } from "../utils/helpers";
 
 const About = () => {
+    const [theme, setTheme] = useState(getInitialTheme);
     const calendarStyle = {
         color: "var(--text-secondary)",
         fontFamily: "var(--font-jetbrains)",
     };
+
+    useEffect(() => {
+        if (typeof window === "undefined") {
+            return undefined;
+        }
+
+        const handleThemeChange = (event) => {
+            const nextTheme = event?.detail;
+            if (nextTheme === "light" || nextTheme === "dark") {
+                setTheme(nextTheme);
+            }
+        };
+
+        window.addEventListener("theme-change", handleThemeChange);
+
+        return () => {
+            window.removeEventListener("theme-change", handleThemeChange);
+        };
+    }, []);
 
     return (
         <section id="about" className="bg-background px-6 py-24 md:px-24">
@@ -86,7 +108,7 @@ const About = () => {
                     <div className="mt-6 flex w-full justify-center overflow-x-auto">
                         <GitHubCalendar
                             username="IteratorInnovator"
-                            colorScheme="light"
+                            colorScheme={theme}
                             fontSize={14}
                             year={2025}
                             showColorLegend={true}
