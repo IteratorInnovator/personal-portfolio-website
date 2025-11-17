@@ -36,14 +36,15 @@ const legendDescriptions = [
 
 const About = () => {
     const [theme, setTheme] = useState(getInitialTheme);
-    const [calenderFontSize, setCalendarFontSize] = useState(getCalendarFontSize);
+    const [calenderFontSize, setCalendarFontSize] =
+        useState(getCalendarFontSize);
     const [selectedYear, setSelectedYear] = useState("2025");
     const availableYears = ["2025", "2024"];
     const calendarStyle = {
         color: "var(--text-secondary)",
         fontFamily: "var(--font-jetbrains)",
     };
-    
+
     useEffect(() => {
         if (typeof window === "undefined") {
             return undefined;
@@ -222,9 +223,10 @@ const About = () => {
                             tooltips={{
                                 activity: {
                                     text: (activity) => {
-                                        const formattedDate = formatContributionDate(
-                                            activity.date
-                                        );
+                                        const formattedDate =
+                                            formatContributionDate(
+                                                activity.date
+                                            );
                                         const count = activity.count || 0;
                                         if (count === 0) {
                                             return `No contributions on ${formattedDate}`;
