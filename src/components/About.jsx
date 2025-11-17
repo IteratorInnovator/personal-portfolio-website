@@ -114,7 +114,7 @@ const About = () => {
                 </div>
             </div>
             <article
-                className="mt-14 flex w-full flex-col items-center px-4 sm:px-6 lg:px-0"
+                className="mt-14 flex w-full flex-col items-center"
                 style={calendarStyle}
             >
                 <div className="w-full max-w-6xl rounded-2xl border border-slate-200/40 bg-white/10 p-6 sm:p-8 md:p-10 shadow-[0_20px_45px_rgba(15,23,42,0.18)] backdrop-blur dark:border-slate-700/40 dark:bg-white/5">
@@ -142,10 +142,10 @@ const About = () => {
                                 experiments, learning, and launches.
                             </p>
                         </div>
-                        <div className="flex gap-2 text-sm text-secondary sm:flex-row sm:items-center sm:gap-4">
+                        <div className="flex w-auto flex-row items-center justify-end gap-2 text-xs text-secondary sm:text-sm sm:gap-4">
                             <label
                                 htmlFor="github-year"
-                                className="align-middle font-jetbrains uppercase tracking-[0.3em]"
+                                className="text-xs sm:text-sm font-jetbrains uppercase tracking-[0.3em]"
                             >
                                 Year
                             </label>
@@ -154,7 +154,7 @@ const About = () => {
                                     <button
                                         id="github-year"
                                         type="button"
-                                        className="inline-flex items-center gap-2 rounded-xl border border-slate-200/60 bg-white/70 px-4 py-2 font-jetbrains text-sm text-primary shadow-sm transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 dark:border-slate-700/60 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                                        className="inline-flex items-center gap-2 rounded-xl border border-slate-200/60 bg-white/70 px-4 py-2 font-jetbrains text-xs sm:text-sm text-primary shadow-sm transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 dark:border-slate-700/60 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
                                     >
                                         <span>{selectedYear}</span>
                                         <ChevronDown className="h-4 w-4 text-secondary dark:text-slate-300" />
