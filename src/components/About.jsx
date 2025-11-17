@@ -12,6 +12,28 @@ import {
 } from "./ui/dropdown-menu";
 import { getCalendarFontSize } from "../utils/helpers";
 
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+});
+
+const formatContributionDate = (isoDate) => {
+    const parsed = new Date(isoDate);
+    if (Number.isNaN(parsed.getTime())) {
+        return isoDate;
+    }
+    return dateFormatter.format(parsed);
+};
+
+const legendDescriptions = [
+    "No activity recorded",
+    "Light activity streaks",
+    "Consistent weekly output",
+    "High intensity building",
+    "Peak launch cadence",
+];
+
 const About = () => {
     const [theme, setTheme] = useState(getInitialTheme);
     const [calenderFontSize, setCalendarFontSize] = useState(getCalendarFontSize);
@@ -196,6 +218,27 @@ const About = () => {
                             labels={{
                                 totalCount:
                                     "{{count}} contributions in {{year}}",
+                            }}
+                            tooltips={{
+                                activity: {
+                                    text: (activity) => {
+                                        const formattedDate = formatContributionDate(
+                                            activity.date
+                                        );
+                                        const count = activity.count || 0;
+                                        if (count === 0) {
+                                            return `No contributions on ${formattedDate}`;
+                                        }
+                                        return `${count} contribution${
+                                            count === 1 ? "" : "s"
+                                        } on ${formattedDate}`;
+                                    },
+                                },
+                                colorLegend: {
+                                    text: (level) =>
+                                        legendDescriptions[level] ??
+                                        `Level ${level} activity`,
+                                },
                             }}
                         />
                     </div>
