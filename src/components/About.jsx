@@ -1,7 +1,13 @@
 import profileImage from "../assets/profile.jpg";
 import { highlights } from "../utils/constants";
+import { GitHubCalendar } from "react-github-calendar";
 
 const About = () => {
+    const calendarStyle = {
+        color: "var(--text-secondary)",
+        fontFamily: "var(--font-jetbrains)",
+    };
+
     return (
         <section id="about" className="bg-background px-6 py-24 md:px-24">
             <div className="mx-auto max-w-5xl text-center">
@@ -17,7 +23,7 @@ const About = () => {
                     collaboration to ship meaningful experiences.
                 </p>
             </div>
-            <div className="mx-auto mt-14 grid max-w-6xl items-center gap-16 lg:grid-cols-[0.9fr,1.1fr]">
+            <div className="mx-auto mt-14 flex flex-col xl:flex-row max-w-6xl items-center gap-16">
                 <div className="mx-auto w-full max-w-sm lg:max-w-md">
                     <div className="relative">
                         <div className="absolute inset-0 -z-10 rounded-xl bg-linear-to-tr from-accent/20 via-transparent to-white/30 blur-3xl" />
@@ -58,6 +64,43 @@ const About = () => {
                     </div>
                 </div>
             </div>
+            <article
+                className="mt-14 flex w-full flex-col items-center px-4 sm:px-6 lg:px-0"
+                style={calendarStyle}
+            >
+                <div className="w-full max-w-6xl rounded-2xl border border-slate-200/40 bg-white/10 p-10 shadow-[0_20px_45px_rgba(15,23,42,0.18)] backdrop-blur dark:border-slate-700/40 dark:bg-white/5">
+                    <div className="flex flex-col gap-2 text-left sm:justify-between xl:flex-row">
+                        <div className="flex flex-col justify-between">
+                            <p className="text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary">
+                                GitHub Activity
+                            </p>
+                            <p className="text-2xl font-jetbrains font-semibold text-primary">
+                                @IteratorInnovator
+                            </p>
+                        </div>
+                        <p className="text-xs text-secondary place-content-end">
+                            Contributions over the last year across experiments,
+                            learning, and launches.
+                        </p>
+                    </div>
+                    <div className="mt-6 flex w-full justify-center overflow-x-auto">
+                        <GitHubCalendar
+                            username="IteratorInnovator"
+                            colorScheme="light"
+                            fontSize={14}
+                            year={2025}
+                            showColorLegend={true}
+                            showTotalCount={true}
+                            showMonthLabels={true}
+                            showWeekdayLabels={true}
+                            labels={{
+                                totalCount:
+                                    "{{count}} contributions in {{year}}",
+                            }}
+                        />
+                    </div>
+                </div>
+            </article>
         </section>
     );
 };

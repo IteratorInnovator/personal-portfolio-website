@@ -193,7 +193,7 @@ const ExperienceEntry = ({ item, onImageClick }) => {
                         )}
                     </button>
                     <div
-                        className="overflow-hidden transition-all duration-500"
+                        className="overflow-hidden transition-all duration-250"
                         style={{
                             maxHeight: `${responsibilitiesHeight}px`,
                             opacity: showResponsibilities ? 1 : 0,
