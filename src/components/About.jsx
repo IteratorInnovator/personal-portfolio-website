@@ -10,15 +10,33 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
+import { getCalendarFontSize } from "../utils/helpers";
 
 const About = () => {
     const [theme, setTheme] = useState(getInitialTheme);
+    const [calenderFontSize, setCalendarFontSize] = useState(getCalendarFontSize);
     const [selectedYear, setSelectedYear] = useState("2025");
     const availableYears = ["2025", "2024"];
     const calendarStyle = {
         color: "var(--text-secondary)",
         fontFamily: "var(--font-jetbrains)",
     };
+    
+    useEffect(() => {
+        if (typeof window === "undefined") {
+            return undefined;
+        }
+
+        const handleResize = () => {
+            setCalendarFontSize(getCalendarFontSize());
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         if (typeof window === "undefined") {
@@ -169,8 +187,8 @@ const About = () => {
                         <GitHubCalendar
                             username="IteratorInnovator"
                             colorScheme={theme}
-                            fontSize={14}
-                            year={Number(selectedYear)}
+                            fontSize={calenderFontSize}
+                            year={selectedYear}
                             showColorLegend={true}
                             showTotalCount={true}
                             showMonthLabels={true}
