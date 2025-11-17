@@ -120,7 +120,7 @@ const EducationEntry = ({ item }) => {
                         )}
                     </button>
                     <div
-                        className="overflow-hidden transition-all duration-500"
+                        className="overflow-hidden transition-all duration-250"
                         style={{
                             maxHeight: `${highlightsHeight}px`,
                             opacity: showHighlights ? 1 : 0,

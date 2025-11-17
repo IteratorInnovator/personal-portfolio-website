@@ -62,11 +62,11 @@ const Hero = () => {
                         <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">
                             Welcome
                         </p>
-                        <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-jetbrains font-semibold text-primary">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-jetbrains font-semibold text-primary">
                             Hi, I'm <span className="text-accent">Harry!</span>
                         </h1>
 
-                        <h2 className="mt-2 w-full text-center text-xl font-jetbrains font-medium text-primary leading-tight sm:text-3xl md:text-5xl lg:text-6xl">
+                        <h2 className="mt-2 w-full text-center text-[20px] font-jetbrains font-medium text-primary leading-tight sm:text-3xl md:text-5xl lg:text-6xl">
                             I'm a&nbsp;
                             <span
                                 id="typewriter"
@@ -76,7 +76,7 @@ const Hero = () => {
                             </span>
                         </h2>
                     </div>
-                    <p className="font-inter text-sm md:text-base text-secondary text-center max-w-4xl">
+                    <p className="font-inter text-xs sm:text-sm md:text-base text-secondary text-center max-w-4xl">
                         Passionate about creating cutting-edge solutions that
                         bridge the gap between innovative technology and
                         real-world applications. Specializing in backend

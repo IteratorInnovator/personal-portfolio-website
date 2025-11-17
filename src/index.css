@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap");
 @import "tailwindcss";
 @config "../tailwind.config.js";
+@import "react-activity-calendar/tooltips.css";
 
 @theme {
     /* Map CSS variables to Tailwind utility tokens */
@@ -293,4 +294,32 @@ body {
     color: var(--bg-primary);
     background-color: var(--accent);
     border-color: var(--accent);
+}
+
+/* Adapt to your needs */
+.react-activity-calendar__tooltip {
+    width: max-content;
+    max-width: calc(100vw - 20px);
+    padding: 0.2em 0.5em;
+    border-radius: 0.25em;
+    background-color: hsl(0 0% 10%);
+    color: hsl(0 0% 94%);
+    font-size: 13px;
+    font-family: var(--font-jetbrains);
+
+    /* See the `withArrow` setting. */
+    .react-activity-calendar__tooltip-arrow {
+        fill: hsl(0 0% 10%);
+    }
+
+    /* Use this instead of a media query - the component theme can be set */
+    /* independent of the system color scheme. */
+    &[data-color-scheme="dark"] {
+        background-color: hsl(0 0% 94%);
+        color: hsl(0 0% 6%);
+
+        .react-activity-calendar__tooltip-arrow {
+            fill: hsl(0 0% 94%);
+        }
+    }
 }

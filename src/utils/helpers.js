@@ -18,3 +18,16 @@ export const getInitialTheme = () => {
 
     return "light";
 };
+
+export const getCalendarFontSize = () => {
+    if (typeof window === "undefined") {
+        return 12;
+    }
+    if (window.innerWidth < 480) {
+        return 9;
+    }
+    if (window.innerWidth < 768) {
+        return 11;
+    }
+    return 14;
+};
