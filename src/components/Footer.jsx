@@ -48,7 +48,7 @@ const Footer = () => {
                                     now
                                 </p>
                                 <p className="mt-2 font-jetbrains text-2xl text-primary">
-                                    Open to new backend roles
+                                    Open to new roles
                                 </p>
                             </div>
                             <div className="flex items-center gap-3 text-secondary">

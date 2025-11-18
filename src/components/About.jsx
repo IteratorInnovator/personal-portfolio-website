@@ -90,9 +90,8 @@ const About = () => {
                     About Me
                 </h2>
                 <p className="mt-4 text-secondary font-inter text-base md:text-lg">
-                    A curious builder driven by craft, people, and the impact of
-                    well-designed systems. I blend technical depth with
-                    collaboration to ship meaningful experiences.
+                    A curious developer who likes to understand how things work
+                    and build software that people actually use.
                 </p>
             </div>
             <div className="mx-auto mt-14 flex flex-col xl:flex-row max-w-6xl items-center gap-16">

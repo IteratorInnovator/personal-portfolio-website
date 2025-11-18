@@ -19,8 +19,7 @@ const Certifications = () => {
                             Certifications
                         </h3>
                         <p className="mt-2 font-inter text-sm text-secondary sm:text-base md:text-lg">
-                            Drag the carousel to skim through the credentials I
-                            rely on most.
+                            Drag the carousel to skim through my credentials.
                         </p>
                     </div>
                     <span className="text-center text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary md:text-sm">

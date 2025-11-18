@@ -25,8 +25,7 @@ const Qualifications = () => {
                     Qualifications
                 </h2>
                 <p className="mt-4 text-secondary font-inter text-base md:text-lg">
-                    Milestones that shaped how I design, build, and deliver -
-                    from formal education to learning by shipping real products.
+                    Milestones from my studies and work that shaped my growth.
                 </p>
             </div>
 
