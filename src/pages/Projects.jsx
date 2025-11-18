@@ -37,6 +37,15 @@ const buildPhases = [
     },
 ];
 
+const getYouTubeEmbedUrl = (url) => {
+    if (!url) return null;
+    const pattern =
+        /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/i;
+    const match = url.match(pattern);
+    if (!match) return null;
+    return `https://www.youtube.com/embed/${match[1]}?rel=0`;
+};
+
 const Projects = () => {
     const [activeCategory, setActiveCategory] = useState("all");
     const [selectedProject, setSelectedProject] = useState(null);
@@ -382,7 +391,9 @@ const ProjectModal = ({ project, onClose }) => {
         liveUrl,
         type,
         status,
+        videoUrl,
     } = project;
+    const embedUrl = getYouTubeEmbedUrl(videoUrl);
 
     const handleDialogClick = (event) => {
         event.stopPropagation();
@@ -425,6 +436,7 @@ const ProjectModal = ({ project, onClose }) => {
                 <p className="mt-4 font-inter text-base text-secondary">
                     {summary}
                 </p>
+
                 <div className="mt-6 grid gap-4 md:grid-cols-3">
                     <InfoBlock label="Problem" text={problem} />
                     <InfoBlock label="Solution" text={solution} />
@@ -445,6 +457,23 @@ const ProjectModal = ({ project, onClose }) => {
                                 </p>
                             </div>
                         ))}
+                    </div>
+                )}
+                {embedUrl && (
+                    <div className="mt-6">
+                        <p className="text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary">
+                            Presentation
+                        </p>
+                        <div className="mt-3 aspect-video w-full overflow-hidden rounded-3xl border border-surface bg-black/30 shadow-lg">
+                            <iframe
+                                src={embedUrl}
+                                title={`${title} presentation video`}
+                                className="h-full w-full"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </div>
                     </div>
                 )}
                 {highlights?.length > 0 && (

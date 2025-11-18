@@ -294,6 +294,7 @@ export const projects = [
         categories: ["Web Development", "Coursework"],
         repoUrl: "https://github.com/IteratorInnovator/note-sync",
         liveUrl: "https://wad2-44a13.web.app/",
+        videoUrl: "https://youtu.be/Bmmdfy6yyX0",
         status: "Live",
     },
     {
@@ -331,6 +332,7 @@ export const projects = [
         repoUrl:
             "https://github.com/IteratorInnovator/personal-portfolio-website",
         liveUrl: "https://harryngkokjing.com",
+        videoUrl: null,
         status: "Live",
     },
     {
@@ -372,6 +374,7 @@ export const projects = [
         categories: ["Coursework"],
         repoUrl: "https://github.com/tiongg/cs102-proj",
         liveUrl: "",
+        videoUrl: null,
         status: "Prototype",
     },
     {
@@ -379,7 +382,7 @@ export const projects = [
         title: "PrivacyLens",
         type: "Mobile App + Backend",
         summary:
-            "A React Native app my team and I built for the TikTok TechJam hackathon, focused on helping users check and improve the privacy of short form videos before uploading.",
+            "A React Native app my team and I built for the TikTok TechJam 2025 hackathon, focused on helping users check and improve the privacy of short form videos before uploading.",
         problem:
             "People often post clips that accidentally expose faces, screens, or identifying details, and most tools only detect issues after the video is already online.",
         solution:
@@ -400,6 +403,7 @@ export const projects = [
         categories: ["Mobile"],
         repoUrl: "https://github.com/JarudeC/privacylens",
         liveUrl: "",
+        videoUrl: null,
         status: "Prototype",
     },
     {
@@ -436,6 +440,7 @@ export const projects = [
         repoUrl:
             "https://github.com/IteratorInnovator/automated-email-reminder",
         liveUrl: "",
+        videoUrl: null,
         status: "Active",
     },
 ];
