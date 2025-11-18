@@ -31,7 +31,6 @@ import Ubuntu from "../assets/Ubuntu.svg";
 import Vercel from "../assets/Vercel.svg";
 import Vite from "../assets/Vite.svg";
 
-
 import { Github, Linkedin, Instagram } from "lucide-react";
 import { TbBrandLeetcode } from "react-icons/tb";
 
@@ -59,9 +58,9 @@ export const navigationItems = [
 export const highlights = [
     {
         title: "Profile",
-        value: "22-year-old SWE",
+        value: `${new Date().getFullYear() - 2003} Year Old SWE`,
         description:
-            "I’m a 22-year-old aspiring software engineer looking for chances to build things that actually help people.",
+            "I’m a aspiring software engineer looking for chances to build things that actually help people.",
     },
     {
         title: "Journey",
@@ -71,7 +70,7 @@ export const highlights = [
     },
     {
         title: "Focus Areas",
-        value: "Backend · Automation · DevOps",
+        value: "Backend · DevOps · Automation",
         description:
             "I enjoy backend work, automation, and devops; I care about writing clean, efficient code and building systems that scale.",
     },
@@ -119,7 +118,7 @@ export const experienceTimeline = [
     {
         title: "DevOps Engineer Intern",
         place: "Infosys Limited",
-        period: "June 2025 - Aug 2025",
+        period: "Jun 2025 - Aug 2025",
         location: "Bangalore, India",
         status: "completed",
         description:
@@ -169,7 +168,7 @@ export const experienceTimeline = [
     {
         title: "Pre-Admissions Coordinator",
         place: "Singapore Institute of Management",
-        period: "Feb 2024 - June 2024",
+        period: "Feb 2024 - Jun 2024",
         location: "Singapore",
         status: "completed",
         description:
@@ -254,6 +253,99 @@ export const skills = [
             { name: "RHEL", icon: RHEL },
             { name: "Ubuntu", icon: Ubuntu },
         ],
+    },
+];
+
+export const projects = [
+    {
+        id: "portfolio-os",
+        title: "Portfolio OS",
+        type: "Frontend Experience",
+        summary:
+            "The site you’re browsing: a React + Vite build with themed navigation, section offsets, and intentional typography to tell my story quickly.",
+        problem:
+            "Wanted a single home for my journey, work, and contact details that didn’t rely on template builders.",
+        solution:
+            "Designed a component system (Hero, Highlights, Qualifications, Skills) with custom theme handling, motion flourishes, and responsive layouts.",
+        outcome:
+            "Gives recruiters and collaborators an interactive overview, and powers quick links to certifications, experience, and the contact form.",
+        highlights: [
+            "Typewriter hero, floating background beams, and sticky theme-aware navigation.",
+            "Qualifications and experience tabs with collapsible details plus floating image previews.",
+            "Embla-powered certification carousel and a Resend-backed contact form with transactional emails.",
+        ],
+        metrics: [
+            { label: "Pages", value: "4+" },
+            { label: "Framework", value: "React + Vite" },
+            { label: "Status", value: "Live" },
+        ],
+        stack: ["React", "Vite", "Tailwind CSS", "Resend", "Vercel"],
+        categories: ["Web Development", "Personal"],
+        repoUrl:
+            "https://github.com/IteratorInnovator/personal-portfolio-website",
+        liveUrl: "https://harryngkokjing.com",
+        featured: true,
+        status: "Live",
+    },
+    {
+        id: "contact-delivery-pipeline",
+        title: "Contact Delivery Pipeline",
+        type: "Serverless Workflow",
+        summary:
+            "A lightweight API route that validates inbound messages, renders branded emails, and notifies both sender and me in real time.",
+        problem:
+            "Didn’t want to rely on copy-pasted contact templates that sent unstructured mail to spam folders.",
+        solution:
+            "Built a Resend-powered handler with HTML templates, double-delivery (me + sender), and strict field validation before any emails leave the server.",
+        outcome:
+            "Production traffic from harryngkokjing.com now lands in my inbox with structured metadata, and senders get confirmation automatically.",
+        highlights: [
+            "Reusable HTML email template with branded header, detail rows, and message block.",
+            "Dual-delivery so every inquiry reaches me while giving senders instant confirmation.",
+            "Deployed as a serverless endpoint alongside the portfolio to avoid a separate backend.",
+        ],
+        metrics: [
+            { label: "Channel", value: "Email" },
+            { label: "Stack", value: "Node.js + Resend" },
+            { label: "Status", value: "Prod" },
+        ],
+        stack: ["Node.js", "Resend", "Vercel Functions", "Tailwind Email"],
+        categories: ["Serverless", "Automation"],
+        repoUrl:
+            "https://github.com/IteratorInnovator/personal-portfolio-website/tree/main/api",
+        liveUrl: null,
+        featured: false,
+        status: "Production",
+    },
+    {
+        id: "activity-analytics-board",
+        title: "Activity Analytics Board",
+        type: "Data Visualization",
+        summary:
+            "Custom GitHub calendar experience with theme-sync, tooltip formatting, and a responsive layout that surfaces streaks across years.",
+        problem:
+            "Default GitHub widgets clashed with my site’s typography and didn’t expose the details recruiters asked about (dates, streaks, months).",
+        solution:
+            "Wrapped react-github-calendar with bespoke theming, dropdown year selection, and tooltip overrides tied to my theme toggle.",
+        outcome:
+            "Visitors can quickly see when I’m shipping, zoom into specific contributions, and cross-reference stacks shown elsewhere on the site.",
+        highlights: [
+            "Year switcher to compare 2024 vs. 2025 output without scrolling forever.",
+            "Intl.DateTimeFormat helpers to humanize tooltips, keeping accessibility intact.",
+            "Live theme sync via custom events so the calendar adapts instantly to light/dark.",
+        ],
+        metrics: [
+            { label: "Years", value: "2" },
+            { label: "Theme", value: "Light + Dark" },
+            { label: "Status", value: "Live" },
+        ],
+        stack: ["React", "react-github-calendar", "Radix UI", "Tailwind CSS"],
+        categories: ["Web Development"],
+        repoUrl:
+            "https://github.com/IteratorInnovator/personal-portfolio-website",
+        liveUrl: null,
+        featured: false,
+        status: "Live",
     },
 ];
 
