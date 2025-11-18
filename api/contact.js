@@ -4,13 +4,34 @@ import { Resend } from "resend";
 const RESEND_API_KEY = process.env.VITE_RESEND_API_KEY;
 const resend = new Resend(RESEND_API_KEY);
 
+const safeParseBody = (body) => {
+    if (!body) return {};
+    if (typeof body === "string") {
+        try {
+            return JSON.parse(body);
+        } catch (error) {
+            console.error("Failed to parse string body", error);
+            return {};
+        }
+    }
+    if (body instanceof Buffer) {
+        try {
+            return JSON.parse(body.toString("utf8"));
+        } catch (error) {
+            console.error("Failed to parse buffer body", error);
+            return {};
+        }
+    }
+    return body;
+};
+
 export default async function handler(req, res) {
     if (req.method !== "POST") {
         res.status(405).json({ error: "Method not allowed" });
         return;
     }
-    const parsedBody = JSON.parse(req.body);
-    const { name, email, subject, message } = parsedBody || {};
+
+    const { name, email, subject, message } = safeParseBody(req.body);
 
     if (!name || !email || !message) {
         res.status(400).json({ error: "Missing fields" });
