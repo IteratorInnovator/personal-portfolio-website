@@ -31,7 +31,6 @@ import Ubuntu from "../assets/Ubuntu.svg";
 import Vercel from "../assets/Vercel.svg";
 import Vite from "../assets/Vite.svg";
 
-
 import { Github, Linkedin, Instagram } from "lucide-react";
 import { TbBrandLeetcode } from "react-icons/tb";
 
@@ -59,9 +58,9 @@ export const navigationItems = [
 export const highlights = [
     {
         title: "Profile",
-        value: "22-year-old SWE",
+        value: `${new Date().getFullYear() - 2003} Year Old SWE`,
         description:
-            "I’m a 22-year-old aspiring software engineer looking for chances to build things that actually help people.",
+            "I’m a aspiring software engineer looking for chances to build things that actually help people.",
     },
     {
         title: "Journey",
@@ -71,7 +70,7 @@ export const highlights = [
     },
     {
         title: "Focus Areas",
-        value: "Backend · Automation · DevOps",
+        value: "Backend · DevOps · Automation",
         description:
             "I enjoy backend work, automation, and devops; I care about writing clean, efficient code and building systems that scale.",
     },
@@ -119,7 +118,7 @@ export const experienceTimeline = [
     {
         title: "DevOps Engineer Intern",
         place: "Infosys Limited",
-        period: "June 2025 - Aug 2025",
+        period: "Jun 2025 - Aug 2025",
         location: "Bangalore, India",
         status: "completed",
         description:
@@ -169,7 +168,7 @@ export const experienceTimeline = [
     {
         title: "Pre-Admissions Coordinator",
         place: "Singapore Institute of Management",
-        period: "Feb 2024 - June 2024",
+        period: "Feb 2024 - Jun 2024",
         location: "Singapore",
         status: "completed",
         description:
@@ -254,6 +253,195 @@ export const skills = [
             { name: "RHEL", icon: RHEL },
             { name: "Ubuntu", icon: Ubuntu },
         ],
+    },
+];
+
+export const projects = [
+    {
+        id: "notesync",
+        title: "NoteSync",
+        type: "Fullstack Web App",
+        summary:
+            "Designed and built a YouTube note taking app for rich, timestamped lecture notes and progress tracking without juggling tabs, as coursework for IS216 Web Application Development II with my team.",
+        problem:
+            "Note taking from YouTube required switching windows and guessing timestamps, which slowed revision and made long lectures harder to navigate.",
+        solution:
+            "Implemented a custom editor with timestamp insertion, integrated the YouTube IFrame API for direct control, and designed a Firestore data model for videos, notes, and playlists.",
+        outcome:
+            "Gives learners a fast way to jump between explanations, build structured notes, save study progress, and keep everything synced across sessions and devices.",
+        highlights: [
+            "Rich text editor with timestamp shortcuts, autosave, and fullscreen note taking.",
+            "In place and fullscreen YouTube player controls with seek, playback rate, and synced note interactions.",
+            "Firestore storage for videos, playlists, and progress plus Cloud Functions for cleanup and automation.",
+        ],
+        metrics: [
+            { label: "Videos saved", value: "Unlimited" },
+            { label: "Note type", value: "Timestamped rich text" },
+            { label: "Status", value: "Live" },
+        ],
+        stack: [
+            "React",
+            "Tailwind CSS",
+            "Zustand",
+            "Vite",
+            "Firebase Auth",
+            "Cloud Firestore",
+            "Cloud Functions",
+            "Quill.js",
+            "Youtube Data API",
+            "YouTube IFrame API",
+        ],
+        categories: ["Web Development", "Coursework"],
+        repoUrl: "https://github.com/IteratorInnovator/note-sync",
+        liveUrl: "https://wad2-44a13.web.app/",
+        videoUrl: "https://youtu.be/Bmmdfy6yyX0",
+        status: "Live",
+    },
+    {
+        id: "personal-portfolio",
+        title: "Personal Portfolio Website",
+        type: "Frontend Experience",
+        summary:
+            "The site you’re browsing now: a React + Vite build with themed navigation, section offsets, and intentional typography to tell my story quickly.",
+        problem:
+            "Wanted a single home for my journey, work, and contact details that didn’t rely on template builders.",
+        solution:
+            "Designed a component system (Hero, Highlights, Qualifications, Skills) with custom theme handling, motion flourishes, and responsive layouts.",
+        outcome:
+            "Gives recruiters and collaborators an interactive overview, and powers quick links to certifications, experience, and the contact form.",
+        highlights: [
+            "Typewriter hero, floating background beams, and sticky theme-aware navigation.",
+            "Qualifications and experience tabs with collapsible details plus floating image previews.",
+            "Embla-powered certification carousel and a Resend-backed contact form with transactional emails.",
+        ],
+        metrics: [
+            { label: "Pages", value: "3+" },
+            { label: "Theme", value: "Light + Dark" },
+            { label: "Status", value: "Live" },
+        ],
+        stack: [
+            "React",
+            "Tailwind CSS",
+            "Vite",
+            "Resend",
+            "Vercel",
+            "Radix UI",
+            "Aceternity UI",
+        ],
+        categories: ["Web Development", "Personal"],
+        repoUrl:
+            "https://github.com/IteratorInnovator/personal-portfolio-website",
+        liveUrl: "https://harryngkokjing.com",
+        videoUrl: null,
+        status: "Live",
+    },
+    {
+        id: "smart-attendance-system",
+        title: "Smart Student Attendance System",
+        type: "Desktop Application",
+        summary:
+            "My team and I built a JavaFX based face recognition attendance system for CS102 Programming Fundamentals II. It lets teachers register faces, verify liveness, and mark attendance automatically through the camera.",
+        problem:
+            "Manual roll calls take time, are easy to fake, and do not scale well when teachers handle multiple classes and sessions.",
+        solution:
+            "Designed a JavaFX application with event driven services, an OpenCV recognition engine, and a SQLite data layer modelled through domain objects and repository patterns. Added onboarding flows for teachers and students, registration steps, and reusable UI components.",
+        outcome:
+            "Automates attendance, reduces spoofing, and keeps records organised by teacher, class, and session. The system demonstrates architectural layering, design patterns, and applied computer vision techniques.",
+        highlights: [
+            "Layered architecture with presentation, service, recognition, and data layers linked through interfaces and event driven messaging.",
+            "Face detection using HaarCascade and multi feature histogram based recognition with preprocessing (CLAHE, bilateral filtering, normalization).",
+            "Liveness checks using Laplacian variance to stop printed photo spoofing.",
+            "Flexible onboarding pipeline where each step implements a RegistrationStep interface with lifecycle hooks and its own validation.",
+            "Custom JavaFX Table component with sorting support; items implement TableChipItem to control display and ordering.",
+            "Type safe SQL through jOOQ with transactions, joins, and pagination.",
+        ],
+        metrics: [
+            { label: "UI", value: "JavaFX" },
+            { label: "Recognition", value: "OpenCV based" },
+            { label: "Course", value: "CS102" },
+        ],
+        stack: [
+            "Java",
+            "JavaFX",
+            "SQLite",
+            "OpenCV",
+            "jOOQ",
+            "OpenCSV",
+            "PDFBox",
+            "Apache POI",
+            "Maven",
+        ],
+        categories: ["Coursework"],
+        repoUrl: "https://github.com/tiongg/cs102-proj",
+        liveUrl: "",
+        videoUrl: null,
+        status: "Prototype",
+    },
+    {
+        id: "privacylens",
+        title: "PrivacyLens",
+        type: "Mobile App + Backend",
+        summary:
+            "A React Native app my team and I built for the TikTok TechJam 2025 hackathon, focused on helping users check and improve the privacy of short form videos before uploading.",
+        problem:
+            "People often post clips that accidentally expose faces, screens, or identifying details, and most tools only detect issues after the video is already online.",
+        solution:
+            "Developed a pipeline that scans videos locally with computer vision, highlights privacy risks, and suggests fixes. Built a simple review interface that lets users preview, flag, and clean sensitive frames before sharing.",
+        outcome:
+            "Gives creators a quick way to catch privacy issues early and reduces accidental oversharing on social platforms, all within a mobile friendly workflow.",
+        highlights: [
+            "On device detection of faces and sensitive regions using lightweight models.",
+            "Frame by frame privacy preview with clear visual markers for flagged content.",
+            "Backend service that stores anonymized results and supports future analytics.",
+        ],
+        metrics: [
+            { label: "Platform", value: "React Native" },
+            { label: "Detection", value: "On device CV" },
+            { label: "Hackathon", value: "TikTok TechJam" },
+        ],
+        stack: ["React Native", "FastAPI", "Python", "OpenCV", "YOLO"],
+        categories: ["Mobile"],
+        repoUrl: "https://github.com/JarudeC/privacylens",
+        liveUrl: "",
+        videoUrl: null,
+        status: "Prototype",
+    },
+    {
+        id: "automated-email-reminder",
+        title: "Automated Email Reminder",
+        type: "Backend Automation",
+        summary:
+            "A Python based email reminder system I built to email myself 24 hour advance reminders for classes, quizzes, exams, and events.",
+        problem:
+            "I wanted a simple way to stay on top of classes and deadlines without constantly checking calendars or forgetting important dates.",
+        solution:
+            "Designed a JSON driven event store and a Python script that composes context aware emails and sends them via SMTP on a fixed schedule, supporting both recurring and one time events.",
+        outcome:
+            "Keeps upcoming commitments visible in my inbox, reduces the chance of missed classes or deadlines, and gives me a reusable pattern for future scheduling automations.",
+        highlights: [
+            "Supports recurring weekly events and one time events with a common JSON format.",
+            "Generates tailored email bodies for classes, exams, and general activities using event metadata.",
+            "Integrates with scheduled runs (cron or GitHub Actions) so reminders go out 24 hours before each event.",
+        ],
+        metrics: [
+            { label: "Email reminders sent", value: "100+" },
+            { label: "Event types", value: "Classes, exams, activities" },
+            { label: "Status", value: "Active" },
+        ],
+        stack: [
+            "Python",
+            "smtplib",
+            "JSON",
+            "Logging",
+            "GitHub Actions",
+            "Cron",
+        ],
+        categories: ["Personal", "Automation"],
+        repoUrl:
+            "https://github.com/IteratorInnovator/automated-email-reminder",
+        liveUrl: "",
+        videoUrl: null,
+        status: "Active",
     },
 ];
 
