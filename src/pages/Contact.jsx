@@ -42,12 +42,12 @@ const Contact = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({
+                    body: {
                         name: form.name,
                         email: form.email,
                         subject: form.subject,
                         message: form.message,
-                    }),
+                    },
                 }
             );
 
