@@ -139,10 +139,10 @@ const Projects = () => {
             <Header />
             <main className="pt-24 sm:pt-28">
                 <section className="mx-auto max-w-5xl px-4 text-left sm:px-6">
-                    <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">
+                    <p className="text-center lg:text-left text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">
                         Work
                     </p>
-                    <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                    <div className="mt-4 flex flex-col gap-6 text-center lg:text-left lg:flex-row items-center lg:items-end lg:justify-between">
                         <div>
                             <h1 className="text-3xl font-jetbrains font-semibold sm:text-4xl md:text-5xl">
                                 My Projects
@@ -155,22 +155,31 @@ const Projects = () => {
                                 something new about design or code.
                             </p>
                         </div>
-                        <div className="flex flex-wrap gap-4">
-                            {heroStats.map(({ label, value, icon: Icon }) => (
-                                <div
-                                    key={label}
-                                    className="flex min-w-[140px] flex-col rounded-2xl border border-border bg-surface/80 px-4 py-3 text-left shadow-[0_15px_35px_rgba(15,23,42,0.08)]"
-                                >
-                                    <Icon className="h-4 w-4 text-accent" />
-                                    <span className="mt-2 font-jetbrains text-2xl font-semibold">
-                                        {value}
-                                    </span>
-                                    <span className="text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary">
-                                        {label}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
+<div className="flex flex-wrap gap-4">
+    {heroStats.map(({ label, value, icon: Icon }, index) => (
+        <div
+            key={label}
+            className={[
+                "flex flex-col rounded-2xl border border-border bg-surface/80 px-4 py-3 text-left shadow-[0_15px_35px_rgba(15,23,42,0.08)]",
+                // first two: shared width always
+                index !== heroStats.length - 1 && "flex-1",
+                // last: full row on mobile, equal flex on md+
+                index === heroStats.length - 1 && "max-sm:basis-full flex-1 lg:basis-full",
+            ]
+                .filter(Boolean)
+                .join(" ")}
+        >
+            <Icon className="h-4 w-4 text-accent" />
+            <span className="mt-2 font-jetbrains text-2xl font-semibold">
+                {value}
+            </span>
+            <span className="w-full text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary">
+                {label}
+            </span>
+        </div>
+    ))}
+</div>
+
                     </div>
                 </section>
 
