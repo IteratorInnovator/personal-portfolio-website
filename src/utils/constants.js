@@ -281,11 +281,14 @@ export const projects = [
         ],
         stack: [
             "React",
-            "Vite",
             "Tailwind CSS",
+            "Zustand",
+            "Vite",
             "Firebase Auth",
             "Cloud Firestore",
             "Cloud Functions",
+            "Quill.js",
+            "Youtube Data API",
             "YouTube IFrame API",
         ],
         categories: ["Web Development", "Coursework"],
@@ -298,7 +301,7 @@ export const projects = [
         title: "Personal Portfolio Website",
         type: "Frontend Experience",
         summary:
-            "The site you’re browsing: a React + Vite build with themed navigation, section offsets, and intentional typography to tell my story quickly.",
+            "The site you’re browsing now: a React + Vite build with themed navigation, section offsets, and intentional typography to tell my story quickly.",
         problem:
             "Wanted a single home for my journey, work, and contact details that didn’t rely on template builders.",
         solution:
@@ -312,7 +315,7 @@ export const projects = [
         ],
         metrics: [
             { label: "Pages", value: "3+" },
-            { label: "Framework", value: "React + Vite" },
+            { label: "Theme", value: "Light + Dark" },
             { label: "Status", value: "Live" },
         ],
         stack: [
@@ -331,33 +334,109 @@ export const projects = [
         status: "Live",
     },
     {
-        id: "activity-analytics-board",
-        title: "Activity Analytics Board",
-        type: "Data Visualization",
+        id: "smart-attendance-system",
+        title: "Smart Student Attendance System",
+        type: "Desktop Application",
         summary:
-            "Custom GitHub calendar experience with theme-sync, tooltip formatting, and a responsive layout that surfaces streaks across years.",
+            "My team and I built a JavaFX based face recognition attendance system for CS102 Programming Fundamentals II. It lets teachers register faces, verify liveness, and mark attendance automatically through the camera.",
         problem:
-            "Default GitHub widgets clashed with my site’s typography and didn’t expose the details recruiters asked about (dates, streaks, months).",
+            "Manual roll calls take time, are easy to fake, and do not scale well when teachers handle multiple classes and sessions.",
         solution:
-            "Wrapped react-github-calendar with bespoke theming, dropdown year selection, and tooltip overrides tied to my theme toggle.",
+            "Designed a JavaFX application with event driven services, an OpenCV recognition engine, and a SQLite data layer modelled through domain objects and repository patterns. Added onboarding flows for teachers and students, registration steps, and reusable UI components.",
         outcome:
-            "Visitors can quickly see when I’m shipping, zoom into specific contributions, and cross-reference stacks shown elsewhere on the site.",
+            "Automates attendance, reduces spoofing, and keeps records organised by teacher, class, and session. The system demonstrates architectural layering, design patterns, and applied computer vision techniques.",
         highlights: [
-            "Year switcher to compare 2024 vs. 2025 output without scrolling forever.",
-            "Intl.DateTimeFormat helpers to humanize tooltips, keeping accessibility intact.",
-            "Live theme sync via custom events so the calendar adapts instantly to light/dark.",
+            "Layered architecture with presentation, service, recognition, and data layers linked through interfaces and event driven messaging.",
+            "Face detection using HaarCascade and multi feature histogram based recognition with preprocessing (CLAHE, bilateral filtering, normalization).",
+            "Liveness checks using Laplacian variance to stop printed photo spoofing.",
+            "Flexible onboarding pipeline where each step implements a RegistrationStep interface with lifecycle hooks and its own validation.",
+            "Custom JavaFX Table component with sorting support; items implement TableChipItem to control display and ordering.",
+            "Type safe SQL through jOOQ with transactions, joins, and pagination.",
         ],
         metrics: [
-            { label: "Years", value: "2" },
-            { label: "Theme", value: "Light + Dark" },
-            { label: "Status", value: "Live" },
+            { label: "UI", value: "JavaFX" },
+            { label: "Recognition", value: "OpenCV based" },
+            { label: "Course", value: "CS102" },
         ],
-        stack: ["React", "react-github-calendar", "Radix UI", "Tailwind CSS"],
-        categories: ["Web Development"],
+        stack: [
+            "Java",
+            "JavaFX",
+            "SQLite",
+            "OpenCV",
+            "jOOQ",
+            "OpenCSV",
+            "PDFBox",
+            "Apache POI",
+            "Maven",
+        ],
+        categories: ["Coursework"],
+        repoUrl: "https://github.com/tiongg/cs102-proj",
+        liveUrl: "",
+        status: "Prototype",
+    },
+    {
+        id: "privacylens",
+        title: "PrivacyLens",
+        type: "Mobile App + Backend",
+        summary:
+            "A React Native app my team and I built for the TikTok TechJam hackathon, focused on helping users check and improve the privacy of short form videos before uploading.",
+        problem:
+            "People often post clips that accidentally expose faces, screens, or identifying details, and most tools only detect issues after the video is already online.",
+        solution:
+            "Developed a pipeline that scans videos locally with computer vision, highlights privacy risks, and suggests fixes. Built a simple review interface that lets users preview, flag, and clean sensitive frames before sharing.",
+        outcome:
+            "Gives creators a quick way to catch privacy issues early and reduces accidental oversharing on social platforms, all within a mobile friendly workflow.",
+        highlights: [
+            "On device detection of faces and sensitive regions using lightweight models.",
+            "Frame by frame privacy preview with clear visual markers for flagged content.",
+            "Backend service that stores anonymized results and supports future analytics.",
+        ],
+        metrics: [
+            { label: "Platform", value: "React Native" },
+            { label: "Detection", value: "On device CV" },
+            { label: "Hackathon", value: "TikTok TechJam" },
+        ],
+        stack: ["React Native", "FastAPI", "Python", "OpenCV", "YOLO"],
+        categories: ["Mobile"],
+        repoUrl: "https://github.com/JarudeC/privacylens",
+        liveUrl: "",
+        status: "Prototype",
+    },
+    {
+        id: "automated-email-reminder",
+        title: "Automated Email Reminder",
+        type: "Backend Automation",
+        summary:
+            "A Python based email reminder system I built to email myself 24 hour advance reminders for classes, quizzes, exams, and events.",
+        problem:
+            "I wanted a simple way to stay on top of classes and deadlines without constantly checking calendars or forgetting important dates.",
+        solution:
+            "Designed a JSON driven event store and a Python script that composes context aware emails and sends them via SMTP on a fixed schedule, supporting both recurring and one time events.",
+        outcome:
+            "Keeps upcoming commitments visible in my inbox, reduces the chance of missed classes or deadlines, and gives me a reusable pattern for future scheduling automations.",
+        highlights: [
+            "Supports recurring weekly events and one time events with a common JSON format.",
+            "Generates tailored email bodies for classes, exams, and general activities using event metadata.",
+            "Integrates with scheduled runs (cron or GitHub Actions) so reminders go out 24 hours before each event.",
+        ],
+        metrics: [
+            { label: "Email reminders sent", value: "100+" },
+            { label: "Event types", value: "Classes, exams, activities" },
+            { label: "Status", value: "Active" },
+        ],
+        stack: [
+            "Python",
+            "smtplib",
+            "JSON",
+            "Logging",
+            "GitHub Actions",
+            "Cron",
+        ],
+        categories: ["Personal", "Automation"],
         repoUrl:
-            "https://github.com/IteratorInnovator/personal-portfolio-website",
-        liveUrl: null,
-        status: "Live",
+            "https://github.com/IteratorInnovator/automated-email-reminder",
+        liveUrl: "",
+        status: "Active",
     },
 ];
 

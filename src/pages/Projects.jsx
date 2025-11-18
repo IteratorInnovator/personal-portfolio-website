@@ -136,14 +136,14 @@ const Projects = () => {
                     <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                         <div>
                             <h1 className="text-3xl font-jetbrains font-semibold sm:text-4xl md:text-5xl">
-                                Projects & Systems
+                                My Projects
                             </h1>
                             <p className="mt-4 max-w-2xl font-inter text-sm text-secondary sm:text-base md:text-lg">
-                                Systems I’ve architected, interfaces I’ve designed,
-                                and automation that keeps teams shipping. Each build
-                                started from a real operational pain point and
-                                shipped with documentation, instrumentation, and a
-                                maintainer-friendly handover.
+                                Things I build on the side, from small fullstack
+                                web apps to simple interfaces and scripts that
+                                save a few clicks. Each one started as a way to
+                                solve an everyday problem and taught me
+                                something new about design or code.
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-4">
@@ -182,7 +182,9 @@ const Projects = () => {
                                     <button
                                         key={category}
                                         type="button"
-                                        onClick={() => setActiveCategory(category)}
+                                        onClick={() =>
+                                            setActiveCategory(category)
+                                        }
                                         className={`cursor-pointer rounded-full border px-4 py-2 text-sm font-jetbrains transition ${
                                             isActive
                                                 ? "bg-accent text-white border-accent"
@@ -199,8 +201,9 @@ const Projects = () => {
                     <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
                         {filteredProjects.length === 0 ? (
                             <div className="col-span-full rounded-3xl border border-dashed border-border/80 bg-background/80 p-8 text-center text-secondary">
-                                Nothing tagged under that category yet. Pick another filter
-                                or reach out if you’d like to collaborate on one.
+                                Nothing tagged under that category yet. Pick
+                                another filter or reach out if you’d like to
+                                collaborate on one.
                             </div>
                         ) : (
                             filteredProjects.map((project) => (
@@ -214,7 +217,7 @@ const Projects = () => {
                     </div>
                 </section>
 
-                <section className="mx-auto mt-16 max-w-5xl px-4 pb-20 sm:px-6">
+                <section className="mx-auto mt-16 md:mt-20 max-w-5xl px-4 pb-20 sm:px-6">
                     <div className="rounded-3xl border border-border bg-surface/60 p-8 shadow-[0_20px_45px_rgba(15,23,42,0.08)]">
                         <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary">
                             Build philosophy
@@ -224,29 +227,32 @@ const Projects = () => {
                         </h2>
                         <p className="mt-3 max-w-3xl font-inter text-base text-secondary">
                             Whether it’s an automation script or a multi-surface
-                            experience, I lean on fast feedback loops and tidy handoffs so
-                            teams can extend the work long after the initial launch.
+                            experience, I lean on fast feedback loops and tidy
+                            handoffs so teams can extend the work long after the
+                            initial launch.
                         </p>
                         <div className="mt-8 grid gap-6 md:grid-cols-3">
-                            {buildPhases.map(({ title, description, icon: Icon }, index) => (
-                                <div
-                                    key={title}
-                                    className="rounded-2xl border border-border bg-background/80 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.06)]"
-                                >
-                                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent">
-                                        <Icon className="h-5 w-5" />
-                                    </span>
-                                    <p className="mt-4 text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary">
-                                        Step {`0${index + 1}`}
-                                    </p>
-                                    <h3 className="mt-2 font-jetbrains text-lg font-semibold text-primary">
-                                        {title}
-                                    </h3>
-                                    <p className="mt-2 text-sm font-inter text-secondary">
-                                        {description}
-                                    </p>
-                                </div>
-                            ))}
+                            {buildPhases.map(
+                                ({ title, description, icon: Icon }, index) => (
+                                    <div
+                                        key={title}
+                                        className="rounded-2xl border border-border bg-background/80 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.06)]"
+                                    >
+                                        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent">
+                                            <Icon className="h-5 w-5" />
+                                        </span>
+                                        <p className="mt-4 text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary">
+                                            Step {`0${index + 1}`}
+                                        </p>
+                                        <h3 className="mt-2 font-jetbrains text-lg font-semibold text-primary">
+                                            {title}
+                                        </h3>
+                                        <p className="mt-2 text-sm font-inter text-secondary">
+                                            {description}
+                                        </p>
+                                    </div>
+                                )
+                            )}
                         </div>
                         <div className="mt-8 flex flex-wrap items-center gap-4">
                             <Link
@@ -257,8 +263,9 @@ const Projects = () => {
                                 <ArrowUpRight className="h-4 w-4" />
                             </Link>
                             <p className="text-sm font-inter text-secondary">
-                                Have an idea but not sure where it fits? I’ll help you shape
-                                the brief, then own the implementation end to end.
+                                Have an idea but not sure where it fits? I’ll
+                                help you shape the brief, then own the
+                                implementation end to end.
                             </p>
                         </div>
                     </div>
@@ -277,8 +284,7 @@ const Projects = () => {
 };
 
 const ProjectCard = ({ project, onSelect }) => {
-    const { title, type, summary, repoUrl, liveUrl, status, stack } =
-        project;
+    const { title, type, summary, repoUrl, liveUrl, status, stack } = project;
 
     const handleCardKeyPress = (event) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -307,9 +313,7 @@ const ProjectCard = ({ project, onSelect }) => {
             <h3 className="mt-4 text-2xl font-jetbrains font-semibold text-primary">
                 {title}
             </h3>
-            <p className="mt-3 text-sm font-inter text-secondary">
-                {summary}
-            </p>
+            <p className="mt-3 text-sm font-inter text-secondary">{summary}</p>
             {stack?.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-2">
                     {stack.slice(0, 4).map((tech) => (
@@ -418,7 +422,9 @@ const ProjectModal = ({ project, onClose }) => {
                 >
                     {title}
                 </h2>
-                <p className="mt-4 font-inter text-base text-secondary">{summary}</p>
+                <p className="mt-4 font-inter text-base text-secondary">
+                    {summary}
+                </p>
                 <div className="mt-6 grid gap-4 md:grid-cols-3">
                     <InfoBlock label="Problem" text={problem} />
                     <InfoBlock label="Solution" text={solution} />
@@ -510,9 +516,7 @@ const InfoBlock = ({ label, text }) => (
         <p className="text-[0.6rem] font-jetbrains uppercase tracking-[0.3em] text-secondary">
             {label}
         </p>
-        <p className="mt-2 text-sm font-inter text-primary">
-            {text}
-        </p>
+        <p className="mt-2 text-sm font-inter text-primary">{text}</p>
     </div>
 );
 

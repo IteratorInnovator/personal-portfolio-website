@@ -73,7 +73,7 @@ const Contact = () => {
     return (
         <div>
             <Header />
-            <section className="bg-background px-4 py-20 text-primary sm:px-6 lg:py-28">
+            <section className="bg-background px-4 pt-24 sm:pt-28 text-primary sm:px-6 sm:py-28">
                 <div className="text-center">
                     <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">
                         Contact
