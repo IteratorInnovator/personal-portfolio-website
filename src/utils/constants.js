@@ -258,8 +258,44 @@ export const skills = [
 
 export const projects = [
     {
-        id: "portfolio-os",
-        title: "Portfolio OS",
+        id: "notesync",
+        title: "NoteSync",
+        type: "Fullstack Web App",
+        summary:
+            "Designed and built a YouTube note taking app for rich, timestamped lecture notes and progress tracking without juggling tabs, as coursework for IS216 Web Application Development II with my team.",
+        problem:
+            "Note taking from YouTube required switching windows and guessing timestamps, which slowed revision and made long lectures harder to navigate.",
+        solution:
+            "Implemented a custom editor with timestamp insertion, integrated the YouTube IFrame API for direct control, and designed a Firestore data model for videos, notes, and playlists.",
+        outcome:
+            "Gives learners a fast way to jump between explanations, build structured notes, save study progress, and keep everything synced across sessions and devices.",
+        highlights: [
+            "Rich text editor with timestamp shortcuts, autosave, and fullscreen note taking.",
+            "In place and fullscreen YouTube player controls with seek, playback rate, and synced note interactions.",
+            "Firestore storage for videos, playlists, and progress plus Cloud Functions for cleanup and automation.",
+        ],
+        metrics: [
+            { label: "Videos saved", value: "Unlimited" },
+            { label: "Note type", value: "Timestamped rich text" },
+            { label: "Status", value: "Live" },
+        ],
+        stack: [
+            "React",
+            "Vite",
+            "Tailwind CSS",
+            "Firebase Auth",
+            "Cloud Firestore",
+            "Cloud Functions",
+            "YouTube IFrame API",
+        ],
+        categories: ["Web Development", "Coursework"],
+        repoUrl: "https://github.com/IteratorInnovator/note-sync",
+        liveUrl: "https://wad2-44a13.web.app/",
+        status: "Live",
+    },
+    {
+        id: "personal-portfolio",
+        title: "Personal Portfolio Website",
         type: "Frontend Experience",
         summary:
             "The site you’re browsing: a React + Vite build with themed navigation, section offsets, and intentional typography to tell my story quickly.",
@@ -275,47 +311,24 @@ export const projects = [
             "Embla-powered certification carousel and a Resend-backed contact form with transactional emails.",
         ],
         metrics: [
-            { label: "Pages", value: "4+" },
+            { label: "Pages", value: "3+" },
             { label: "Framework", value: "React + Vite" },
             { label: "Status", value: "Live" },
         ],
-        stack: ["React", "Vite", "Tailwind CSS", "Resend", "Vercel"],
+        stack: [
+            "React",
+            "Tailwind CSS",
+            "Vite",
+            "Resend",
+            "Vercel",
+            "Radix UI",
+            "Aceternity UI",
+        ],
         categories: ["Web Development", "Personal"],
         repoUrl:
             "https://github.com/IteratorInnovator/personal-portfolio-website",
         liveUrl: "https://harryngkokjing.com",
-        featured: true,
         status: "Live",
-    },
-    {
-        id: "contact-delivery-pipeline",
-        title: "Contact Delivery Pipeline",
-        type: "Serverless Workflow",
-        summary:
-            "A lightweight API route that validates inbound messages, renders branded emails, and notifies both sender and me in real time.",
-        problem:
-            "Didn’t want to rely on copy-pasted contact templates that sent unstructured mail to spam folders.",
-        solution:
-            "Built a Resend-powered handler with HTML templates, double-delivery (me + sender), and strict field validation before any emails leave the server.",
-        outcome:
-            "Production traffic from harryngkokjing.com now lands in my inbox with structured metadata, and senders get confirmation automatically.",
-        highlights: [
-            "Reusable HTML email template with branded header, detail rows, and message block.",
-            "Dual-delivery so every inquiry reaches me while giving senders instant confirmation.",
-            "Deployed as a serverless endpoint alongside the portfolio to avoid a separate backend.",
-        ],
-        metrics: [
-            { label: "Channel", value: "Email" },
-            { label: "Stack", value: "Node.js + Resend" },
-            { label: "Status", value: "Prod" },
-        ],
-        stack: ["Node.js", "Resend", "Vercel Functions", "Tailwind Email"],
-        categories: ["Serverless", "Automation"],
-        repoUrl:
-            "https://github.com/IteratorInnovator/personal-portfolio-website/tree/main/api",
-        liveUrl: null,
-        featured: false,
-        status: "Production",
     },
     {
         id: "activity-analytics-board",
@@ -344,7 +357,6 @@ export const projects = [
         repoUrl:
             "https://github.com/IteratorInnovator/personal-portfolio-website",
         liveUrl: null,
-        featured: false,
         status: "Live",
     },
 ];

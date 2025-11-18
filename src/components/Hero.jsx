@@ -54,7 +54,7 @@ const Hero = () => {
     return (
         <section
             id="home"
-            className="px-4 text-primary sm:px-6 md:px-10 lg:px-20"
+            className="max-sm:pt-10 px-4 text-primary sm:px-6 md:px-10 lg:px-20"
         >
             <BackgroundBeamsWithCollision>
                 <div className="mx-auto flex max-w-4xl flex-col gap-6">

@@ -9,7 +9,7 @@ const Certifications = () => {
     return (
         <div>
             <Header />
-            <section className="mx-auto max-w-5xl px-4 pt-20 text-primary sm:px-6 lg:pt-24">
+            <section className="mx-auto max-w-5xl px-4 sm:px-6 pt-24 sm:pt-28 text-primary ">
                 <div className="flex flex-col gap-4 text-left md:flex-row md:items-end md:justify-between">
                     <div className="max-md:text-center">
                         <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">

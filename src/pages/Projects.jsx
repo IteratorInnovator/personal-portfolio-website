@@ -299,7 +299,7 @@ const ProjectCard = ({ project, onSelect }) => {
             <div className="flex flex-wrap items-center gap-2 text-[0.6rem] font-jetbrains uppercase tracking-[0.4em] text-secondary">
                 {type && <span>{type}</span>}
                 {status && (
-                    <span className="rounded-full border border-border px-2 py-0.5 text-[0.55rem]">
+                    <span className="rounded-full border border-border/80 bg-background/70 px-2 py-0.5 text-[0.55rem] font-jetbrains text-secondary">
                         {status}
                     </span>
                 )}
