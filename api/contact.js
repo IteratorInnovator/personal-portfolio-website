@@ -1,7 +1,7 @@
 // api/contact.js
 import { Resend } from "resend";
 
-const RESEND_API_KEY = import.meta.env.VITE_RESEND_API_KEY;
+const RESEND_API_KEY = process.env.VITE_RESEND_API_KEY;
 const resend = new Resend(RESEND_API_KEY);
 
 export default async function handler(req, res) {
