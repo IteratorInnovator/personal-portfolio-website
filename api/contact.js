@@ -2,6 +2,8 @@
 import { Resend } from "resend";
 
 const RESEND_API_KEY = process.env.VITE_RESEND_API_KEY;
+const CLOUDFLARE_TURNSTILE_SECRET_KEY =
+    process.env.VITE_CLOUDFLARE_TURNSTILE_SECRET_KEY;
 const resend = new Resend(RESEND_API_KEY);
 
 const safeParseBody = (body) => {
@@ -25,16 +27,82 @@ const safeParseBody = (body) => {
     return body;
 };
 
+const verifyTurnstileToken = async ({ token, ip }) => {
+    if (!token) {
+        return { success: false, error: "Missing verification token" };
+    }
+
+    if (!CLOUDFLARE_TURNSTILE_SECRET_KEY) {
+        console.error("Turnstile secret key is not configured");
+        return { success: false, error: "Server misconfiguration" };
+    }
+
+    try {
+        const formData = new URLSearchParams();
+        formData.append("secret", CLOUDFLARE_TURNSTILE_SECRET_KEY);
+        formData.append("response", token);
+        if (ip) {
+            formData.append("remoteip", ip);
+        }
+
+        const verificationResponse = await fetch(
+            "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+            {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: formData,
+            }
+        );
+
+        const verification = await verificationResponse.json();
+
+        if (!verification.success) {
+            console.error("Turnstile verification failed", verification);
+            return {
+                success: false,
+                error:
+                    verification["error-codes"]?.join(", ") ||
+                    "Failed human verification",
+            };
+        }
+
+        return { success: true };
+    } catch (error) {
+        console.error("Turnstile verification error", error);
+        return { success: false, error: "Turnstile verification error" };
+    }
+};
+
 export default async function handler(req, res) {
     if (req.method !== "POST") {
         res.status(405).json({ error: "Method not allowed" });
         return;
     }
 
-    const { name, email, subject, message } = safeParseBody(req.body);
+    const { name, email, subject, message, turnstileToken } =
+        safeParseBody(req.body);
 
     if (!name || !email || !message) {
         res.status(400).json({ error: "Missing fields" });
+        return;
+    }
+
+    const clientIp =
+        req.headers["cf-connecting-ip"] ||
+        req.headers["x-forwarded-for"]?.split(",")[0]?.trim() ||
+        req.socket?.remoteAddress;
+
+    const turnstileResult = await verifyTurnstileToken({
+        token: turnstileToken,
+        ip: clientIp,
+    });
+
+    if (!turnstileResult.success) {
+        res.status(400).json({
+            error:
+                turnstileResult.error ||
+                "Unable to verify you are human. Please refresh and try again.",
+        });
         return;
     }
 

@@ -3,6 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { TbBrandTelegram, TbBrandWhatsapp } from "react-icons/tb";
 import { SiReact, SiTailwindcss, SiVercel } from "react-icons/si";
 import Header from "../components/Header";
+import TurnstileWidget from "../components/ui/turnstile-widget";
 
 const initialFormState = {
     name: "",
@@ -14,6 +15,14 @@ const initialFormState = {
 const Contact = () => {
     const [form, setForm] = useState(initialFormState);
     const [status, setStatus] = useState(null);
+    const [turnstileToken, setTurnstileToken] = useState(null);
+    const [turnstileKey, setTurnstileKey] = useState(0);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const resetTurnstile = () => {
+        setTurnstileToken(null);
+        setTurnstileKey((prev) => prev + 1);
+    };
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -32,7 +41,16 @@ const Contact = () => {
             return;
         }
 
+        if (!turnstileToken) {
+            setStatus({
+                type: "error",
+                message: "Please complete the Cloudflare Turnstile check before sending your message.",
+            });
+            return;
+        }
+
         try {
+            setIsSubmitting(true);
             setStatus({ type: "info", message: "Sending your message..." });
 
             const response = await fetch(
@@ -47,12 +65,16 @@ const Contact = () => {
                         email: form.email,
                         subject: form.subject,
                         message: form.message,
+                        turnstileToken,
                     }),
                 }
             );
 
             if (!response.ok) {
-                throw new Error("Failed to send");
+                const errorData = await response.json().catch(() => null);
+                const errorMessage =
+                    errorData?.error || "Failed to send your message. Please try again.";
+                throw new Error(errorMessage);
             }
 
             setStatus({
@@ -61,12 +83,16 @@ const Contact = () => {
                     "Thanks for reaching out! Your message has been sent and I’ll respond as soon as possible.",
             });
             setForm(initialFormState);
-        } catch {
+        } catch (error) {
             setStatus({
                 type: "error",
                 message:
+                    error?.message ||
                     "Something went wrong while sending your message. Please try again or contact me directly via email.",
             });
+        } finally {
+            setIsSubmitting(false);
+            resetTurnstile();
         }
     };
 
@@ -169,6 +195,26 @@ const Contact = () => {
                                 required
                             />
                         </div>
+                        <div className="flex justify-center">
+                            <TurnstileWidget
+                                key={turnstileKey}
+                                onSuccess={(token) => {
+                                    setTurnstileToken(token);
+                                    if (status?.type === "error") {
+                                        setStatus(null);
+                                    }
+                                }}
+                                onExpire={() => setTurnstileToken(null)}
+                                onError={() => {
+                                    setStatus({
+                                        type: "error",
+                                        message:
+                                            "Verification failed. Please refresh the widget and try again.",
+                                    });
+                                    resetTurnstile();
+                                }}
+                            />
+                        </div>
                         {status && (
                             <p
                                 className={`text-xs font-inter sm:text-sm ${
@@ -184,9 +230,10 @@ const Contact = () => {
                         )}
                         <button
                             type="submit"
-                            className="w-full rounded-2xl border border-border bg-accent px-5 py-3 font-jetbrains text-xs uppercase tracking-[0.3em] text-white transition hover:bg-accent/90 sm:px-6 sm:text-sm"
+                            disabled={isSubmitting}
+                            className="w-full rounded-2xl border border-border bg-accent px-5 py-3 font-jetbrains text-xs uppercase tracking-[0.3em] text-white transition hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-70 sm:px-6 sm:text-sm"
                         >
-                            Send Message
+                            {isSubmitting ? "Sending..." : "Send Message"}
                         </button>
                     </form>
                 </div>
