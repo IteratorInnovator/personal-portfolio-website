@@ -73,7 +73,7 @@ const Contact = () => {
     return (
         <div>
             <Header />
-            <section className="bg-background px-4 pt-24 sm:pt-28 text-primary sm:px-6 sm:py-28">
+            <section className="bg-background px-4 text-primary sm:px-6 pt-24 sm:pt-28">
                 <div className="text-center">
                     <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">
                         Contact
@@ -191,26 +191,30 @@ const Contact = () => {
                     </form>
                 </div>
             </section>
-
-            <footer className="px-6 pt-8 pb-24 flex flex-col gap-2 border-t border-border text-sm text-secondary items-center justify-between">
-                <p className="flex w-full flex-wrap items-center justify-center gap-2 text-center text-xs sm:text-sm">
-                    © {new Date().getFullYear()} Harry. All rights reserved.
-                </p>
-                <p className="flex w-full flex-wrap items-center justify-center gap-3 text-center text-xs sm:text-sm">
-                    <span>Built with</span>
-                    <span className="inline-flex items-center gap-1">
-                        <SiReact className="h-4 w-4 text-primary" />
-                        React
-                    </span>
-                    <span className="inline-flex items-center gap-1">
-                        <SiTailwindcss className="h-4 w-4 text-primary" />
-                        Tailwind CSS
-                    </span>
-                    <span className="inline-flex items-center gap-1">
-                        <SiVercel className="h-4 w-4 text-primary" />
-                        Vercel
-                    </span>
-                </p>
+            <footer className="relative overflow-hidden text-primary">
+                <div className="relative mx-auto flex max-w-6xl flex-col gap-16 px-6 py-16 md:px-16">
+                    <div className="flex flex-col gap-2 border-t border-border pt-8 text-sm text-secondary items-center justify-between">
+                        <p className="flex w-full flex-wrap items-center justify-center gap-2 text-center text-xs sm:text-sm">
+                            © {new Date().getFullYear()} Harry. All rights
+                            reserved.
+                        </p>
+                        <p className="flex w-full flex-wrap items-center justify-center gap-3 text-center text-xs sm:text-sm">
+                            <span>Built with</span>
+                            <span className="inline-flex items-center gap-1">
+                                <SiReact className="h-4 w-4 text-primary" />
+                                React
+                            </span>
+                            <span className="inline-flex items-center gap-1">
+                                <SiTailwindcss className="h-4 w-4 text-primary" />
+                                Tailwind CSS
+                            </span>
+                            <span className="inline-flex items-center gap-1">
+                                <SiVercel className="h-4 w-4 text-primary" />
+                                Vercel
+                            </span>
+                        </p>
+                    </div>
+                </div>
             </footer>
         </div>
     );
