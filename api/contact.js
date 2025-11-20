@@ -27,51 +27,23 @@ const safeParseBody = (body) => {
     return body;
 };
 
-const verifyTurnstileToken = async ({ token, ip }) => {
-    if (!token) {
-        return { success: false, error: "Missing verification token" };
+async function verifyTurnstileToken(token,secretKey) {
+  const SECRET_KEY = secretKey;
+
+  const response = await fetch(
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        secret: SECRET_KEY,
+        response: token,
+      }),
     }
+  );
 
-    if (!CLOUDFLARE_TURNSTILE_SECRET_KEY) {
-        console.error("Turnstile secret key is not configured");
-        return { success: false, error: "Server misconfiguration" };
-    }
-
-    try {
-        const formData = new URLSearchParams();
-        formData.append("secret", CLOUDFLARE_TURNSTILE_SECRET_KEY);
-        formData.append("response", token);
-        if (ip) {
-            formData.append("remoteip", ip);
-        }
-
-        const verificationResponse = await fetch(
-            "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-            {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: formData,
-            }
-        );
-
-        const verification = await verificationResponse.json();
-
-        if (!verification.success) {
-            console.error("Turnstile verification failed", verification);
-            return {
-                success: false,
-                error:
-                    verification["error-codes"]?.join(", ") ||
-                    "Failed human verification",
-            };
-        }
-
-        return { success: true };
-    } catch (error) {
-        console.error("Turnstile verification error", error);
-        return { success: false, error: "Turnstile verification error" };
-    }
-};
+  return (await response.json());
+}
 
 export default async function handler(req, res) {
     if (req.method !== "POST") {
@@ -87,15 +59,7 @@ export default async function handler(req, res) {
         return;
     }
 
-    const clientIp =
-        req.headers["cf-connecting-ip"] ||
-        req.headers["x-forwarded-for"]?.split(",")[0]?.trim() ||
-        req.socket?.remoteAddress;
-
-    const turnstileResult = await verifyTurnstileToken({
-        token: turnstileToken,
-        ip: clientIp,
-    });
+    const turnstileResult = await verifyTurnstileToken(turnstileToken, CLOUDFLARE_TURNSTILE_SECRET_KEY);
 
     if (!turnstileResult.success) {
         res.status(400).json({

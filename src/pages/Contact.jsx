@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { TbBrandTelegram, TbBrandWhatsapp } from "react-icons/tb";
 import { SiReact, SiTailwindcss, SiVercel } from "react-icons/si";
 import Header from "../components/Header";
-import TurnstileWidget from "../components/ui/turnstile-widget";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 const initialFormState = {
     name: "",
@@ -11,17 +11,17 @@ const initialFormState = {
     subject: "",
     message: "",
 };
+const CLOUDFLARE_TURNSTILE_SITE_KEY = import.meta.env
+    .VITE_CLOUDFLARE_TURNSTILE_SITE_KEY;
 
 const Contact = () => {
     const [form, setForm] = useState(initialFormState);
     const [status, setStatus] = useState(null);
     const [turnstileToken, setTurnstileToken] = useState(null);
-    const [turnstileKey, setTurnstileKey] = useState(0);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const resetTurnstile = () => {
         setTurnstileToken(null);
-        setTurnstileKey((prev) => prev + 1);
     };
 
     const handleChange = (event) => {
@@ -44,7 +44,8 @@ const Contact = () => {
         if (!turnstileToken) {
             setStatus({
                 type: "error",
-                message: "Please complete the Cloudflare Turnstile check before sending your message.",
+                message:
+                    "Please complete the Cloudflare Turnstile check before sending your message.",
             });
             return;
         }
@@ -73,7 +74,8 @@ const Contact = () => {
             if (!response.ok) {
                 const errorData = await response.json().catch(() => null);
                 const errorMessage =
-                    errorData?.error || "Failed to send your message. Please try again.";
+                    errorData?.error ||
+                    "Failed to send your message. Please try again.";
                 throw new Error(errorMessage);
             }
 
@@ -195,23 +197,18 @@ const Contact = () => {
                                 required
                             />
                         </div>
-                        <div className="flex justify-center">
-                            <TurnstileWidget
-                                key={turnstileKey}
+                        <div className="w-full flex justify-center">
+                            <Turnstile
+                                siteKey={CLOUDFLARE_TURNSTILE_SITE_KEY}
                                 onSuccess={(token) => {
                                     setTurnstileToken(token);
-                                    if (status?.type === "error") {
-                                        setStatus(null);
-                                    }
+                                    setStatus(null);
                                 }}
-                                onExpire={() => setTurnstileToken(null)}
-                                onError={() => {
-                                    setStatus({
-                                        type: "error",
-                                        message:
-                                            "Verification failed. Please refresh the widget and try again.",
-                                    });
-                                    resetTurnstile();
+                                onExpire={() => {
+                                    setTurnstileToken(null);
+                                }}
+                                onError={(error) => {
+                                    setStatus(error);
                                 }}
                             />
                         </div>
