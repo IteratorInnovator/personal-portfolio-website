@@ -312,7 +312,7 @@ export const projects = [
         highlights: [
             "Typewriter hero, floating background beams, and sticky theme-aware navigation.",
             "Qualifications and experience tabs with collapsible details plus floating image previews.",
-            "Embla-powered certification carousel and a Resend-backed contact form with transactional emails.",
+            "Embla-powered certification carousel and a Resend-backed, Cloudflare Turnstile-protected contact form with transactional emails.",
         ],
         metrics: [
             { label: "Pages", value: "3+" },
@@ -327,6 +327,7 @@ export const projects = [
             "Vercel",
             "Radix UI",
             "Aceternity UI",
+            "Cloudflare Turnstile",
         ],
         categories: ["Web Development", "Personal"],
         repoUrl:
