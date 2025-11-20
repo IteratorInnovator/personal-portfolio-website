@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { TbBrandTelegram, TbBrandWhatsapp } from "react-icons/tb";
 import { SiReact, SiTailwindcss, SiVercel } from "react-icons/si";
 import Header from "../components/Header";
 import { Turnstile } from "@marsidev/react-turnstile";
+import { getInitialTheme } from "../utils/helpers";
 
 const initialFormState = {
     name: "",
@@ -16,6 +17,7 @@ const CLOUDFLARE_TURNSTILE_SITE_KEY = import.meta.env
 
 const Contact = () => {
     const [form, setForm] = useState(initialFormState);
+    const [theme, setTheme] = useState(getInitialTheme);
     const [status, setStatus] = useState(null);
     const [turnstileToken, setTurnstileToken] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -97,6 +99,25 @@ const Contact = () => {
             resetTurnstile();
         }
     };
+
+    useEffect(() => {
+        if (typeof window === "undefined") {
+            return undefined;
+        }
+
+        const handleThemeChange = (event) => {
+            const nextTheme = event?.detail;
+            if (nextTheme === "light" || nextTheme === "dark") {
+                setTheme(nextTheme);
+            }
+        };
+
+        window.addEventListener("theme-change", handleThemeChange);
+
+        return () => {
+            window.removeEventListener("theme-change", handleThemeChange);
+        };
+    }, []);
 
     return (
         <div>
@@ -209,6 +230,16 @@ const Contact = () => {
                                 }}
                                 onError={(error) => {
                                     setStatus(error);
+                                }}
+                                options={{
+                                    action: "submit-form",
+                                    theme: theme,
+                                    size: "flexible",
+                                }}
+                                scriptOptions={{
+                                    appendTo: "body",
+                                    defer: true,
+                                    async: true,
                                 }}
                             />
                         </div>
