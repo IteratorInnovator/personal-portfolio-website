@@ -14,8 +14,9 @@ const Skills = () => {
                     Skills & Tools
                 </h2>
                 <p className="mt-4 text-secondary font-inter text-sm sm:text-base md:text-lg">
-                    A blend of frontend craft, backend systems, infrastructure,
-                    and tooling that helps me bring ideas to reality.
+                    Technologies I'm most familiar with
+                    across frontend, backend, infrastructure, and tooling to
+                    bring ideas to life.
                 </p>
             </div>
 

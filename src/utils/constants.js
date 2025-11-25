@@ -346,9 +346,9 @@ export const projects = [
             "Type safe SQL through jOOQ with transactions, joins, and pagination.",
         ],
         metrics: [
-            { label: "UI", value: "JavaFX" },
-            { label: "Recognition", value: "OpenCV based" },
-            { label: "Course", value: "CS102" },
+            { label: "Recognition", value: "Classroom-proven" },
+            { label: "Accuracy", value: "70%+ in tests" },
+            { label: "Liveness", value: "Spoof guard" },
         ],
         stack: [
             "Java",
@@ -386,8 +386,8 @@ export const projects = [
         ],
         metrics: [
             { label: "Platform", value: "React Native" },
-            { label: "Detection", value: "On device CV" },
-            { label: "Hackathon", value: "TikTok TechJam" },
+            { label: "Detection", value: "On-device CV" },
+            { label: "Flags", value: "~3+ issues/clip" }
         ],
         stack: ["React Native", "FastAPI", "Python", "OpenCV", "YOLO"],
         categories: ["Mobile"],
