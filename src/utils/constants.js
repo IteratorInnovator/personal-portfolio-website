@@ -7,24 +7,18 @@ import {
     Mail,
 } from "lucide-react";
 
-import AWS from "../assets/AWS.svg";
-import Cloudflare from "../assets/Cloudflare.svg";
-import CPP from "../assets/CPP.svg";
 import CSS3 from "../assets/CSS3.svg";
 import Docker from "../assets/Docker.svg";
 import Express from "../assets/Express.svg";
-import FastAPI from "../assets/FastAPI.svg";
 import Firebase from "../assets/Firebase.svg";
 import Git from "../assets/Git.svg";
 import Golang from "../assets/Golang.svg";
 import HTML5 from "../assets/HTML5.svg";
-import Java from "../assets/Java.svg";
 import JavaScript from "../assets/JavaScript.svg";
 import MongoDB from "../assets/MongoDB.svg";
 import MySQL from "../assets/MySQL.svg";
+import NodeJS from "../assets/Node.js.svg";
 import Python from "../assets/Python.svg";
-import RHEL from "../assets/RHEL.svg";
-import ROS from "../assets/ROS.svg";
 import ReactIcon from "../assets/React.svg";
 import TailwindCSS from "../assets/TailwindCSS.svg";
 import Ubuntu from "../assets/Ubuntu.svg";
@@ -228,10 +222,8 @@ export const skills = [
         subSkills: [
             { name: "Python", icon: Python },
             { name: "Golang", icon: Golang },
-            { name: "Java", icon: Java },
-            { name: "C++", icon: CPP },
+            { name: "Node.js", icon: NodeJS },
             { name: "Express", icon: Express },
-            { name: "FastAPI", icon: FastAPI },
         ],
     },
     {
@@ -241,7 +233,6 @@ export const skills = [
             { name: "MongoDB", icon: MongoDB },
             { name: "Firebase", icon: Firebase },
             { name: "Vercel", icon: Vercel },
-            { name: "Cloudflare", icon: Cloudflare },
         ],
     },
     {
@@ -249,8 +240,6 @@ export const skills = [
         subSkills: [
             { name: "Docker", icon: Docker },
             { name: "Git", icon: Git },
-            { name: "ROS", icon: ROS },
-            { name: "RHEL", icon: RHEL },
             { name: "Ubuntu", icon: Ubuntu },
         ],
     },
