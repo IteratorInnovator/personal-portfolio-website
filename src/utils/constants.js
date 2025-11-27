@@ -82,7 +82,7 @@ export const educationTimeline = [
         place: "Singapore Management University",
         period: "2024 - Present",
         status: "ongoing",
-        grade: "CGPA: 3.54/4 (Cum Laude)",
+        grade: "Grade: Cum Laude",
         description:
             "Comprehensive study in Fullstack Development, Distributed Systems, and Digital Design with hands-on project experience.",
         highlights: [
@@ -158,23 +158,6 @@ export const experienceTimeline = [
             "Minecraft Education",
             "Scratch",
         ],
-    },
-    {
-        title: "Pre-Admissions Coordinator",
-        place: "Singapore Institute of Management",
-        period: "Feb 2024 - Jun 2024",
-        location: "Singapore",
-        status: "completed",
-        description:
-            "Processing of student applications with accurate documentation under the Pre-Admissions Team",
-        responsibilities: [
-            "Validated 500+ student applications with over 90% accuracy using Salesforce CRM",
-            "Verified 300+ documents via Zoom, ICA, OpenCerts, and CBSE platforms",
-            "Identified and escalated 3 fraudulent submissions to senior management",
-            "Resolved discrepancies by liaising with internal teams to meet tight application deadlines",
-            "Maintained applicant data and ensured compliance with institutional requirements",
-        ],
-        technologies: ["Salesforce CRM", "Excel", "Zoom"],
     },
 ];
 
