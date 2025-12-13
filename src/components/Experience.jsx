@@ -281,6 +281,7 @@ const ExperiencePreviewCard = ({ image, isVisible = true }) => (
         <img
             src={image.src}
             alt={image.alt ?? "Experience photo"}
+            loading="lazy"
             className="h-28 w-full object-cover"
         />
         <figcaption className="bg-surface px-4 py-3 text-left text-xs font-jetbrains text-primary/80 leading-relaxed">
@@ -325,6 +326,7 @@ const ImageModal = ({ image, onClose }) => {
                     <img
                         src={image.src}
                         alt={image.alt ?? image.caption ?? "Experience preview"}
+                        loading="lazy"
                         className="h-full w-full object-cover"
                     />
                 </div>
