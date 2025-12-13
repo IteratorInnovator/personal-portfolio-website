@@ -12,7 +12,9 @@ import Docker from "../assets/Docker.svg";
 import Express from "../assets/Express.svg";
 import Firebase from "../assets/Firebase.svg";
 import Git from "../assets/Git.svg";
+import GitLab from "../assets/GitLab.svg";
 import Golang from "../assets/Golang.svg";
+import GoogleCloud from "../assets/GoogleCloud.svg";
 import HTML5 from "../assets/HTML5.svg";
 import JavaScript from "../assets/JavaScript.svg";
 import MongoDB from "../assets/MongoDB.svg";
@@ -109,6 +111,30 @@ export const educationTimeline = [
 ];
 
 export const experienceTimeline = [
+        {
+        title: "Software Engineer Intern",
+        place: "AI Shophouse",
+        period: "Dec 2025 - Present",
+        location: "Singapore",
+        status: "ongoing",
+        description:
+            "Developing and optimizing AI tutor chatbots",
+        responsibilities: [
+        ],
+        technologies: ["Python", "Hugging Face", "Gradio"],
+        images: [
+            {
+                src: InfosysCelebration1,
+                alt: "Infosys Instep 25 Years Celebration",
+                caption: "Infosys Instep 25 Years Celebration",
+            },
+            {
+                src: InfosysCelebration2,
+                alt: "Infosys Instep 25 Years Celebration",
+                caption: "Infosys Instep 25 Years Celebration",
+            },
+        ],
+    },
     {
         title: "DevOps Engineer Intern",
         place: "Infosys Limited",
@@ -134,29 +160,6 @@ export const experienceTimeline = [
                 alt: "Infosys Instep 25 Years Celebration",
                 caption: "Infosys Instep 25 Years Celebration",
             },
-        ],
-    },
-    {
-        title: "Stem Instructor",
-        place: "The Brainery Code",
-        period: "Mar 2025 – Present",
-        location: "Singapore",
-        status: "ongoing",
-        description:
-            "Design and teach STEM lessons for primary and secondary students using coding platforms and robotics kits to build creativity and computational thinking.",
-        responsibilities: [
-            "Conduct hands-on classes in Scratch, Python, Minecraft Education, and LEGO robotics for students aged 7–16",
-            "Design structured coding projects that enhance problem-solving and teamwork",
-            "Adapt teaching methods to accommodate various learning styles and age groups",
-            "Mentor students through challenges to build foundational programming logic",
-            "Collaborate with fellow instructors to refine curriculum and improve lesson delivery",
-        ],
-        technologies: [
-            "Python",
-            "Lego Robotics",
-            "EV3",
-            "Minecraft Education",
-            "Scratch",
         ],
     },
 ];
@@ -216,6 +219,7 @@ export const skills = [
             { name: "MongoDB", icon: MongoDB },
             { name: "Firebase", icon: Firebase },
             { name: "Vercel", icon: Vercel },
+            { name: "Google Cloud", icon: GoogleCloud },
         ],
     },
     {
@@ -223,6 +227,7 @@ export const skills = [
         subSkills: [
             { name: "Docker", icon: Docker },
             { name: "Git", icon: Git },
+            { name: "GitLab", icon: GitLab },
             { name: "Ubuntu", icon: Ubuntu },
         ],
     },
