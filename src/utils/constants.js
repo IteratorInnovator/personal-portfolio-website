@@ -111,16 +111,14 @@ export const educationTimeline = [
 ];
 
 export const experienceTimeline = [
-        {
+    {
         title: "Software Engineer Intern",
         place: "AI Shophouse",
         period: "Dec 2025 - Present",
         location: "Singapore",
         status: "ongoing",
-        description:
-            "Developing and optimizing AI tutor chatbots",
-        responsibilities: [
-        ],
+        description: "Developing and optimizing AI tutor chatbots",
+        responsibilities: [],
         technologies: ["Python", "Hugging Face", "Gradio"],
         images: [
             {
@@ -234,6 +232,46 @@ export const skills = [
 ];
 
 export const projects = [
+    {
+        id: "git-gram",
+        title: "Git Gram",
+        type: "Telegram Bot",
+        summary:
+            "A Go based Telegram bot backend that consumes GitHub App webhooks and delivers real-time repository activity notifications to Telegram chats, with in-chat controls for status and notification settings.",
+        problem:
+            "GitHub notifications get noisy and easy to miss, and setting up workflows or custom webhooks for simple chat-based updates typically requires extra setup or per-repo configuration.",
+        solution:
+            "Built a GitHub App + webhook receiver on Cloud Run that verifies signatures, maps GitHub App installations to Telegram chat IDs in Firestore, and dispatches formatted Telegram messages through slash commands for setup, status checks, muting, and unlinking.",
+        outcome:
+            "Lets you receive focused repo activity updates directly in Telegram, control noise per chat, and manage installation linkage without touching repository configuration files.",
+        highlights: [
+            "Consumes GitHub App webhooks with HMAC signature verification for request authenticity.",
+            "Stores chat to installation mapping and per-chat notification settings in Firestore with CRUD operations using the Go SDK.",
+            "Implements Telegram slash commands (/start, /help, /status, etc) with MarkdownV2-safe message formatting.",
+            "Utilized GitHub App JWT-Authenticated API calls to fetch installation account info and delete installations on unlink.",
+            "Deployed as a containerized Go service to Google Cloud Run with automated CI/CD via GitLab.",
+        ],
+        metrics: [
+            { label: "Config setup: ", value: "0 YAML files" },
+            { label: "Supported event types", value: "5+" },
+            { label: "Delivery speed", value: "Real-time" },
+        ],
+        stack: [
+            "Go",
+            "Fiber",
+            "Telegram Bot API",
+            "GitHub App (webhooks, JWT)",
+            "Firestore (Go SDK)",
+            "Google Cloud Run",
+            "Docker",
+            "GitLab CI/CD",
+        ],
+        categories: ["Personal", "Automation"],
+        repoUrl: "https://github.com/IteratorInnovator/git-gram",
+        liveUrl: "https://t.me/gitgram_67bot",
+        videoUrl: null,
+        status: "Active",
+    },
     {
         id: "notesync",
         title: "NoteSync",
@@ -375,10 +413,10 @@ export const projects = [
         metrics: [
             { label: "Platform", value: "React Native" },
             { label: "Detection", value: "On-device CV" },
-            { label: "Flags", value: "~3+ issues/clip" }
+            { label: "Flags", value: "~3+ issues/clip" },
         ],
         stack: ["React Native", "FastAPI", "Python", "OpenCV", "YOLO"],
-        categories: ["Mobile"],
+        categories: ["Hackathon"],
         repoUrl: "https://github.com/JarudeC/privacylens",
         liveUrl: "",
         videoUrl: null,
