@@ -235,7 +235,7 @@ const Projects = () => {
                     </div>
                 </section>
 
-                <section className="mx-auto mt-16 md:mt-20 max-w-5xl px-4 pb-20 sm:px-6">
+                {/* <section className="mx-auto mt-16 md:mt-20 max-w-5xl px-4 pb-20 sm:px-6">
                     <div className="rounded-3xl border border-border bg-surface/60 p-8 shadow-[0_20px_45px_rgba(15,23,42,0.08)]">
                         <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary">
                             Build philosophy
@@ -287,7 +287,7 @@ const Projects = () => {
                             </p>
                         </div>
                     </div>
-                </section>
+                </section> */}
             </main>
             <Footer />
 
