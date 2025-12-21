@@ -151,7 +151,7 @@ const ExperienceEntry = ({ item, onImageClick }) => {
                                 </div>
                             )}
                     </div>
-                    <p className="font-inter text-base text-secondary">
+                    <p className="font-inter text-sm md:text-base text-secondary">
                         {description}
                     </p>
                 </div>

@@ -99,7 +99,7 @@ const EducationEntry = ({ item }) => {
                             </span>
                         </div>
                     )}
-                    <p className="mt-3 font-inter text-base text-secondary">
+                    <p className="mt-3 font-inter text-sm md:text-base text-secondary">
                         {description}
                     </p>
                 </div>
