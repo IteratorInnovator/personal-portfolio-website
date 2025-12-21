@@ -1,4 +1,5 @@
 import { MapPin, Send } from "lucide-react";
+import { PiHandWavingBold } from "react-icons/pi";
 import { SiReact, SiTailwindcss, SiVercel } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { socialLinks } from "../utils/constants.js";
@@ -27,16 +28,17 @@ const Footer = () => {
                         <div className="mt-9 flex flex-wrap gap-4 max-md:justify-center">
                             <Link
                                 to="/projects"
-                                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-jetbrains text-sm font-semibold uppercase tracking-[0.25em] text-background transition hover:bg-accent-hover"
+                                className="inline-flex w-auto items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 font-jetbrains text-sm font-semibold uppercase tracking-[0.25em] text-background transition hover:bg-accent-hover"
                             >
                                 Browse work
                                 <Send size={18} />
                             </Link>
                             <Link
                                 to="/contact"
-                                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-jetbrains text-sm font-semibold uppercase tracking-[0.25em] text-primary transition hover:border-accent hover:text-accent"
+                                className="max-sm:w-51.5 inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 font-jetbrains text-sm font-semibold uppercase tracking-[0.25em] text-primary transition hover:border-accent hover:text-accent"
                             >
                                 Say hello
+                                <PiHandWavingBold size={18} />
                             </Link>
                         </div>
                     </div>
