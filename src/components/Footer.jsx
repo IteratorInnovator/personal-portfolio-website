@@ -19,7 +19,7 @@ const Footer = () => {
                         <h2 className="mt-4 text-4xl font-jetbrains font-semibold text-primary md:text-5xl max-md:text-center">
                             Let’s build something bold.
                         </h2>
-                        <p className="mt-5 max-w-xl text-lg text-secondary max-md:text-center">
+                        <p className="mt-5 max-w-xl text-sm sm:text-base md:text-lg text-secondary max-md:text-center">
                             Have an idea, project, or open role? I’m always down
                             to jam on thoughtful products, performant systems,
                             and teams that care about craft.

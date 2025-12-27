@@ -89,7 +89,7 @@ const About = () => {
                 <h2 className="mt-3 text-4xl font-jetbrains font-semibold text-primary md:text-5xl">
                     About Me
                 </h2>
-                <p className="mt-4 text-secondary font-inter text-base md:text-lg">
+                <p className="mt-4 text-secondary font-inter text-sm sm:text-base md:text-lg">
                     A curious developer who likes to understand how things work
                     and build software that people actually use.
                 </p>

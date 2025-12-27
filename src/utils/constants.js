@@ -56,7 +56,7 @@ export const highlights = [
         title: "Profile",
         value: `${new Date().getFullYear() - 2003} Year Old SWE`,
         description:
-            "I’m a aspiring software engineer looking for chances to build things that actually help people.",
+            "I’m a software engineer looking for chances to build things that actually help people.",
     },
     {
         title: "Journey",
@@ -142,7 +142,7 @@ export const experienceTimeline = [
         description:
             "Autonomous Mobile Robot (AMR) under Education, Training, and Assessment unit",
         responsibilities: [
-            "Implementeded a Docker-based ROS build environment on RHEL 9, standardizing development workflows and reducing setup inconsistencies",
+            "Implemented a Docker-based ROS build environment on RHEL 9, standardizing development workflows and reducing setup inconsistencies",
             "Configured custom Docker networks using Docker Compose to facilitate ROS node-to-node communication.",
             "Created comprehensive software architecture and process documentation of the ROS build environment using PlantUML and MS Word, reducing developer onboarding time and improving knowledge transfer across teams.",
         ],

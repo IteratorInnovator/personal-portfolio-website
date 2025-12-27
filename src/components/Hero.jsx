@@ -76,7 +76,7 @@ const Hero = () => {
                             </span>
                         </h2>
                     </div>
-                    <p className="font-inter text-xs sm:text-sm md:text-base text-secondary text-center max-w-4xl">
+                    <p className="font-inter text-sm sm:text-base md:text-lg text-secondary text-center max-w-4xl">
                         Passionate about creating cutting-edge solutions that
                         bridge the gap between innovative technology and
                         real-world applications. Specializing in backend
