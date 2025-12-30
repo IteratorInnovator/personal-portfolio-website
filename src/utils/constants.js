@@ -167,6 +167,7 @@ export const certifications = [
         name: "Google IT Automation with Python",
         issuer: "Google",
         issueDate: "Jan 2025",
+        skills: ["Python", "Git", "APIs", "Google Cloud Platform"],
         thumbnail: GoogleITAutomation,
         credentialUrl:
             "https://www.coursera.org/account/accomplishments/specialization/DB7KDGI7VB4U",
@@ -175,6 +176,7 @@ export const certifications = [
         name: "Docker Foundations Professional Certificate",
         issuer: "Docker, Inc",
         issueDate: "Jan 2025",
+        skills: ["Docker", "Docker Compose"],
         thumbnail: DockerFoundations,
         credentialUrl:
             "https://www.linkedin.com/learning/certificates/0ac348144dd199c4de891f0a921b8e824a2c533402f07f614d09c6b683db08ef",
@@ -183,6 +185,7 @@ export const certifications = [
         name: "JavaScript Foundations Professional Certificate",
         issuer: "Mozilla",
         issueDate: "May 2025",
+        skills: ["JavaScript", "Web Fundamentals"],
         thumbnail: JavascriptMozilla,
         credentialUrl:
             "https://www.linkedin.com/learning/certificates/0d09d912c50ff3179435b16737ae49695cda67fea6df8515f6c95b3e988136c8",

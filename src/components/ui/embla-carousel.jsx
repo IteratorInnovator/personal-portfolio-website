@@ -144,10 +144,12 @@ const EmblaCarousel = (props) => {
                             issueDate,
                             thumbnail,
                             credentialUrl,
+                            skills,
                         } = slide;
                         const certificateTitle =
                             name ?? title ?? "Certification";
                         const issuedLabel = issued ?? issueDate ?? "—";
+                        const skillBadges = Array.isArray(skills) ? skills : [];
                         return (
                             <div
                                 className="embla__slide"
@@ -190,6 +192,18 @@ const EmblaCarousel = (props) => {
                                         <h4 className="relative text-lg sm:text-xl font-jetbrains font-semibold text-primary md:text-2xl">
                                             {certificateTitle}
                                         </h4>
+                                        {skillBadges.length > 0 && (
+                                            <div className="flex flex-wrap gap-2">
+                                                {skillBadges.map((skill) => (
+                                                    <span
+                                                        key={`${certificateTitle}-${skill}`}
+                                                        className="rounded-full border border-border/60 bg-background/70 px-3 py-1 text-[0.6rem] font-jetbrains uppercase tracking-[0.3em] text-secondary/80"
+                                                    >
+                                                        {skill}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        )}
                                         <p className="font-inter text-xs text-secondary md:text-sm">
                                             Issued by{" "}
                                             <span className="font-semibold text-primary">
