@@ -131,6 +131,19 @@ const EmblaCarousel = (props) => {
         onNextButtonClick,
     } = usePrevNextButtons(emblaApi);
 
+    const maxVisibleDots = 3;
+    const totalSlides = scrollSnaps.length;
+    const maxStartIndex = Math.max(0, totalSlides - maxVisibleDots);
+    const startIndex = Math.min(
+        Math.max(selectedIndex - 1, 0),
+        maxStartIndex
+    );
+    const endIndex = Math.min(startIndex + maxVisibleDots, totalSlides);
+    const visibleIndices = [];
+    for (let i = startIndex; i < endIndex; i += 1) {
+        visibleIndices.push(i);
+    }
+
     return (
         <section className="embla">
             <div className="embla__viewport" ref={emblaRef}>
@@ -239,7 +252,7 @@ const EmblaCarousel = (props) => {
                     />
                 </div>
                 <div className="embla__dots">
-                    {scrollSnaps.map((_, index) => {
+                    {visibleIndices.map((index) => {
                         const label = index + 1;
                         return (
                             <DotButton
