@@ -35,6 +35,7 @@ import GoogleITAutomation from "../assets/GoogleITAutomation.png";
 import DockerFoundations from "../assets/DockerFoundations.png";
 import JavascriptMozilla from "../assets/JavascriptMozilla.png";
 import TestAutomation from "../assets/TestAutomation.png";
+import SoftwareTesting from "../assets/SoftwareTesting.png";
 
 import InfosysCelebration1 from "../assets/InfosysInstep25Celebration.jpg";
 import InfosysCelebration2 from "../assets/InfosysInstep25Celebration(2).jpg";
@@ -166,22 +167,22 @@ export const experienceTimeline = [
 
 export const certifications = [
     {
-        name: "Google IT Automation with Python",
-        issuer: "Google",
-        issueDate: "Jan 2025",
-        skills: ["Python", "Git", "APIs", "Google Cloud Platform"],
-        thumbnail: GoogleITAutomation,
+        name: "LambdaTest Software Testing Professional Certificate",
+        issuer: "LambdaTest",
+        issueDate: "Dec 2025",
+        skills: ["Software Testing", "Software Quality Assurance", "Agile Testing"],
+        thumbnail: SoftwareTesting,
         credentialUrl:
-            "https://www.coursera.org/account/accomplishments/specialization/DB7KDGI7VB4U",
+            "https://www.linkedin.com/learning/certificates/ae496edcf9226b094095851e400e76516391fd2fcec1bde335970b6c717a2a0d",
     },
     {
-        name: "Docker Foundations Professional Certificate",
-        issuer: "Docker, Inc",
-        issueDate: "Jan 2025",
-        skills: ["Docker", "Docker Compose"],
-        thumbnail: DockerFoundations,
+        name: "LambdaTest Test Automation Professional Certificate",
+        issuer: "LambdaTest",
+        issueDate: "Dec 2025",
+        skills: ["Test Automation", "Selenium", "Web Drivers"],
+        thumbnail: TestAutomation,
         credentialUrl:
-            "https://www.linkedin.com/learning/certificates/0ac348144dd199c4de891f0a921b8e824a2c533402f07f614d09c6b683db08ef",
+            "https://www.linkedin.com/learning/certificates/8ddad38542acc01d08466b8a2de81994016780fe48b5b8125cb35c51e8ce0053",
     },
     {
         name: "JavaScript Foundations Professional Certificate",
@@ -193,14 +194,23 @@ export const certifications = [
             "https://www.linkedin.com/learning/certificates/0d09d912c50ff3179435b16737ae49695cda67fea6df8515f6c95b3e988136c8",
     },
     {
-        name: "LambdaTest Test Automation Professional Certificate",
-        issuer: "LambdaTest",
-        issueDate: "Dec 2025",
-        skills: ["Test Automation", "Selenium", "Web Drivers"],
-        thumbnail: TestAutomation,
+        name: "Docker Foundations Professional Certificate",
+        issuer: "Docker, Inc",
+        issueDate: "Jan 2025",
+        skills: ["Docker", "Docker Compose"],
+        thumbnail: DockerFoundations,
         credentialUrl:
-            "https://www.linkedin.com/learning/certificates/8ddad38542acc01d08466b8a2de81994016780fe48b5b8125cb35c51e8ce0053",
+            "https://www.linkedin.com/learning/certificates/0ac348144dd199c4de891f0a921b8e824a2c533402f07f614d09c6b683db08ef",
     },
+    {
+        name: "Google IT Automation with Python",
+        issuer: "Google",
+        issueDate: "Jan 2025",
+        skills: ["Python", "Git", "APIs", "Google Cloud Platform"],
+        thumbnail: GoogleITAutomation,
+        credentialUrl:
+            "https://www.coursera.org/account/accomplishments/specialization/DB7KDGI7VB4U",
+    },    
 ];
 
 export const skills = [
