@@ -30,9 +30,11 @@ import Vite from "../assets/Vite.svg";
 import { Github, Linkedin, Instagram } from "lucide-react";
 import { TbBrandLeetcode } from "react-icons/tb";
 
-import JavascriptMozilla from "../assets/JavascriptMozilla.png";
+
 import GoogleITAutomation from "../assets/GoogleITAutomation.png";
 import DockerFoundations from "../assets/DockerFoundations.png";
+import JavascriptMozilla from "../assets/JavascriptMozilla.png";
+import TestAutomation from "../assets/TestAutomation.png";
 
 import InfosysCelebration1 from "../assets/InfosysInstep25Celebration.jpg";
 import InfosysCelebration2 from "../assets/InfosysInstep25Celebration(2).jpg";
@@ -189,6 +191,15 @@ export const certifications = [
         thumbnail: JavascriptMozilla,
         credentialUrl:
             "https://www.linkedin.com/learning/certificates/0d09d912c50ff3179435b16737ae49695cda67fea6df8515f6c95b3e988136c8",
+    },
+    {
+        name: "LambdaTest Test Automation Professional Certificate",
+        issuer: "LambdaTest",
+        issueDate: "Dec 2025",
+        skills: ["Test Automation", "Selenium", "Web Drivers"],
+        thumbnail: TestAutomation,
+        credentialUrl:
+            "https://www.linkedin.com/learning/certificates/8ddad38542acc01d08466b8a2de81994016780fe48b5b8125cb35c51e8ce0053",
     },
 ];
 
