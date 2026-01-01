@@ -38,8 +38,8 @@ const About = () => {
     const [theme, setTheme] = useState(getInitialTheme);
     const [calenderFontSize, setCalendarFontSize] =
         useState(getCalendarFontSize);
-    const [selectedYear, setSelectedYear] = useState("2025");
-    const availableYears = ["2025", "2024"];
+    const [selectedYear, setSelectedYear] = useState("2026");
+    const availableYears = ["2026", "2025", "2024"];
     const calendarStyle = {
         color: "var(--text-secondary)",
         fontFamily: "var(--font-jetbrains)",
