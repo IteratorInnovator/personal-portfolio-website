@@ -295,7 +295,7 @@ export const projects = [
             "Docker",
             "GitLab CI/CD",
         ],
-        categories: ["Personal", "Automation"],
+        categories: ["Personal"],
         repoUrl: "https://github.com/IteratorInnovator/git-gram",
         liveUrl: "https://t.me/gitgram_67bot",
         videoUrl: null,
@@ -481,7 +481,7 @@ export const projects = [
             "GitHub Actions",
             "Cron",
         ],
-        categories: ["Personal", "Automation"],
+        categories: ["Personal"],
         repoUrl:
             "https://github.com/IteratorInnovator/automated-email-reminder",
         liveUrl: "",
