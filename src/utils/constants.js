@@ -40,6 +40,8 @@ import SoftwareTesting from "../assets/SoftwareTesting.png";
 import InfosysCelebration1 from "../assets/InfosysInstep25Celebration.jpg";
 import InfosysCelebration2 from "../assets/InfosysInstep25Celebration(2).jpg";
 
+import { getAge } from "../utils/helpers";
+
 export const navigationItems = [
     { name: "Home", path: "/", isSection: true, icon: Home },
     { name: "Qualifications", path: "/", isSection: true, icon: GraduationCap },
@@ -57,7 +59,7 @@ export const navigationItems = [
 export const highlights = [
     {
         title: "Profile",
-        value: `${new Date().getFullYear() - 2003} Year Old SWE`,
+        value: `${getAge()} Year Old SWE`,
         description:
             "I’m a software engineer looking for chances to build things that actually help people.",
     },
