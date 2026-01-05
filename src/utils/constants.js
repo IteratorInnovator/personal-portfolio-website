@@ -93,8 +93,11 @@ export const educationTimeline = [
         highlights: [
             "Programmes Lead - SMU Artificial Intelligence Club",
             "Developer Subcommittee - SMU Fintech Club",
-            "Teaching Assistant - COR-IS1704 Computational Thinking",
+            "Teaching Assistant - IS442 Object-Oriented Programming",
+            "Teaching Assistant - IS113 Web Application Development I",
             "Teaching Assistant - IS115 Algorithms & Programming",
+            "Teaching Assistant - COR-IS1704 Computational Thinking",
+            "Coding Mentor - SMU Coder's Assembly"
         ],
     },
     {
@@ -120,7 +123,7 @@ export const experienceTimeline = [
         period: "Dec 2025 - Present",
         location: "Singapore",
         status: "ongoing",
-        description: "Developing and optimizing AI tutor chatbots",
+        description: "Developing and optimizing AI tutor chatbots.",
         responsibilities: [],
         technologies: ["Python", "Hugging Face", "Gradio"],
         images: [
@@ -143,7 +146,7 @@ export const experienceTimeline = [
         location: "Bangalore, India",
         status: "completed",
         description:
-            "Autonomous Mobile Robot (AMR) under Education, Training, and Assessment unit",
+            "Autonomous Mobile Robot (AMR) under Education, Training, and Assessment unit.",
         responsibilities: [
             "Implemented a Docker-based ROS build environment on RHEL 9, standardizing development workflows and reducing setup inconsistencies",
             "Configured custom Docker networks using Docker Compose to facilitate ROS node-to-node communication.",
