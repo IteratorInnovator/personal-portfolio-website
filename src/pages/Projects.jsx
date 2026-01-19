@@ -17,27 +17,6 @@ import {
 } from "lucide-react";
 import { SiDevpost } from "react-icons/si";
 
-const buildPhases = [
-    {
-        title: "Discover & Scope",
-        description:
-            "Clarify the constraints, understand the audience, and co-design the shape of done before a single line of code ships.",
-        icon: Sparkles,
-    },
-    {
-        title: "Build & Iterate",
-        description:
-            "Ship in tight loops – wireframes, prototypes, PRs – so feedback arrives early and architecture decisions stay reversible.",
-        icon: GitBranch,
-    },
-    {
-        title: "Ship & Measure",
-        description:
-            "Launch with instrumentation, write the docs, and hand over confident systems that can be extended once I’m gone.",
-        icon: Gauge,
-    },
-];
-
 const getYouTubeEmbedUrl = (url) => {
     if (!url) return null;
     const pattern =
@@ -55,7 +34,7 @@ const Projects = () => {
         const unique = new Set();
         projects.forEach((project) => {
             (project.categories ?? []).forEach((category) =>
-                unique.add(category)
+                unique.add(category),
             );
         });
         return ["all", ...Array.from(unique)];
@@ -66,13 +45,13 @@ const Projects = () => {
         const uniqueStack = new Set();
         projects.forEach((project) => {
             (project.categories ?? []).forEach((category) =>
-                uniqueCategories.add(category)
+                uniqueCategories.add(category),
             );
             (project.stack ?? []).forEach((item) => uniqueStack.add(item));
         });
 
         return [
-            { label: "Shipped Projects", value: projects.length, icon: Rocket },
+            { label: "Projects", value: projects.length, icon: Rocket },
             {
                 label: "Focus Areas",
                 value: uniqueCategories.size || "—",
@@ -94,8 +73,8 @@ const Projects = () => {
         return projects.filter((project) =>
             (project.categories ?? []).some(
                 (category) =>
-                    category.toLowerCase() === activeCategory.toLowerCase()
-            )
+                    category.toLowerCase() === activeCategory.toLowerCase(),
+            ),
         );
     }, [activeCategory]);
 
@@ -156,31 +135,34 @@ const Projects = () => {
                                 something new about design or code.
                             </p>
                         </div>
-<div className="flex flex-wrap gap-4">
-    {heroStats.map(({ label, value, icon: Icon }, index) => (
-        <div
-            key={label}
-            className={[
-                "flex flex-col rounded-2xl border border-border bg-surface/80 px-4 py-3 text-left shadow-[0_15px_35px_rgba(15,23,42,0.08)]",
-                // first two: shared width always
-                index !== heroStats.length - 1 && "flex-1",
-                // last: full row on mobile, equal flex on md+
-                index === heroStats.length - 1 && "max-sm:basis-full flex-1 lg:basis-full",
-            ]
-                .filter(Boolean)
-                .join(" ")}
-        >
-            <Icon className="h-4 w-4 text-accent" />
-            <span className="mt-2 font-jetbrains text-2xl font-semibold">
-                {value}
-            </span>
-            <span className="w-full text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary">
-                {label}
-            </span>
-        </div>
-    ))}
-</div>
-
+                        <div className="flex flex-wrap gap-4">
+                            {heroStats.map(
+                                ({ label, value, icon: Icon }, index) => (
+                                    <div
+                                        key={label}
+                                        className={[
+                                            "flex flex-col rounded-2xl border border-border bg-surface/80 px-4 py-3 text-left shadow-[0_15px_35px_rgba(15,23,42,0.08)]",
+                                            // first two: shared width always
+                                            index !== heroStats.length - 1 &&
+                                                "flex-1",
+                                            // last: full row on mobile, equal flex on md+
+                                            index === heroStats.length - 1 &&
+                                                "max-sm:basis-full flex-1 lg:basis-full",
+                                        ]
+                                            .filter(Boolean)
+                                            .join(" ")}
+                                    >
+                                        <Icon className="h-4 w-4 text-accent" />
+                                        <span className="mt-2 font-jetbrains text-2xl font-semibold">
+                                            {value}
+                                        </span>
+                                        <span className="w-full text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary">
+                                            {label}
+                                        </span>
+                                    </div>
+                                ),
+                            )}
+                        </div>
                     </div>
                 </section>
 
@@ -235,60 +217,6 @@ const Projects = () => {
                         )}
                     </div>
                 </section>
-
-                {/* <section className="mx-auto mt-16 md:mt-20 max-w-5xl px-4 pb-20 sm:px-6">
-                    <div className="rounded-3xl border border-border bg-surface/60 p-8 shadow-[0_20px_45px_rgba(15,23,42,0.08)]">
-                        <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary">
-                            Build philosophy
-                        </p>
-                        <h2 className="mt-4 text-3xl font-jetbrains font-semibold">
-                            How I approach a project
-                        </h2>
-                        <p className="mt-3 max-w-3xl font-inter text-base text-secondary">
-                            Whether it’s an automation script or a multi-surface
-                            experience, I lean on fast feedback loops and tidy
-                            handoffs so teams can extend the work long after the
-                            initial launch.
-                        </p>
-                        <div className="mt-8 grid gap-6 md:grid-cols-3">
-                            {buildPhases.map(
-                                ({ title, description, icon: Icon }, index) => (
-                                    <div
-                                        key={title}
-                                        className="rounded-2xl border border-border bg-background/80 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.06)]"
-                                    >
-                                        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent">
-                                            <Icon className="h-5 w-5" />
-                                        </span>
-                                        <p className="mt-4 text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary">
-                                            Step {`0${index + 1}`}
-                                        </p>
-                                        <h3 className="mt-2 font-jetbrains text-lg font-semibold text-primary">
-                                            {title}
-                                        </h3>
-                                        <p className="mt-2 text-sm font-inter text-secondary">
-                                            {description}
-                                        </p>
-                                    </div>
-                                )
-                            )}
-                        </div>
-                        <div className="mt-8 flex flex-wrap items-center gap-4">
-                            <Link
-                                to="/contact"
-                                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-jetbrains text-sm font-semibold uppercase tracking-[0.25em] text-background transition hover:bg-accent-hover"
-                            >
-                                Start a build
-                                <ArrowUpRight className="h-4 w-4" />
-                            </Link>
-                            <p className="text-sm font-inter text-secondary">
-                                Have an idea but not sure where it fits? I’ll
-                                help you shape the brief, then own the
-                                implementation end to end.
-                            </p>
-                        </div>
-                    </div>
-                </section> */}
             </main>
             <Footer />
 
@@ -303,7 +231,16 @@ const Projects = () => {
 };
 
 const ProjectCard = ({ project, onSelect }) => {
-    const { title, type, summary, repoUrl, liveUrl, devpostUrl, status, stack } = project;
+    const {
+        title,
+        type,
+        summary,
+        repoUrl,
+        liveUrl,
+        devpostUrl,
+        status,
+        stack,
+    } = project;
 
     const handleCardKeyPress = (event) => {
         if (event.key === "Enter" || event.key === " ") {
