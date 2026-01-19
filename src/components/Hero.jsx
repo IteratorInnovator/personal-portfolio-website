@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
+import { motion } from "motion/react";
 import { BackgroundBeamsWithCollision } from "./ui/background-beams-with-collision";
 import { Button } from "./ui/moving-border";
 import { Link } from "react-router-dom";
 import Resume from "../assets/Ng Kok Jing Resume.pdf";
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+};
 
 const phrases = [
     "Software Engineer",
@@ -51,16 +57,29 @@ const Hero = () => {
             className="relative max-sm:pt-10 px-4 text-primary sm:px-6 md:px-10 lg:px-20"
         >
             <BackgroundBeamsWithCollision>
-                <div className="mx-auto flex max-w-4xl flex-col items-center">
+                <motion.div
+                    className="mx-auto flex max-w-4xl flex-col items-center"
+                    initial="hidden"
+                    animate="visible"
+                    transition={{ staggerChildren: 0.15 }}
+                >
                     {/* Intro Block */}
-                    <div className="text-center">
+                    <motion.div
+                        className="text-center"
+                        variants={fadeUp}
+                        transition={{ duration: 0.5 }}
+                    >
                         <h1 className="text-sm sm:text-base md:text-lg font-jetbrains uppercase tracking-[0.3em] text-secondary">
                             Welcome, I'm Harry!
                         </h1>
-                    </div>
+                    </motion.div>
 
                     {/* Role Block */}
-                    <div className="mt-6 sm:mt-8 md:mt-10 text-center">
+                    <motion.div
+                        className="mt-6 sm:mt-8 md:mt-10 text-center"
+                        variants={fadeUp}
+                        transition={{ duration: 0.5 }}
+                    >
                         <p className="text-lg sm:text-xl md:text-2xl font-jetbrains font-medium text-secondary tracking-wide">
                             I'm a
                         </p>
@@ -75,15 +94,23 @@ const Hero = () => {
                                 {text}
                             </span>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Divider */}
-                    <div className="mt-8 mb-8 sm:mt-10 sm:mb-10 md:mt-12 md:mb-12 flex items-center justify-center w-full">
+                    <motion.div
+                        className="mt-8 mb-8 sm:mt-10 sm:mb-10 md:mt-12 md:mb-12 flex items-center justify-center w-full"
+                        variants={fadeUp}
+                        transition={{ duration: 0.5 }}
+                    >
                         <span className="h-1 w-full max-w-[30rem] bg-gradient-to-r from-transparent via-secondary to-transparent" />
-                    </div>
+                    </motion.div>
 
                     {/* CTA Block */}
-                    <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 md:gap-5">
+                    <motion.div
+                        className="flex flex-row items-center justify-center gap-3 sm:gap-4 md:gap-5"
+                        variants={fadeUp}
+                        transition={{ duration: 0.5 }}
+                    >
                         <Link
                             to="/projects"
                             className="w-auto bg-accent text-white px-3 py-2 sm:px-6 sm:py-3 rounded-full font-jetbrains font-semibold text-sm sm:text-base md:text-lg text-center transition-colors duration-200 hover:bg-accent-hover"
@@ -99,10 +126,14 @@ const Hero = () => {
                         >
                             Download Resume
                         </Button>
-                    </div>
+                    </motion.div>
 
                     {/* Scroll Indicator */}
-                    <div className="mt-10 sm:mt-12 md:mt-14 flex flex-col items-center gap-2 text-secondary">
+                    <motion.div
+                        className="mt-10 sm:mt-12 md:mt-14 flex flex-col items-center gap-2 text-secondary"
+                        variants={fadeUp}
+                        transition={{ duration: 0.5 }}
+                    >
                         <span className="text-xs font-jetbrains uppercase tracking-[0.3em] text-center">
                             Scroll to explore
                         </span>
@@ -119,8 +150,8 @@ const Hero = () => {
                                 d="M19 9l-7 7-7-7"
                             />
                         </svg>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </BackgroundBeamsWithCollision>
         </section>
     );
