@@ -31,10 +31,10 @@ const Qualifications = () => {
 
             <div className="mx-auto mt-14 flex max-w-3xl flex-col gap-10">
                 {/* Tabs */}
-                <div className="relative grid grid-cols-2 rounded-full bg-surface/60 border border-border px-1 py-2 shadow-[inset_0_0_0_1px_rgba(15,23,42,0.04)]">
+                <div className="relative grid grid-cols-2 rounded-lg bg-surface/60 border border-border px-1 py-2 shadow-[inset_0_0_0_1px_rgba(15,23,42,0.04)]">
                     {/* Slider */}
                     <span
-                        className={`absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full border border-border dark:bg-[#4a4f5d] shadow-[0_15px_35px_rgba(15,23,42,0.12)] transition-transform duration-200 ease-out ${
+                        className={`absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-lg border border-border dark:bg-[#4a4f5d] shadow-[0_15px_35px_rgba(15,23,42,0.12)] transition-transform duration-200 ease-out ${
                             activeTab === "experience"
                                 ? "translate-x-full"
                                 : "translate-x-0"
@@ -48,7 +48,7 @@ const Qualifications = () => {
                                 key={name}
                                 type="button"
                                 onClick={() => setActiveTab(name)}
-                                className={`cursor-pointer relative z-10 rounded-full px-4 py-2 font-semibold font-jetbrains transition-colors ${
+                                className={`cursor-pointer relative z-10 rounded-lg px-4 py-2 font-semibold font-jetbrains transition-colors ${
                                     isActive ? "text-primary" : "text-secondary"
                                 }`}
                             >
