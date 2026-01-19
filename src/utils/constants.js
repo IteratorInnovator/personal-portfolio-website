@@ -30,7 +30,6 @@ import Vite from "../assets/Vite.svg";
 import { Github, Linkedin, Instagram } from "lucide-react";
 import { TbBrandLeetcode } from "react-icons/tb";
 
-
 import GoogleITAutomation from "../assets/GoogleITAutomation.png";
 import DockerFoundations from "../assets/DockerFoundations.png";
 import JavascriptMozilla from "../assets/JavascriptMozilla.png";
@@ -99,7 +98,7 @@ export const educationTimeline = [
             "Teaching Assistant - IS113 Web Application Development I",
             "Teaching Assistant - IS115 Algorithms & Programming",
             "Teaching Assistant - COR-IS1704 Computational Thinking",
-            "Coding Mentor - SMU Coder's Assembly"
+            "Coding Mentor - SMU Coder's Assembly",
         ],
     },
     {
@@ -175,7 +174,11 @@ export const certifications = [
         name: "LambdaTest Software Testing Professional Certificate",
         issuer: "LambdaTest",
         issueDate: "Dec 2025",
-        skills: ["Software Testing", "Software Quality Assurance", "Agile Testing"],
+        skills: [
+            "Software Testing",
+            "Software Quality Assurance",
+            "Agile Testing",
+        ],
         thumbnail: SoftwareTesting,
         credentialUrl:
             "https://www.linkedin.com/learning/certificates/ae496edcf9226b094095851e400e76516391fd2fcec1bde335970b6c717a2a0d",
@@ -215,7 +218,7 @@ export const certifications = [
         thumbnail: GoogleITAutomation,
         credentialUrl:
             "https://www.coursera.org/account/accomplishments/specialization/DB7KDGI7VB4U",
-    },    
+    },
 ];
 
 export const skills = [
@@ -262,11 +265,86 @@ export const skills = [
 
 export const projects = [
     {
+        id: "vshater",
+        title: "VSHater",
+        type: "VS Code Extension",
+        summary:
+            "A VS Code extension my team built for NUS Hack&Roll 2026 that encrypts your files and forces you to complete meme poses on webcam to unlock them.",
+        problem:
+            "After building many web apps, my team wanted to explore VSCode extension development with something unconventional. Inspired by past Hack&Roll's unhinged projects, we decided to create an extension that was entertaining over practical, turning file security into an absurd challenge.",
+        solution:
+            "Built a VS Code extension that encrypts files on open and launches a browser-based challenge requiring users to match 3 random meme poses (dab, Khaby Lame, mewing, etc.) within 60 seconds using MediaPipe pose and face detection.",
+        outcome:
+            "Creates a hilariously frustrating developer experience where you must physically perform meme poses to unlock your code, or risk having your file deleted.",
+        highlights: [
+            "VS Code Extension API hooks into onDidOpenTextDocument to intercept and encrypt file content before display.",
+            "MediaPipe Pose and FaceMesh running in-browser for real-time landmark detection across 33 body and 468 face points.",
+            "Custom pose detection logic checking wrist-to-shoulder ratios, elbow angles, finger-to-face proximity, and head tilt thresholds.",
+            "Local HTTP server bridging extension and browser, handling challenge state and decryption callbacks.",
+            "Motion pattern recognition for dynamic poses like waving and head shaking using frame-to-frame landmark deltas.",
+        ],
+        metrics: [
+            { label: "Supports", value: "7 meme emotes" },
+            { label: "Built-in", value: "24 hours" },
+            { label: "Status", value: "Published" },
+        ],
+        stack: [
+            "TypeScript",
+            "VS Code Extension API",
+            "MediaPipe Pose",
+            "MediaPipe FaceMesh",
+            "esbuild",
+        ],
+        categories: ["Hackathon"],
+        repoUrl: "https://github.com/IteratorInnovator/VSHater",
+        liveUrl: "https://marketplace.visualstudio.com/items?itemName=SaaiAravindhRaja.vshater",
+        videoUrl: "https://youtu.be/H48xkjm5dao",
+        devpostUrl: "https://devpost.com/software/vshater",
+        status: "Published",
+    },
+        {
+        id: "sea-link-finance",
+        title: "Sea Link Finance",
+        type: "Blockchain Web App",
+        summary:
+            "A decentralized maritime financing platform my team built for the NUS Fintech Summit 2026 hackathon that connects ship owners and investors through blockchain-based credit evaluation and real-time voyage tracking.",
+        problem:
+            "Shipping finance is trapped in a black box. Lack of transparent performance data makes short-term lending risky for investors and expensive for shipowners, while traditional settlement delays tie up vital working capital.",
+        solution:
+            "Built a platform that transforms shipping voyages into bankable assets using XRPL. Shipowners establish on-chain credit through Transaction Execution Reliability scores, while investors fund short-term loans backed by real-time voyage cash flows with atomic stablecoin settlement.",
+        outcome:
+            "Enables faster funding for ship owners through transparent, data-driven credit evaluation and provides investors with flexible yield opportunities backed by real-time voyage cash flows.",
+        highlights: [
+            "DID-based identity system using XRPL's native decentralized identifiers to persist shipowner credit history on-chain.",
+            "Atomic RLUSD settlement via xrpl.js ensuring instant, stable-value invoice and loan transactions.",
+            "XRPL Hooks for programmable loan logic with custom repayment conditions and fail-safes.",
+            "Real-time voyage tracking dashboard with maps showing ship positions and routes.",
+            "Crossmark SDK integration for browser-based wallet connection and transaction signing.",
+        ],
+        metrics: [
+            { label: "Award", value: "3rd Place" },
+            { label: "Blockchain", value: "XRPL Ledger" },
+            { label: "Settlement", value: "RLUSD" },
+        ],
+        stack: [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "xrpl.js",
+            "Crossmark SDK",
+        ],
+        categories: ["Hackathon", "Web Development"],
+        repoUrl: "https://github.com/junshenlye/Lab-Rats-LXVII",
+        devpostUrl: "https://devpost.com/software/sea-link-finance",
+        videoUrl: null,
+        status: "Prototype",
+    },
+    {
         id: "git-gram",
         title: "Git Gram",
         type: "Telegram Bot",
         summary:
-            "A Go based Telegram bot backend that consumes GitHub App webhooks and delivers real-time repository activity notifications to Telegram chats, with in-chat controls for status and notification settings.",
+            "A Go-based Telegram bot backend that consumes GitHub App webhooks and delivers real-time repository activity notifications to Telegram chats, with in-chat controls for status and notification settings.",
         problem:
             "GitHub notifications get noisy and easy to miss, and setting up workflows or custom webhooks for simple chat-based updates typically requires extra setup or per-repo configuration.",
         solution:
