@@ -76,12 +76,12 @@ const Hero = () => {
                             </span>
                         </h2>
                     </div>
-                    <p className="font-inter text-sm sm:text-base md:text-lg text-secondary text-center max-w-4xl">
-                        Passionate about creating cutting-edge solutions that
-                        bridge the gap between innovative technology and
-                        real-world applications. Specializing in backend
-                        development, automation, and devops.
-                    </p>
+
+                    {/* Divider */}
+                    <div className="mt-4 mb-4 flex items-center justify-center">
+                        <span className="h-1 w-[30rem] bg-gradient-to-r from-transparent via-secondary to-transparent" />
+                    </div>
+
                     <div className="flex flex-row items-center justify-center gap-4">
                         <Link
                             to="/projects"
@@ -98,6 +98,26 @@ const Hero = () => {
                         >
                             Download Resume
                         </Button>
+                    </div>
+
+                    {/* Scroll indicator */}
+                    <div className="mt-4 flex flex-col items-center gap-2 text-secondary">
+                        <span className="text-xs font-jetbrains uppercase tracking-[0.3em]">
+                            Scroll to explore
+                        </span>
+                        <svg
+                            className="h-5 w-5 animate-bounce"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                            />
+                        </svg>
                     </div>
                 </div>
             </BackgroundBeamsWithCollision>
