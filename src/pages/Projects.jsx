@@ -30,15 +30,7 @@ const Projects = () => {
     const [activeCategory, setActiveCategory] = useState("all");
     const [selectedProject, setSelectedProject] = useState(null);
 
-    const categories = useMemo(() => {
-        const unique = new Set();
-        projects.forEach((project) => {
-            (project.categories ?? []).forEach((category) =>
-                unique.add(category),
-            );
-        });
-        return ["all", ...Array.from(unique)];
-    }, []);
+    const categories = ["all", "Personal", "Coursework", "Hackathon", "Web Development"];
 
     const heroStats = useMemo(() => {
         const uniqueCategories = new Set();
