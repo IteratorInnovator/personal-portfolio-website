@@ -3,86 +3,87 @@ import { BackgroundBeamsWithCollision } from "./ui/background-beams-with-collisi
 import { Button } from "./ui/moving-border";
 import { Link } from "react-router-dom";
 import Resume from "../assets/Ng Kok Jing Resume.pdf";
-import { section } from "motion/react-client";
 
 const phrases = [
-    "Software Engineer.",
-    "Backend Enjoyer.",
-    "Problem Solver.",
-    "Coding Mentor.",
+    "Software Engineer",
+    "Problem Solver",
+    "Coding Mentor",
 ];
 
-const Hero = () => {
+const useTypewriter = (phrases) => {
     const [phraseIndex, setPhraseIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
     const [text, setText] = useState("");
+
     useEffect(() => {
         const currentPhrase = phrases[phraseIndex];
-        const visibleText = currentPhrase.slice(0, charIndex);
-        setText(visibleText);
+        setText(currentPhrase.slice(0, charIndex));
 
-        let typingSpeed = 100;
+        let timeout;
 
         if (!isDeleting && charIndex < currentPhrase.length) {
-            typingSpeed = Math.random() * (120 - 60) + 60;
-            const timeout = setTimeout(
-                () => setCharIndex(charIndex + 1),
-                typingSpeed
-            );
-            return () => clearTimeout(timeout);
-        }
-
-        if (!isDeleting && charIndex === currentPhrase.length) {
-            const timeout = setTimeout(() => setIsDeleting(true), 2500);
-            return () => clearTimeout(timeout);
-        }
-
-        if (isDeleting && charIndex > 0) {
-            const timeout = setTimeout(() => setCharIndex(charIndex - 1), 75);
-            return () => clearTimeout(timeout);
-        }
-
-        if (isDeleting && charIndex === 0) {
-            const timeout = setTimeout(() => {
+            const typingSpeed = Math.random() * 60 + 60;
+            timeout = setTimeout(() => setCharIndex((c) => c + 1), typingSpeed);
+        } else if (!isDeleting && charIndex === currentPhrase.length) {
+            timeout = setTimeout(() => setIsDeleting(true), 2500);
+        } else if (isDeleting && charIndex > 0) {
+            timeout = setTimeout(() => setCharIndex((c) => c - 1), 75);
+        } else if (isDeleting && charIndex === 0) {
+            timeout = setTimeout(() => {
                 setIsDeleting(false);
-                setPhraseIndex((phraseIndex + 1) % phrases.length);
+                setPhraseIndex((i) => (i + 1) % phrases.length);
             }, 500);
-            return () => clearTimeout(timeout);
         }
-    }, [charIndex, isDeleting, phraseIndex]);
+
+        return () => clearTimeout(timeout);
+    }, [charIndex, isDeleting, phraseIndex, phrases]);
+
+    return text;
+};
+
+const Hero = () => {
+    const text = useTypewriter(phrases);
+
     return (
         <section
             id="home"
-            className="max-sm:pt-10 px-4 text-primary sm:px-6 md:px-10 lg:px-20"
+            className="relative max-sm:pt-10 px-4 text-primary sm:px-6 md:px-10 lg:px-20"
         >
             <BackgroundBeamsWithCollision>
-                <div className="mx-auto flex max-w-4xl flex-col gap-6">
-                    <div className="space-y-4 text-center">
-                        <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">
-                            Welcome
-                        </p>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-jetbrains font-semibold text-primary">
-                            Hi, I'm <span className="text-accent">Harry!</span>
+                <div className="mx-auto flex max-w-4xl flex-col items-center">
+                    {/* Intro Block */}
+                    <div className="text-center">
+                        <h1 className="text-sm sm:text-base md:text-lg font-jetbrains uppercase tracking-[0.3em] text-secondary">
+                            Welcome, I'm Harry!
                         </h1>
+                    </div>
 
-                        <h2 className="mt-2 w-full text-center text-[20px] font-jetbrains font-medium text-primary leading-tight sm:text-3xl md:text-5xl lg:text-6xl">
-                            I'm a&nbsp;
+                    {/* Role Block */}
+                    <div className="mt-6 sm:mt-8 md:mt-10 text-center">
+                        <p className="text-lg sm:text-xl md:text-2xl font-jetbrains font-medium text-secondary tracking-wide">
+                            I'm a
+                        </p>
+                        <div className="mt-2 sm:mt-3 md:mt-4 flex items-center justify-center gap-3 sm:gap-4 md:gap-5">
+                            <span className="text-accent/60 font-jetbrains font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl select-none flex-shrink-0">
+                                &gt;&gt;
+                            </span>
                             <span
                                 id="typewriter"
-                                className="typewriter inline-block min-w-[16ch] text-left font-jetbrains font-bold text-accent"
+                                className="typewriter inline-block min-w-[14ch] text-left font-jetbrains font-bold text-accent text-2xl sm:text-4xl md:text-5xl lg:text-6xl"
                             >
                                 {text}
                             </span>
-                        </h2>
+                        </div>
                     </div>
 
                     {/* Divider */}
-                    <div className="mt-4 mb-4 flex items-center justify-center">
-                        <span className="h-1 w-[30rem] bg-gradient-to-r from-transparent via-secondary to-transparent" />
+                    <div className="mt-8 mb-8 sm:mt-10 sm:mb-10 md:mt-12 md:mb-12 flex items-center justify-center w-full">
+                        <span className="h-1 w-full max-w-[30rem] bg-gradient-to-r from-transparent via-secondary to-transparent" />
                     </div>
 
-                    <div className="flex flex-row items-center justify-center gap-4">
+                    {/* CTA Block */}
+                    <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 md:gap-5">
                         <Link
                             to="/projects"
                             className="w-auto bg-accent text-white px-3 py-2 sm:px-6 sm:py-3 rounded-full font-jetbrains font-semibold text-sm sm:text-base md:text-lg text-center transition-colors duration-200 hover:bg-accent-hover"
@@ -100,13 +101,13 @@ const Hero = () => {
                         </Button>
                     </div>
 
-                    {/* Scroll indicator */}
-                    <div className="mt-4 flex flex-col items-center gap-2 text-secondary">
-                        <span className="text-xs font-jetbrains uppercase tracking-[0.3em]">
+                    {/* Scroll Indicator */}
+                    <div className="mt-10 sm:mt-12 md:mt-14 flex flex-col items-center gap-2 text-secondary">
+                        <span className="text-xs font-jetbrains uppercase tracking-[0.3em] text-center">
                             Scroll to explore
                         </span>
                         <svg
-                            className="h-5 w-5 animate-bounce"
+                            className="h-5 w-5 animate-bounce mx-auto"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
