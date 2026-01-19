@@ -15,6 +15,7 @@ import {
     Target,
     X,
 } from "lucide-react";
+import { SiDevpost } from "react-icons/si";
 
 const buildPhases = [
     {
@@ -302,7 +303,7 @@ const Projects = () => {
 };
 
 const ProjectCard = ({ project, onSelect }) => {
-    const { title, type, summary, repoUrl, liveUrl, status, stack } = project;
+    const { title, type, summary, repoUrl, liveUrl, devpostUrl, status, stack } = project;
 
     const handleCardKeyPress = (event) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -374,6 +375,18 @@ const ProjectCard = ({ project, onSelect }) => {
                         <Github className="h-4 w-4" />
                     </a>
                 )}
+                {devpostUrl && (
+                    <a
+                        href={devpostUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/70 px-4 py-2 text-sm font-jetbrains text-primary transition hover:border-accent hover:text-accent"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        Devpost
+                        <SiDevpost className="h-4 w-4" />
+                    </a>
+                )}
             </div>
             <div className="mt-auto w-full pt-6">
                 <p className="text-center text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary">
@@ -398,6 +411,7 @@ const ProjectModal = ({ project, onClose }) => {
         metrics,
         repoUrl,
         liveUrl,
+        devpostUrl,
         type,
         status,
         videoUrl,
@@ -541,6 +555,17 @@ const ProjectModal = ({ project, onClose }) => {
                         >
                             Repository
                             <Github className="h-4 w-4" />
+                        </a>
+                    )}
+                    {devpostUrl && (
+                        <a
+                            href={devpostUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm font-jetbrains text-primary transition hover:border-accent hover:text-accent"
+                        >
+                            Devpost
+                            <SiDevpost className="h-4 w-4" />
                         </a>
                     )}
                 </div>

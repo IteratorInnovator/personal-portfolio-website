@@ -448,6 +448,7 @@ export const projects = [
         categories: ["Hackathon"],
         repoUrl: "https://github.com/JarudeC/privacylens",
         liveUrl: "",
+        devpostUrl: "https://devpost.com/software/privacylens",
         videoUrl: null,
         status: "Prototype",
     },
