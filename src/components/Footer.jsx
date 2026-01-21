@@ -1,8 +1,14 @@
+import { motion } from "motion/react";
 import { MapPin, Send } from "lucide-react";
 import { PiHandWavingBold } from "react-icons/pi";
 import { SiReact, SiTailwindcss, SiVercel } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { socialLinks } from "../utils/constants.js";
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+};
 
 const Footer = () => {
     return (
@@ -12,15 +18,21 @@ const Footer = () => {
 
             <div className="relative mx-auto flex max-w-6xl flex-col gap-16 px-6 py-24 md:px-16">
                 <div className="grid gap-10 md:grid-cols-[1.1fr,0.9fr]">
-                    <div>
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        variants={fadeUp}
+                        transition={{ duration: 0.5 }}
+                    >
                         <p className="text-xs font-jetbrains uppercase tracking-[0.5em] text-secondary max-md:text-center">
                             stay in touch
                         </p>
                         <h2 className="mt-4 text-4xl font-jetbrains font-semibold text-primary md:text-5xl max-md:text-center">
-                            Let’s build something bold.
+                            Let's build something bold.
                         </h2>
                         <p className="mt-5 max-w-xl text-sm sm:text-base md:text-lg text-secondary max-md:text-center">
-                            Have an idea, project, or open role? I’m always down
+                            Have an idea, project, or open role? I'm always down
                             to jam on thoughtful products, performant systems,
                             and teams that care about craft.
                         </p>
@@ -41,9 +53,16 @@ const Footer = () => {
                                 <PiHandWavingBold size={18} />
                             </Link>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="rounded-3xl border border-border bg-surface/80 p-6 shadow-[0_30px_60px_rgba(15,23,42,0.15)] backdrop-blur-xl dark:border-border/60 dark:bg-surface/40">
+                    <motion.div
+                        className="rounded-3xl border border-border bg-surface/80 p-6 shadow-[0_30px_60px_rgba(15,23,42,0.15)] backdrop-blur-xl dark:border-border/60 dark:bg-surface/40"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        variants={fadeUp}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                    >
                         <div className="flex flex-col gap-8">
                             <div>
                                 <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary">
@@ -77,10 +96,17 @@ const Footer = () => {
                                 )}
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
-                <div className="flex flex-col gap-2 border-t border-border pt-8 text-sm text-secondary items-center justify-between">
+                <motion.div
+                    className="flex flex-col gap-2 border-t border-border pt-8 text-sm text-secondary items-center justify-between"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.5 }}
+                    variants={fadeUp}
+                    transition={{ duration: 0.5 }}
+                >
                     <p className="flex w-full flex-wrap items-center justify-center gap-2 text-center text-xs sm:text-sm">
                         © {new Date().getFullYear()} Harry. All rights reserved.
                     </p>
@@ -99,7 +125,7 @@ const Footer = () => {
                             Vercel
                         </span>
                     </p>
-                </div>
+                </motion.div>
             </div>
         </footer>
     );

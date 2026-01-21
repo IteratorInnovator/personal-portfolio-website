@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -16,6 +17,11 @@ import {
     X,
 } from "lucide-react";
 import { SiDevpost } from "react-icons/si";
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+};
 
 const getYouTubeEmbedUrl = (url) => {
     if (!url) return null;
@@ -110,7 +116,13 @@ const Projects = () => {
         <div className="bg-background text-primary">
             <Header />
             <main className="pt-24 sm:pt-28">
-                <section className="mx-auto max-w-5xl px-4 text-left sm:px-6">
+                <motion.section
+                    className="mx-auto max-w-5xl px-4 text-left sm:px-6"
+                    initial="hidden"
+                    animate="visible"
+                    variants={fadeUp}
+                    transition={{ duration: 0.5 }}
+                >
                     <p className="text-center lg:text-left text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">
                         Work
                     </p>
@@ -130,7 +142,7 @@ const Projects = () => {
                         <div className="flex flex-wrap gap-4">
                             {heroStats.map(
                                 ({ label, value, icon: Icon }, index) => (
-                                    <div
+                                    <motion.div
                                         key={label}
                                         className={[
                                             "flex flex-col rounded-2xl border border-border bg-surface/80 px-4 py-3 text-left shadow-[0_15px_35px_rgba(15,23,42,0.08)]",
@@ -143,6 +155,9 @@ const Projects = () => {
                                         ]
                                             .filter(Boolean)
                                             .join(" ")}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.4, delay: 0.2 + 0.1 * index }}
                                     >
                                         <Icon className="h-4 w-4 text-accent" />
                                         <span className="mt-2 font-jetbrains text-2xl font-semibold">
@@ -151,14 +166,21 @@ const Projects = () => {
                                         <span className="w-full text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary">
                                             {label}
                                         </span>
-                                    </div>
+                                    </motion.div>
                                 ),
                             )}
                         </div>
                     </div>
-                </section>
+                </motion.section>
 
-                <section className="mx-auto mt-12 max-w-6xl px-4 sm:px-6">
+                <motion.section
+                    className="mx-auto mt-12 max-w-6xl px-4 sm:px-6"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
+                    variants={fadeUp}
+                    transition={{ duration: 0.5 }}
+                >
                     <div className="flex flex-col gap-4 border border-border rounded-3xl bg-surface/60 p-5 shadow-[0_20px_45px_rgba(15,23,42,0.08)]">
                         <div className="flex flex-wrap items-center gap-3">
                             <Sparkles className="h-4 w-4 text-accent" />
@@ -195,20 +217,27 @@ const Projects = () => {
                         {filteredProjects.length === 0 ? (
                             <div className="col-span-full rounded-3xl border border-dashed border-border/80 bg-background/80 p-8 text-center text-secondary">
                                 Nothing tagged under that category yet. Pick
-                                another filter or reach out if you’d like to
+                                another filter or reach out if you'd like to
                                 collaborate on one.
                             </div>
                         ) : (
-                            filteredProjects.map((project) => (
-                                <ProjectCard
+                            filteredProjects.map((project, index) => (
+                                <motion.div
                                     key={project.id}
-                                    project={project}
-                                    onSelect={() => handleCardSelect(project)}
-                                />
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.1 }}
+                                    transition={{ duration: 0.4, delay: 0.05 * index }}
+                                >
+                                    <ProjectCard
+                                        project={project}
+                                        onSelect={() => handleCardSelect(project)}
+                                    />
+                                </motion.div>
                             ))
                         )}
                     </div>
-                </section>
+                </motion.section>
             </main>
             <Footer />
 

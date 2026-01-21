@@ -1,5 +1,6 @@
 import { Github, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import profileImage from "../assets/profile.jpg";
 import { highlights } from "../utils/constants";
 import { GitHubCalendar } from "react-github-calendar";
@@ -11,6 +12,11 @@ import {
     DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { getCalendarFontSize } from "../utils/helpers";
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+};
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
     month: "short",
@@ -82,7 +88,14 @@ const About = () => {
 
     return (
         <section id="about" className="bg-background px-6 py-24 md:px-24">
-            <div className="mx-auto max-w-5xl text-center">
+            <motion.div
+                className="mx-auto max-w-5xl text-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={fadeUp}
+                transition={{ duration: 0.5 }}
+            >
                 <p className="text-sm font-jetbrains uppercase tracking-[0.4em] text-secondary">
                     Story
                 </p>
@@ -93,9 +106,16 @@ const About = () => {
                     A curious developer who likes to understand how things work
                     and build software that people actually use.
                 </p>
-            </div>
+            </motion.div>
             <div className="mx-auto mt-14 flex flex-col xl:flex-row max-w-6xl items-center gap-16">
-                <div className="mx-auto w-full max-w-sm lg:max-w-md">
+                <motion.div
+                    className="mx-auto w-full max-w-sm lg:max-w-md"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={fadeUp}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                >
                     <div className="relative">
                         <div className="absolute inset-0 -z-10 rounded-xl bg-linear-to-tr from-accent/20 via-transparent to-white/30 blur-3xl" />
                         <div className="overflow-hidden rounded-xl border border-slate-200/70 bg-white/60 shadow-[0_20px_45px_rgba(15,23,42,0.18)] dark:border-slate-700/60 dark:bg-white/10">
@@ -113,13 +133,18 @@ const About = () => {
                             </span>
                         </div>
                     </div>
-                </div>
+                </motion.div>
                 <div className="space-y-6">
                     <div className="grid gap-4 sm:grid-cols-2">
-                        {highlights.map((item) => (
-                            <article
+                        {highlights.map((item, index) => (
+                            <motion.article
                                 key={item.title}
                                 className="rounded-2xl border border-slate-200/40 bg-white/30 p-5 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur dark:border-slate-700/40 dark:bg-white/5"
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, amount: 0.3 }}
+                                variants={fadeUp}
+                                transition={{ duration: 0.4, delay: 0.1 * index }}
                             >
                                 <p className="text-xs font-jetbrains uppercase tracking-[0.25em] text-secondary">
                                     {item.title}
@@ -130,12 +155,17 @@ const About = () => {
                                 <p className="mt-2 text-sm text-secondary">
                                     {item.description}
                                 </p>
-                            </article>
+                            </motion.article>
                         ))}
                     </div>
                 </div>
             </div>
-            <article
+            <motion.article
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeUp}
+                transition={{ duration: 0.5 }}
                 className="mt-14 flex w-full flex-col items-center"
                 style={calendarStyle}
             >
@@ -244,7 +274,7 @@ const About = () => {
                         />
                     </div>
                 </div>
-            </article>
+            </motion.article>
         </section>
     );
 };

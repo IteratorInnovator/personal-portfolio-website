@@ -1,4 +1,10 @@
+import { motion } from "motion/react";
 import { skills } from "../utils/constants";
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+};
 
 const Skills = () => {
     return (
@@ -6,7 +12,14 @@ const Skills = () => {
             id="skills"
             className="bg-background px-4 py-20 text-primary sm:px-6 md:px-24 md:py-24"
         >
-            <div className="mx-auto max-w-5xl text-center">
+            <motion.div
+                className="mx-auto max-w-5xl text-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={fadeUp}
+                transition={{ duration: 0.5 }}
+            >
                 <p className="text-xs uppercase tracking-[0.4em] text-secondary font-jetbrains sm:text-sm">
                     Stack
                 </p>
@@ -18,13 +31,18 @@ const Skills = () => {
                     across frontend, backend, infrastructure, and tooling to
                     bring ideas to life.
                 </p>
-            </div>
+            </motion.div>
 
             <div className="mx-auto mt-14 grid max-w-6xl gap-6 lg:grid-cols-2">
-                {skills.map(({ category, subSkills }) => (
-                    <article
+                {skills.map(({ category, subSkills }, index) => (
+                    <motion.article
                         key={category}
                         className="rounded-2xl border border-border/70 bg-surface/60 p-5 shadow-[0_15px_35px_rgba(15,23,42,0.08)] transition-colors dark:bg-surface/30 sm:p-6"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
+                        variants={fadeUp}
+                        transition={{ duration: 0.4, delay: 0.1 * index }}
                     >
                         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                             <h3 className="text-xl font-jetbrains font-semibold text-primary sm:text-2xl">
@@ -53,7 +71,7 @@ const Skills = () => {
                                 </div>
                             ))}
                         </div>
-                    </article>
+                    </motion.article>
                 ))}
             </div>
         </section>

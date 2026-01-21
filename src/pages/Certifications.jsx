@@ -1,7 +1,13 @@
+import { motion } from "motion/react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { certifications } from "../utils/constants";
 import EmblaCarousel from "../components/ui/embla-carousel";
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+};
 
 const Certifications = () => {
     const OPTIONS = { loop: true };
@@ -10,7 +16,13 @@ const Certifications = () => {
         <div>
             <Header />
             <section className="mx-auto max-w-5xl px-4 sm:px-6 pt-24 sm:pt-28 text-primary ">
-                <div className="flex flex-col gap-4 text-left md:flex-row md:items-end md:justify-between">
+                <motion.div
+                    className="flex flex-col gap-4 text-left md:flex-row md:items-end md:justify-between"
+                    initial="hidden"
+                    animate="visible"
+                    variants={fadeUp}
+                    transition={{ duration: 0.5 }}
+                >
                     <div className="max-md:text-center">
                         <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">
                             Proof
@@ -25,11 +37,17 @@ const Certifications = () => {
                     <span className="text-center text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary md:text-sm">
                         {certifications.length} credentials
                     </span>
-                </div>
+                </motion.div>
 
-                <div className="mt-12 sm:mt-16">
+                <motion.div
+                    className="mt-12 sm:mt-16"
+                    initial="hidden"
+                    animate="visible"
+                    variants={fadeUp}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                >
                     <EmblaCarousel slides={certifications} OPTIONS={OPTIONS} />
-                </div>
+                </motion.div>
             </section>
             <Footer />
         </div>

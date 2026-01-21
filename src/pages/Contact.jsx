@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
+import { motion } from "motion/react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { TbBrandTelegram, TbBrandWhatsapp } from "react-icons/tb";
 import { SiReact, SiTailwindcss, SiVercel } from "react-icons/si";
 import Header from "../components/Header";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { getInitialTheme } from "../utils/helpers";
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+};
 
 const initialFormState = {
     name: "",
@@ -123,22 +129,34 @@ const Contact = () => {
         <div>
             <Header />
             <section className="bg-background px-4 text-primary sm:px-6 pt-24 sm:pt-28">
-                <div className="text-center">
+                <motion.div
+                    className="text-center"
+                    initial="hidden"
+                    animate="visible"
+                    variants={fadeUp}
+                    transition={{ duration: 0.5 }}
+                >
                     <p className="text-xs font-jetbrains uppercase tracking-[0.4em] text-secondary sm:text-sm">
                         Contact
                     </p>
                     <h1 className="mt-3 text-3xl font-jetbrains font-semibold sm:text-4xl md:text-5xl">
-                        Let’s work together
+                        Let's work together
                     </h1>
                     <p className="mt-4 font-inter text-sm text-secondary sm:text-base md:text-lg">
                         Have a question, collaboration idea, or an opportunity
-                        that aligns with my work? Send a message and I’ll get
+                        that aligns with my work? Send a message and I'll get
                         back to you.
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="mx-auto mt-16 grid max-w-5xl gap-8 lg:grid-cols-[1fr_1.2fr]">
-                    <div className="space-y-6 rounded-2xl border border-border bg-surface/60 p-6 shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30 sm:rounded-3xl sm:p-8">
+                    <motion.div
+                        className="space-y-6 rounded-2xl border border-border bg-surface/60 p-6 shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30 sm:rounded-3xl sm:p-8"
+                        initial="hidden"
+                        animate="visible"
+                        variants={fadeUp}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                    >
                         <ContactInfo
                             icon={<Mail className="h-5 w-5" />}
                             label="Email"
@@ -168,11 +186,15 @@ const Contact = () => {
                             label="Based in"
                             value="Singapore"
                         />
-                    </div>
+                    </motion.div>
 
-                    <form
+                    <motion.form
                         onSubmit={handleSubmit}
                         className="space-y-6 rounded-2xl border border-border bg-surface/60 p-6 shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:bg-surface/30 sm:rounded-3xl sm:p-8"
+                        initial="hidden"
+                        animate="visible"
+                        variants={fadeUp}
+                        transition={{ duration: 0.5, delay: 0.2 }}
                     >
                         <div className="grid gap-6 md:grid-cols-2">
                             <InputField
@@ -263,7 +285,7 @@ const Contact = () => {
                         >
                             {isSubmitting ? "Sending..." : "Send Message"}
                         </button>
-                    </form>
+                    </motion.form>
                 </div>
             </section>
             <footer className="relative overflow-hidden text-primary">
