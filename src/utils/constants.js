@@ -265,44 +265,6 @@ export const skills = [
 
 export const projects = [
     {
-        id: "vshater",
-        title: "VSHater",
-        type: "VS Code Extension",
-        summary:
-            "A VS Code extension my team built for NUS Hack&Roll 2026 that encrypts your files and forces you to complete meme poses on webcam to unlock them.",
-        problem:
-            "After building many web apps, my team wanted to explore VSCode extension development with something unconventional. Inspired by past Hack&Roll's unhinged projects, we decided to create an extension that was entertaining over practical, turning file security into an absurd challenge.",
-        solution:
-            "Built a VS Code extension that encrypts files on open and launches a browser-based challenge requiring users to match 3 random meme poses (dab, Khaby Lame, mewing, etc.) within 60 seconds using MediaPipe pose and face detection.",
-        outcome:
-            "Creates a hilariously frustrating developer experience where you must physically perform meme poses to unlock your code, or risk having your file deleted.",
-        highlights: [
-            "VS Code Extension API hooks into onDidOpenTextDocument to intercept and encrypt file content before display.",
-            "MediaPipe Pose and FaceMesh running in-browser for real-time landmark detection across 33 body and 468 face points.",
-            "Custom pose detection logic checking wrist-to-shoulder ratios, elbow angles, finger-to-face proximity, and head tilt thresholds.",
-            "Local HTTP server bridging extension and browser, handling challenge state and decryption callbacks.",
-            "Motion pattern recognition for dynamic poses like waving and head shaking using frame-to-frame landmark deltas.",
-        ],
-        metrics: [
-            { label: "Supports", value: "7 meme emotes" },
-            { label: "Built-in", value: "24 hours" },
-            { label: "Status", value: "Published" },
-        ],
-        stack: [
-            "TypeScript",
-            "VS Code Extension API",
-            "MediaPipe Pose",
-            "MediaPipe FaceMesh",
-            "esbuild",
-        ],
-        categories: ["Hackathon"],
-        repoUrl: "https://github.com/IteratorInnovator/VSHater",
-        liveUrl: "https://marketplace.visualstudio.com/items?itemName=SaaiAravindhRaja.vshater",
-        videoUrl: "https://youtu.be/H48xkjm5dao",
-        devpostUrl: "https://devpost.com/software/vshater",
-        status: "Published",
-    },
-        {
         id: "sea-link-finance",
         title: "Sea Link Finance",
         type: "Blockchain Web App",
