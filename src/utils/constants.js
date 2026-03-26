@@ -121,23 +121,23 @@ export const experienceTimeline = [
     {
         title: "Software Engineer Intern",
         place: "AI Shophouse",
-        period: "Dec 2025 - Present",
+        period: "Dec 2025 - Mar 2026",
         location: "Singapore",
-        status: "ongoing",
+        status: "completed",
         description: "Developing and optimizing AI tutor chatbots.",
-        responsibilities: [],
-        technologies: ["Python", "Hugging Face", "Gradio"],
-        images: [
-            {
-                src: InfosysCelebration1,
-                alt: "Infosys Instep 25 Years Celebration",
-                caption: "Infosys Instep 25 Years Celebration",
-            },
-            {
-                src: InfosysCelebration2,
-                alt: "Infosys Instep 25 Years Celebration",
-                caption: "Infosys Instep 25 Years Celebration",
-            },
+        responsibilities: [
+            "Built a LangChain-powered AI tutor chatbot implementing a full RAG pipeline by ingesting PDFs, chunking documents, generating embeddings via text-embedding-ada-002, and storing vectors in pgvector on GCP PostgreSQL, with top-k similarity search, re-ranking, and prompt templating to deliver contextually accurate responses.",
+            "Integrated G-EVAL-based validation to systematically assess and refine chatbot outputs, increasing response accuracy and quality.",
+            "Designed and implemented a Gradio-based web interface for the AI tutor chatbot.",  
+        ],
+        technologies: [
+            "Python",
+            "Gradio",
+            "PostgreSQL",
+            "pgvector",
+            "GCP",
+            "RAG",
+            "Hugging Face",
         ],
     },
     {
@@ -151,9 +151,10 @@ export const experienceTimeline = [
         responsibilities: [
             "Implemented a Docker-based ROS build environment on RHEL 9, standardizing development workflows and reducing setup inconsistencies",
             "Configured custom Docker networks using Docker Compose to facilitate ROS node-to-node communication.",
+            "Built a GitHub Actions CI/CD pipeline automating Docker image builds, pushing versioned images to AWS ECR, and deploying containerized ROS nodes to AWS ECS.",
             "Created comprehensive software architecture and process documentation of the ROS build environment using PlantUML and MS Word, reducing developer onboarding time and improving knowledge transfer across teams.",
         ],
-        technologies: ["Python", "ROS", "Docker", "RHEL"],
+        technologies: ["Python", "ROS", "Docker", "AWS", "RHEL"],
         images: [
             {
                 src: InfosysCelebration1,
