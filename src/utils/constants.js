@@ -120,9 +120,9 @@ export const educationTimeline = [
 export const experienceTimeline = [
     {
         title: "Incoming Backend Developer Intern",
-        place: "AI Shophouse",
+        place: "Eastern International University",
         period: "May 2026 - Jul 2026",
-        location: "Singapore",
+        location: "Binh Duong, Vietnam",
         status: "ongoing",
         description: "",
         technologies: [],
