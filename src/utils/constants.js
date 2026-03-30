@@ -119,6 +119,15 @@ export const educationTimeline = [
 
 export const experienceTimeline = [
     {
+        title: "Incoming Backend Developer Intern",
+        place: "AI Shophouse",
+        period: "May 2026 - Jul 2026",
+        location: "Singapore",
+        status: "ongoing",
+        description: "",
+        technologies: [],
+    },
+    {
         title: "Software Engineer Intern",
         place: "AI Shophouse",
         period: "Dec 2025 - Mar 2026",
