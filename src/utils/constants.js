@@ -283,7 +283,7 @@ export const projects = [
     {
         id: "foodit",
         title: "FoodIT",
-        type: "Fullstack Mobile Platform",
+        type: "Mobile App",
         summary:
             "A peer-to-peer food delivery platform my team built for IS213 Enterprise Solution Development, that connects students who want food with those already heading to campus eateries.",
         problem:
