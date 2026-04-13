@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { BackgroundBeamsWithCollision } from "./ui/background-beams-with-collision";
 import { Button } from "./ui/moving-border";
 import { Link } from "react-router-dom";
-import Resume from "../assets/Ng Kok Jing Resume.pdf";
+import Resume from "../assets/documents/Ng Kok Jing Resume.pdf";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 20 },

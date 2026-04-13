@@ -1,7 +1,7 @@
 import { Github, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import profileImage from "../assets/profile.jpg";
+import profileImage from "../assets/images/profile.jpg";
 import { highlights } from "../utils/constants";
 import { GitHubCalendar } from "react-github-calendar";
 import { getInitialTheme } from "../utils/helpers";
