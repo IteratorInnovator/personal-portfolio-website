@@ -285,7 +285,7 @@ export const projects = [
         title: "FoodIT",
         type: "Fullstack Mobile Platform",
         summary:
-            "A peer-to-peer food delivery platform that connects students who want food with those already heading to campus eateries.",
+            "A peer-to-peer food delivery platform my team built for IS213 Enterprise Solution Development, that connects students who want food with those already heading to campus eateries.",
         problem:
             "Students face long queues during peak hours and limited time between classes, yet most campus food stores don't deliver and traditional platforms aren't built for short-distance campus runs.",
         solution:
