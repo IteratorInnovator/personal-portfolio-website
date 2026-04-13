@@ -7,37 +7,41 @@ import {
     Mail,
 } from "lucide-react";
 
-import CSS3 from "../assets/CSS3.svg";
-import Docker from "../assets/Docker.svg";
-import Express from "../assets/Express.svg";
-import Firebase from "../assets/Firebase.svg";
-import Git from "../assets/Git.svg";
-import GitLab from "../assets/GitLab.svg";
-import Golang from "../assets/Golang.svg";
-import GoogleCloud from "../assets/GoogleCloud.svg";
-import HTML5 from "../assets/HTML5.svg";
-import JavaScript from "../assets/JavaScript.svg";
-import MongoDB from "../assets/MongoDB.svg";
-import MySQL from "../assets/MySQL.svg";
-import NodeJS from "../assets/Node.js.svg";
-import Python from "../assets/Python.svg";
-import ReactIcon from "../assets/React.svg";
-import TailwindCSS from "../assets/TailwindCSS.svg";
-import Ubuntu from "../assets/Ubuntu.svg";
-import Vercel from "../assets/Vercel.svg";
-import Vite from "../assets/Vite.svg";
+import AWS from "../assets/icons/AWS.svg";
+import CSS3 from "../assets/icons/CSS3.svg";
+import Docker from "../assets/icons/Docker.svg";
+import Express from "../assets/icons/Express.svg";
+import Firebase from "../assets/icons/Firebase.svg";
+import Git from "../assets/icons/Git.svg";
+import GitLab from "../assets/icons/GitLab.svg";
+import Golang from "../assets/icons/Golang.svg";
+import GoogleCloud from "../assets/icons/GoogleCloud.svg";
+import HTML5 from "../assets/icons/HTML5.svg";
+import JavaScript from "../assets/icons/JavaScript.svg";
+import MongoDB from "../assets/icons/MongoDB.svg";
+import MySQL from "../assets/icons/MySQL.svg";
+import NodeJS from "../assets/icons/Node.js.svg";
+import Python from "../assets/icons/Python.svg";
+import ReactIcon from "../assets/icons/React.svg";
+import TailwindCSS from "../assets/icons/TailwindCSS.svg";
+import Ubuntu from "../assets/icons/Ubuntu.svg";
+import Vercel from "../assets/icons/Vercel.svg";
+import Vite from "../assets/icons/Vite.svg";
+import Jira from "../assets/icons/Jira.svg";
+import Confluence from "../assets/icons/Confluence.svg";
+import Bitbucket from "../assets/icons/BitBucket.svg";
 
 import { Github, Linkedin, Instagram } from "lucide-react";
 import { TbBrandLeetcode } from "react-icons/tb";
 
-import GoogleITAutomation from "../assets/GoogleITAutomation.png";
-import DockerFoundations from "../assets/DockerFoundations.png";
-import JavascriptMozilla from "../assets/JavascriptMozilla.png";
-import TestAutomation from "../assets/TestAutomation.png";
-import SoftwareTesting from "../assets/SoftwareTesting.png";
+import GoogleITAutomation from "../assets/certifications/GoogleITAutomation.png";
+import DockerFoundations from "../assets/certifications/DockerFoundations.png";
+import JavascriptMozilla from "../assets/certifications/JavascriptMozilla.png";
+import TestAutomation from "../assets/certifications/TestAutomation.png";
+import SoftwareTesting from "../assets/certifications/SoftwareTesting.png";
 
-import InfosysCelebration1 from "../assets/InfosysInstep25Celebration.jpg";
-import InfosysCelebration2 from "../assets/InfosysInstep25Celebration(2).jpg";
+import InfosysCelebration1 from "../assets/images/InfosysInstep25Celebration.jpg";
+import InfosysCelebration2 from "../assets/images/InfosysInstep25Celebration(2).jpg";
 
 import { getAge } from "../utils/helpers";
 
