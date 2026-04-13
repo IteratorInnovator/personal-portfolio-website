@@ -95,8 +95,8 @@ export const educationTimeline = [
         description:
             "Comprehensive study in Fullstack Development, Distributed Systems, and Digital Design with hands-on project experience.",
         highlights: [
+            "Developer Director - SMU Fintech Club",
             "Programmes Lead - SMU Artificial Intelligence Club",
-            "Developer Subcommittee - SMU Fintech Club",
             "Teaching Assistant - IS442 Object-Oriented Programming",
             "Teaching Assistant - IS113 Web Application Development I",
             "Teaching Assistant - IS115 Algorithms & Programming",
