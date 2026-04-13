@@ -24,7 +24,6 @@ import NodeJS from "../assets/icons/Node.js.svg";
 import Python from "../assets/icons/Python.svg";
 import ReactIcon from "../assets/icons/React.svg";
 import TailwindCSS from "../assets/icons/TailwindCSS.svg";
-import Ubuntu from "../assets/icons/Ubuntu.svg";
 import Vercel from "../assets/icons/Vercel.svg";
 import Vite from "../assets/icons/Vite.svg";
 import Jira from "../assets/icons/Jira.svg";
@@ -276,7 +275,6 @@ export const skills = [
             { name: "Jira", icon: Jira },
             { name: "Confluence", icon: Confluence },
             { name: "Bitbucket", icon: Bitbucket },
-            { name: "Ubuntu", icon: Ubuntu },
         ],
     },
 ];
