@@ -373,6 +373,7 @@ const ProjectModal = ({ project, onClose }) => {
         type,
         status,
         videoUrl,
+        architectureDiagram,
     } = project;
     const embedUrl = getYouTubeEmbedUrl(videoUrl);
 
@@ -453,6 +454,21 @@ const ProjectModal = ({ project, onClose }) => {
                                 loading="lazy"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
+                            />
+                        </div>
+                    </div>
+                )}
+                {architectureDiagram && (
+                    <div className="mt-6">
+                        <p className="text-xs font-jetbrains uppercase tracking-[0.3em] text-secondary">
+                            Architecture Diagram
+                        </p>
+                        <div className="mt-3 w-full overflow-hidden rounded-3xl border border-border/70 bg-surface/70 shadow-lg">
+                            <img
+                                src={architectureDiagram}
+                                alt={`${title} architecture diagram`}
+                                className="w-full h-auto"
+                                loading="lazy"
                             />
                         </div>
                     </div>

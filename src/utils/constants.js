@@ -42,6 +42,8 @@ import SoftwareTesting from "../assets/certifications/SoftwareTesting.png";
 import InfosysCelebration1 from "../assets/images/InfosysInstep25Celebration.jpg";
 import InfosysCelebration2 from "../assets/images/InfosysInstep25Celebration(2).jpg";
 
+import FooditArchitectureDiagram from "../assets/images/foodit-architecture-diagram.jpg";
+
 import { getAge } from "../utils/helpers";
 
 export const navigationItems = [
@@ -332,7 +334,7 @@ export const projects = [
             "Google Maps API",
         ],
         categories: ["Coursework"],
-        architectureDiagram: null,
+        architectureDiagram: FooditArchitectureDiagram,
         repoUrl: "https://github.com/IteratorInnovator/foodit",
         liveUrl: null,
         videoUrl: "https://youtu.be/Y5-Mfs0yGRY",
