@@ -18,6 +18,7 @@ import Golang from "../assets/icons/Golang.svg";
 import GoogleCloud from "../assets/icons/GoogleCloud.svg";
 import HTML5 from "../assets/icons/HTML5.svg";
 import JavaScript from "../assets/icons/JavaScript.svg";
+import Kubernetes from "../assets/icons/Kubernetes.svg";
 import MongoDB from "../assets/icons/MongoDB.svg";
 import MySQL from "../assets/icons/MySQL.svg";
 import NodeJS from "../assets/icons/Node.js.svg";
@@ -124,13 +125,29 @@ export const educationTimeline = [
 
 export const experienceTimeline = [
     {
-        title: "Incoming Backend Developer Intern",
+        title: "Software Engineer Intern",
         place: "Eastern International University",
         period: "May 2026 - Jul 2026",
         location: "Binh Duong, Vietnam",
         status: "ongoing",
-        description: "",
-        technologies: [],
+        description: "Eco-Industrial Park (EIP) Platform under Innovation and Industry 4.0 Center (IIC).",
+        responsibilities: [
+            "Improved codebase maintainability by consolidating 5+ fragmented email services into a single unified service using Thymeleaf templates, decoupling HTML from business logic and eliminating code duplication.",
+            "Enhanced API responsiveness by migrating report generation from synchronous to asynchronous processing using Redis Streams, offloading long-running PDF and Excel tasks to background workers.",
+            "Reduced database load by resolving N+1 query problems in JPA repositories through fetch joins and entity graph strategies, eliminating redundant round trips.",
+            "Enabled horizontal scaling by migrating infrastructure from Docker Compose to k3s Kubernetes cluster on Ubuntu VPS, implementing pod autoscaling and load balancing.",
+            "Strengthened deployment security by restructuring CI/CD to build versioned Docker images, push to container registry, run SAST dependency scans, and gate deployments on unit test success."
+        ],
+        technologies: [
+            "Java",
+            "Spring Boot",
+            "MSSQL",
+            "Redis",
+            "Docker",
+            "Kubernetes",
+            "CI/CD",
+            "Ubuntu",
+        ],
     },
     {
         title: "Software Engineer Intern",
@@ -271,9 +288,10 @@ export const skills = [
     {
         category: "DevOps & Tools",
         subSkills: [
-            { name: "Docker", icon: Docker },
             { name: "Git", icon: Git },
             { name: "GitLab", icon: GitLab },
+            { name: "Docker", icon: Docker },
+            { name: "Kubernetes", icon: Kubernetes },
             { name: "Jira", icon: Jira },
             { name: "Confluence", icon: Confluence },
             { name: "Bitbucket", icon: Bitbucket },
