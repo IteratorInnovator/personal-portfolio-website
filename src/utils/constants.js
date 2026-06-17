@@ -7,6 +7,7 @@ import {
     Mail,
 } from "lucide-react";
 
+import ArgoCD from "../assets/icons/ArgoCD.svg";
 import AWS from "../assets/icons/AWS.svg";
 import CSS3 from "../assets/icons/CSS3.svg";
 import Docker from "../assets/icons/Docker.svg";
@@ -16,15 +17,18 @@ import Git from "../assets/icons/Git.svg";
 import GitLab from "../assets/icons/GitLab.svg";
 import Golang from "../assets/icons/Golang.svg";
 import GoogleCloud from "../assets/icons/GoogleCloud.svg";
+import Grafana from "../assets/icons/Grafana.svg";
 import HTML5 from "../assets/icons/HTML5.svg";
 import JavaScript from "../assets/icons/JavaScript.svg";
 import Kubernetes from "../assets/icons/Kubernetes.svg";
 import MongoDB from "../assets/icons/MongoDB.svg";
 import MySQL from "../assets/icons/MySQL.svg";
 import NodeJS from "../assets/icons/Node.js.svg";
+import Prometheus from "../assets/icons/Prometheus.svg";
 import Python from "../assets/icons/Python.svg";
 import ReactIcon from "../assets/icons/React.svg";
 import TailwindCSS from "../assets/icons/TailwindCSS.svg";
+import Terraform from "../assets/icons/Terraform.svg";
 import Vercel from "../assets/icons/Vercel.svg";
 import Vite from "../assets/icons/Vite.svg";
 import Jira from "../assets/icons/Jira.svg";
@@ -132,21 +136,26 @@ export const experienceTimeline = [
         status: "ongoing",
         description: "Eco-Industrial Park (EIP) Platform under Innovation and Industry 4.0 Center (IIC).",
         responsibilities: [
-            "Improved codebase maintainability by consolidating 5+ fragmented email services into a single unified service using Thymeleaf templates, decoupling HTML from business logic and eliminating code duplication.",
-            "Enhanced API responsiveness by migrating report generation from synchronous to asynchronous processing using Redis Streams, offloading long-running PDF and Excel tasks to background workers.",
-            "Reduced database load by resolving N+1 query problems in JPA repositories through fetch joins and entity graph strategies, eliminating redundant round trips.",
-            "Enabled horizontal scaling by migrating infrastructure from Docker Compose to k3s Kubernetes cluster on Ubuntu VPS, implementing pod autoscaling and load balancing.",
-            "Strengthened deployment security by restructuring CI/CD to build versioned Docker images, push to container registry, run SAST dependency scans, and gate deployments on unit test success."
+            "Enabled horizontal scaling of production services by migrating infrastructure from Docker Compose to a k3s Kubernetes cluster on Ubuntu VPS, implementing pod autoscaling and load balancing for distributed workloads.",
+            "Automated container registry provisioning by implementing Terraform configurations to create and manage AWS ECR repositories with custom lifecycle policies for automated image cleanup and retention.",
+            "Achieved automated continuous deployment from Git commits by integrating a GitOps pipeline with ArgoCD Core, synchronizing Kubernetes manifests and eliminating manual deployment steps.",
+            "Strengthened deployment reliability and security by restructuring CI/CD pipelines to build versioned Docker images, push to AWS ECR, execute dependency vulnerability scanning, and gate all deployments on unit test success.",
+            "Established comprehensive observability for production infrastructure by deploying a GitOps-managed Prometheus and Grafana monitoring stack on k3s cluster using Helm charts and ArgoCD for declarative configuration management.",
+            "Reduced mean time to detection for infrastructure incidents by configuring Prometheus Alertmanager to deliver real-time email and Telegram channel notifications for critical events including pod failures, high resource utilization, and service downtime.",
+            "Improving codebase maintainability by consolidating 5+ fragmented email services into a single unified service with Thymeleaf templates, decoupling HTML presentation from business logic and eliminating code duplication across microservices.",
+            "Enhancing API responsiveness by migrating report generation from synchronous to asynchronous processing using Redis Streams, offloading long-running PDF and Excel generation tasks to background workers and preventing request timeouts."
         ],
         technologies: [
             "Java",
             "Spring Boot",
-            "MSSQL",
             "Redis",
             "Docker",
             "Kubernetes",
             "CI/CD",
-            "Ubuntu",
+            "Terraform",
+            "ArgoCD",
+            "Prometheus",
+            "Grafana"
         ],
     },
     {
@@ -292,9 +301,10 @@ export const skills = [
             { name: "GitLab", icon: GitLab },
             { name: "Docker", icon: Docker },
             { name: "Kubernetes", icon: Kubernetes },
-            { name: "Jira", icon: Jira },
-            { name: "Confluence", icon: Confluence },
-            { name: "Bitbucket", icon: Bitbucket },
+            { name: "Terraform", icon: Terraform },
+            { name: "ArgoCD", icon: ArgoCD },
+            { name: "Prometheus", icon: Prometheus },
+            { name: "Grafana", icon: Grafana },
         ],
     },
 ];
