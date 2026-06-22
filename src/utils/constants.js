@@ -136,14 +136,14 @@ export const experienceTimeline = [
         status: "ongoing",
         description: "Eco-Industrial Park (EIP) Platform under Innovation and Industry 4.0 Center (IIC).",
         responsibilities: [
-            "Enabled horizontal scaling of production services by migrating infrastructure from Docker Compose to a k3s Kubernetes cluster on Ubuntu VPS, implementing pod autoscaling and load balancing for distributed workloads.",
-            "Automated container registry provisioning by implementing Terraform configurations to create and manage AWS ECR repositories with custom lifecycle policies for automated image cleanup and retention.",
-            "Achieved automated continuous deployment from Git commits by integrating a GitOps pipeline with ArgoCD Core, synchronizing Kubernetes manifests and eliminating manual deployment steps.",
-            "Strengthened deployment reliability and security by restructuring CI/CD pipelines to build versioned Docker images, push to AWS ECR, execute dependency vulnerability scanning, and gate all deployments on unit test success.",
-            "Established comprehensive observability for production infrastructure by deploying a GitOps-managed Prometheus and Grafana monitoring stack on k3s cluster using Helm charts and ArgoCD for declarative configuration management.",
-            "Reduced mean time to detection for infrastructure incidents by configuring Prometheus Alertmanager to deliver real-time email and Telegram channel notifications for critical events including pod failures, high resource utilization, and service downtime.",
-            "Improving codebase maintainability by consolidating 5+ fragmented email services into a single unified service with Thymeleaf templates, decoupling HTML presentation from business logic and eliminating code duplication across microservices.",
-            "Enhancing API responsiveness by migrating report generation from synchronous to asynchronous processing using Redis Streams, offloading long-running PDF and Excel generation tasks to background workers and preventing request timeouts."
+            "Enabled horizontal scaling by migrating infrastructure from Docker Compose to k3s cluster on Ubuntu VPS with pod autoscaling and load balancing.",
+            "Automated AWS ECR provisioning using Terraform with custom lifecycle policies for image cleanup and retention.",
+            "Integrated GitOps pipeline with ArgoCD Core, enabling automated Kubernetes deployments from Git commits.",
+            "Restructured CI/CD pipelines to build Docker images, push to AWS ECR, run dependency scanning, and gate deployments on unit test success.",
+            "Deployed GitOps-managed Prometheus and Grafana monitoring stack on k3s using Helm and ArgoCD.",
+            "Configured Prometheus Alertmanager to deliver email and Telegram alerts for critical infrastructure events.",
+            "Consolidated 5+ fragmented email services into a single service with Thymeleaf templates, decoupling HTML from business logic.",
+            "Migrated report generation from synchronous to async processing using Redis Streams, offloading PDF/Excel tasks to background workers."
         ],
         technologies: [
             "Java",
