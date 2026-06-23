@@ -7,6 +7,8 @@ import {
     Mail,
 } from "lucide-react";
 
+import ApacheCassandra from "../assets/icons/ApacheCassandra.svg";
+import ApacheKafka from "../assets/icons/ApacheKafka.svg";
 import ArgoCD from "../assets/icons/ArgoCD.svg";
 import AWS from "../assets/icons/AWS.svg";
 import CSS3 from "../assets/icons/CSS3.svg";
@@ -26,7 +28,9 @@ import MySQL from "../assets/icons/MySQL.svg";
 import NodeJS from "../assets/icons/Node.js.svg";
 import Prometheus from "../assets/icons/Prometheus.svg";
 import Python from "../assets/icons/Python.svg";
+import RabbitMQ from "../assets/icons/RabbitMQ.svg";
 import ReactIcon from "../assets/icons/React.svg";
+import Redis from "../assets/icons/Redis.svg";
 import TailwindCSS from "../assets/icons/TailwindCSS.svg";
 import Terraform from "../assets/icons/Terraform.svg";
 import Vercel from "../assets/icons/Vercel.svg";
@@ -281,6 +285,8 @@ export const skills = [
             { name: "Golang", icon: Golang },
             { name: "Node.js", icon: NodeJS },
             { name: "Express", icon: Express },
+            { name: "RabbitMQ", icon: RabbitMQ },
+            { name: "Apache Kafka", icon: ApacheKafka },
         ],
     },
     {
@@ -288,6 +294,8 @@ export const skills = [
         subSkills: [
             { name: "MySQL", icon: MySQL },
             { name: "MongoDB", icon: MongoDB },
+            { name: "Redis", icon: Redis },
+            { name: "Apache Cassandra", icon: ApacheCassandra },
             { name: "Firebase", icon: Firebase },
             { name: "Vercel", icon: Vercel },
             { name: "AWS", icon: AWS },
