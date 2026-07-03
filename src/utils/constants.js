@@ -132,6 +132,14 @@ export const educationTimeline = [
 ];
 
 export const experienceTimeline = [
+       {
+        title: "Software Engineer Intern",
+        place: "Central Provident Fund Board (CPFB)",
+        period: "Jul 2026 - Present",
+        location: "Singapore",
+        status: "incoming",
+        description: "Service Centre Department (SCD)",
+    },
     {
         title: "Software Engineer Intern",
         place: "Eastern International University",
